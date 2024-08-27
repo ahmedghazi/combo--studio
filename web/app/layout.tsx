@@ -1,0 +1,49 @@
+import "./styles/tailwind.css";
+import "./styles/index.scss";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import website from "./config/website";
+import { getSettings } from "./utils/sanity-queries";
+import { PageContextProvider } from "./context/PageContext";
+import PageTransition from "./components/ui/PageTransition";
+// import Splash from "./components/Splash";
+import { usePathname } from "next/navigation";
+import { LocaleContextProvider } from "./context/LocaleContext";
+
+export const metadata = {
+  metadataBase: new URL(website.url),
+  title: {
+    template: `%s — ${website.title}`,
+  },
+  description: website.description,
+};
+
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const settings = await getSettings();
+
+  return (
+    <html lang='en'>
+      <body className={""}>
+        {/* <PageTransition> */}
+        <div id='page'>
+          <LocaleContextProvider>
+            <PageContextProvider>
+              <Header settings={settings} />
+              <main>
+                {children}
+                <div className='ghost-h-spacer--footer'></div>
+              </main>
+              <Footer settings={settings} />
+              {/* <Splash /> */}
+            </PageContextProvider>
+          </LocaleContextProvider>
+        </div>
+        {/* </PageTransition> */}
+      </body>
+    </html>
+  );
+}

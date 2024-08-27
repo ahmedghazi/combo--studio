@@ -1,0 +1,15 @@
+.btn--pill {
+  border: var(--border);
+  padding: 0 1em;
+  border-radius: 2em;
+  text-align: center;
+  height: var(--space-50);
+  line-height: calc(var(--space-50) * 0.9);
+  text-transform: uppercase;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: var(--text-lg);
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}
