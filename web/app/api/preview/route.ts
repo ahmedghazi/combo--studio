@@ -13,6 +13,9 @@ export async function GET(request: Request) {
     case "project":
       target = `/project/${slug}`;
       break;
+    case "landing":
+      target = `/`;
+      break;
     case "home":
       target = `/`;
       break;
