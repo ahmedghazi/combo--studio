@@ -7,4 +7,9 @@ footer {
     max-width: 100%;
     margin: auto;
   }
+
+  @media all and (max-width: $md) {
+    padding: var(--space-50) var(--space-md);
+    text-align: center;
+  }
 }

@@ -1,9 +1,15 @@
+@import "../../styles/variables";
 .modules {
   section {
     width: 100%;
     // margin-bottom: var(--space-xl);
-    &:last-child {
-      margin-bottom: 0;
+    // &:last-child {
+    //   margin-bottom: 0;
+    // }
+    &.module--hero-ui {
+      img {
+        object-fit: cover;
+      }
     }
     &.module--text-ui {
       .inner {
@@ -12,11 +18,17 @@
         // background-image: url(var(--backgroundImage));
         color: var(--color, #fff);
         // background-attachment: fixed;
+        @media all and (max-width: $md) {
+          padding: var(--space-50) var(--space-md);
+        }
       }
     }
     &.module--contacts-ui {
       .inner {
         padding: var(--space-50);
+        @media all and (max-width: $md) {
+          padding: var(--space-50) var(--space-md);
+        }
       }
 
       background-color: #000;
@@ -36,7 +48,9 @@
           a {
             // font-size: var(--text-lg);
             // text-transform: lowercase;
-            min-width: 23rem;
+            @media all and (min-width: $md) {
+              min-width: 23rem;
+            }
             display: inline-block;
           }
         }

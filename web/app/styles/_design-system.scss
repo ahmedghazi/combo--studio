@@ -12,4 +12,9 @@
     background-color: white;
     color: black;
   }
+
+  @media all and (max-width: $md) {
+    font-size: var(--text-md);
+    padding: 0 2em;
+  }
 }
