@@ -9,6 +9,7 @@ import PageTransition from "./components/ui/PageTransition";
 // import Splash from "./components/Splash";
 import { usePathname } from "next/navigation";
 import { LocaleContextProvider } from "./context/LocaleContext";
+import Cursor from "./components/ui/Cursor";
 
 export const metadata = {
   metadataBase: new URL(website.url),
@@ -26,19 +27,20 @@ export default async function RootLayout({
   const settings = await getSettings();
 
   return (
-    <html lang='en'>
+    <html lang="en">
       <body className={""}>
         {/* <PageTransition> */}
-        <div id='page'>
+        <div id="page">
           <LocaleContextProvider>
             <PageContextProvider>
               <Header settings={settings} />
               <main>
                 {children}
-                <div className='ghost-h-spacer--footer'></div>
+                <div className="ghost-h-spacer--footer"></div>
               </main>
               <Footer settings={settings} />
               {/* <Splash /> */}
+              <Cursor color="#fff" size={10} />
             </PageContextProvider>
           </LocaleContextProvider>
         </div>
