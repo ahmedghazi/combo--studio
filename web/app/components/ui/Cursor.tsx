@@ -23,6 +23,7 @@ const Wrapper = styled.div<WrapperProps>`
   .dot {
     width: ${(props) => props.size}px;
     height: ${(props) => props.size}px;
+    border-radius: 3px;
     /* border-radius: 100%; */
     background: ${(props) => props.color};
     transition: background-color 150ms ease, transform 150ms ease-out;
@@ -153,8 +154,9 @@ const Cursor = ({ color, size }: CProps) => {
       style={{
         transform: `translate(${css.x}px, ${css.y}px)`,
         opacity: css.opacity,
-      }}>
-      <div className='dot'></div>
+      }}
+    >
+      <div className="dot"></div>
     </Wrapper>
   );
 };

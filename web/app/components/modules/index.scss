@@ -9,12 +9,16 @@
     &.module--hero-ui {
       img {
         object-fit: cover;
+        object-position: center center;
       }
     }
     &.module--text-ui {
       .inner {
         padding: var(--space-50);
         background-color: var(--backgroundColor, #000);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
         // background-image: url(var(--backgroundImage));
         color: var(--color, #fff);
         // background-attachment: fixed;
