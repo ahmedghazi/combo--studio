@@ -10,6 +10,10 @@
       img {
         object-fit: cover;
         object-position: center center;
+        @media all and (max-width: $md) {
+          object-fit: contain;
+          height: auto !important;
+        }
       }
     }
     &.module--text-ui {
