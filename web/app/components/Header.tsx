@@ -33,7 +33,7 @@ const Header = ({ settings }: Props) => {
             />
           )}
         </div>
-        <NavPrimary input={settings.navPrimary} />
+        {settings.navPrimary && <NavPrimary input={settings.navPrimary} />}
       </div>
     </header>
   );

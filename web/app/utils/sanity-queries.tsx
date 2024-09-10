@@ -1,13 +1,6 @@
 import { groq } from "next-sanity";
 import { cachedClient, client } from "./sanity-client";
-import {
-  Home,
-  Infos,
-  Landing,
-  PageModulaire,
-  Settings,
-  Tag,
-} from "../types/schema";
+import { Home, Infos, Landing, PageModulaire, Settings } from "../types/schema";
 import {
   contactsUI,
   heroUI,
