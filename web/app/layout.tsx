@@ -34,10 +34,7 @@ export default async function RootLayout({
           <LocaleContextProvider>
             <PageContextProvider>
               <Header settings={settings} />
-              <main>
-                {children}
-                <div className="ghost-h-spacer--footer"></div>
-              </main>
+              <main>{children}</main>
               <Footer settings={settings} />
               {/* <Splash /> */}
               <Cursor color="#fff" size={10} />

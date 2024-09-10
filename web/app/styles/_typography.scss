@@ -19,7 +19,7 @@
 
 //ABCDiatype-Regular
 body {
-  color: black;
+  color: white;
   font-family: var(--font-primary);
   font-size: var(--text-md-mobile);
   line-height: 1.2;
@@ -184,7 +184,8 @@ hr {
 
 pre {
   background: #cfcfcf;
-  line-height: 1.5;
+  color: black;
+  line-height: 1.2;
   margin-bottom: 1.5em;
   overflow: auto;
   padding: 0.75em 1.5em;

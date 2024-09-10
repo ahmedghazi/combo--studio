@@ -21,8 +21,10 @@ const hiddenDocTypes = (listItem: ListItemBuilder) => {
     'landing',
     'media.tag',
     'pageModulaire',
+    'lieu',
+    'studio',
     'tag',
-    'project',
+    // 'project',
     'settings',
     'infos',
   ].includes(id)
@@ -53,42 +55,52 @@ export const structure = (S) =>
         .schemaType('home')
         .child(S.editor().title('Home').schemaType('home').documentId('home')),
 
-      S.listItem()
-        .title('Infos')
-        .schemaType('infos')
-        .child(S.editor().title('Manifesto').schemaType('infos').documentId('infos')),
+      // S.listItem()
+      //   .title('Infos')
+      //   .schemaType('infos')
+      //   .child(S.editor().title('Manifesto').schemaType('infos').documentId('infos')),
+      S.divider(),
 
       S.listItem()
-        .title('Pages (Modulaire)')
+        .title('Pages')
         .schemaType('pageModulaire')
         .child(S.documentTypeList('pageModulaire')),
+
+      S.divider(),
+
+      S.listItem().title('Lieux').schemaType('lieu').child(S.documentTypeList('lieu')),
+      S.divider(),
+
+      S.listItem().title('Studios').schemaType('studio').child(S.documentTypeList('studio')),
+      S.divider(),
+
       // S.divider(),
 
       // S.listItem().title('Projects').schemaType('project').child(S.documentTypeList('project')),
 
-      S.divider(),
+      // S.divider(),
 
       /**
        * with seo preview
        */
 
-      S.listItem()
-        .title('Projets liste')
-        .schemaType('project')
-        .child(
-          S.documentTypeList('project').child((id) =>
-            S.document().schemaType('project').documentId(id).views([
-              // The default form for editing a document
-              S.view.form(),
+      // S.listItem()
+      //   .title('Projets liste')
+      //   .schemaType('project')
+      //   .child(
+      //     S.documentTypeList('project').child((id) =>
+      //       S.document().schemaType('project').documentId(id).views([
+      //         // The default form for editing a document
+      //         S.view.form(),
 
-              // Render the current selected document’s values as JSON
-              // S.view.component(SeoPreview).title('Seo preview').options({previewURL}),
-            ]),
-          ),
-        ),
+      //         // Render the current selected document’s values as JSON
+      //         // S.view.component(SeoPreview).title('Seo preview').options({previewURL}),
+      //       ]),
+      //     ),
+      //   ),
 
-      S.listItem().title('Tags').schemaType('tag').child(S.documentTypeList('tag')),
-      S.divider(),
+      // S.listItem().title('Tags').schemaType('tag').child(S.documentTypeList('tag')),
+      // S.divider(),
 
       // We also need to remove the new singletons from the main list
       ...S.documentTypeListItems().filter(hiddenDocTypes),

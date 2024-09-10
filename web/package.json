@@ -21,6 +21,7 @@
     "pubsub-js": "^1.9.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-fast-marquee": "^1.6.5",
     "sanity-codegen": "^0.9.8",
     "sass": "^1.77.8",
     "styled-components": "^6.1.12",

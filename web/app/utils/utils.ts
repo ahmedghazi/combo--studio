@@ -1,19 +1,16 @@
 import React from "react";
-import { Home, Infos } from "../types/schema";
-import useLocale from "../context/LocaleContext";
 import locales from "../config/i18n";
+import UseLocaleContext from "../context/LocaleContext";
+import { Home, Infos, PageModulaire, Lieu } from "../types/schema";
 
-export const _linkResolver = (node: Home | Infos | any) => {
+export const _linkResolver = (node: Infos | PageModulaire | Home | any) => {
   // console.log(node);
-  // console.log(node._type);
-  if (!node || !node._type) return "/";
+  if (!node || !node._type || node._type === "home") return "/";
+  console.log(node._type);
+  if (node._type === "home") return "/";
   switch (node._type) {
-    // case "product":
-    //   return `/product/${node.slug?.current}`;
-    // case "publisher":
-    //   return `/publisher/${node.slug?.current}`;
-    // case "tag":
-    //   return `/tag/${node.slug?.current}`;
+    case "lieu":
+      return `/lieu/${node.slug?.current}`;
 
     default:
       return `/${node.slug?.current}`;
@@ -22,16 +19,16 @@ export const _linkResolver = (node: Home | Infos | any) => {
 
 export const _localizeText = (text: string) => {
   // const locale = "fr"
-  const { locale } = useLocale();
+  const { locale } = UseLocaleContext();
   const currentI18N = (locales as any)[`${locale}`];
   return currentI18N[text] ? currentI18N[text] : text;
 };
 
 export const _localizeField = (field: any) => {
-  const { locale } = useLocale();
+  const { locale } = UseLocaleContext();
   // console.log(locale, field);
   if (!field) return "";
-  return field && field[locale] ? field[locale] : field["fr"];
+  return field && field[locale] ? field[locale] : field["en"];
 };
 
 export const _preloadImages = (urls: Array<string | any>) => {
@@ -64,37 +61,42 @@ export const _slugify = (str: string) => {
   return str;
 };
 
-export const _date = (d: string) => {
-  const date: Date = new Date(d);
+export const _date = (d: string | any) => {
+  const { locale } = UseLocaleContext();
+  const dateLocale = locale === "fr" ? "fr-fr" : "en-us";
 
-  return date.toLocaleDateString("en-us", {
-    weekday: "long",
+  const date: Date = new Date(d);
+  return date.toLocaleDateString(dateLocale, {
+    // weekday: "narrow",
     year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
+    // month: "2-digit",
+    month: "long",
+    day: "2-digit",
+    // hour: "numeric",
   });
 };
+export const _datePress = (d: string | any) => {
+  const { locale } = UseLocaleContext();
+  const dateLocale = locale === "fr" ? "fr-fr" : "en-us";
 
-// export const _throttle = (func, wait) => {
-//   let waiting = false;
-//   return function () {
-//     if (waiting) {
-//       return;
-//     }
-
-//     waiting = true;
-//     setTimeout(() => {
-//       func.apply(this, arguments);
-//       waiting = false;
-//     }, wait);
-//   };
-// };
-
-export function getScrollingElement() {
-  var d = document;
-  return d.documentElement.scrollHeight > d.body.scrollHeight &&
-    d.compatMode.indexOf("CSS1") == 0
-    ? d.documentElement
-    : d.body;
-}
+  const date: Date = new Date(d);
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  return `${year}.${month < 10 ? `0${month}` : month}`;
+  // const dateFormated = date.toLocaleDateString(dateLocale, {
+  //   // weekday: "narrow",
+  //   year: "numeric",
+  //   // month: "2-digit",
+  //   month: "2-digit",
+  //   // day: "2-digit",
+  //   // hour: "numeric",
+  // });
+  // return date.toLocaleDateString(dateLocale, {
+  //   // weekday: "narrow",
+  //   year: "numeric",
+  //   // month: "2-digit",
+  //   month: "2-digit",
+  //   // day: "2-digit",
+  //   // hour: "numeric",
+  // });
+};

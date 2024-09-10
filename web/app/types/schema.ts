@@ -26,6 +26,25 @@ import type {
   SanityImagePaletteSwatch,
 } from "sanity-codegen";
 
+export type {
+  // SanityReference,
+  // SanityKeyedReference,
+  SanityAsset,
+  SanityImage,
+  SanityFile,
+  SanityGeoPoint,
+  SanityBlock,
+  SanityDocument,
+  SanityImageCrop,
+  SanityImageHotspot,
+  SanityKeyed,
+  SanityImageAsset,
+  SanityImageMetadata,
+  SanityImageDimensions,
+  SanityImagePalette,
+  SanityImagePaletteSwatch,
+};
+
 /**
  * Home
  *
@@ -49,25 +68,24 @@ export interface Home extends SanityDocument {
   title?: LocaleString;
 
   /**
-   * Slug — `slug`
+   * Modules — `array`
    *
-   * URL basée sur le titre (sans espace ni caractère autre que a-z-0-9
+   * Zone de contenu Modulaire (images, textes, embed)
    */
-  slug?: { _type: "slug"; current: string };
-
-  /**
-   * Présentation courte — `localeBlockContent`
-   *
-   *
-   */
-  presentation?: LocaleBlockContent;
-
-  /**
-   * Projets à la une — `array`
-   *
-   *
-   */
-  featuredProjects?: Array<SanityKeyedReference<Project>>;
+  modules?: Array<
+    | SanityKeyed<TextUI>
+    | SanityKeyed<HeroUI>
+    | SanityKeyed<ContactsUI>
+    | SanityKeyed<ListCardImageTextUI>
+    | SanityKeyed<ListLieuUI>
+    | SanityKeyed<ListStudioUI>
+    | SanityKeyed<ListLModulaireUI>
+    | SanityKeyed<ImageUI>
+    | SanityKeyed<MarqueeUI>
+    | SanityKeyed<SplitImageTextUI>
+    | SanityKeyed<SliderUI>
+    | SanityKeyed<CallOutUI>
+  >;
 }
 
 /**
@@ -105,7 +123,18 @@ export interface Landing extends SanityDocument {
    * Zone de contenu Modulaire (images, textes, embed)
    */
   modules?: Array<
-    SanityKeyed<TextUI> | SanityKeyed<HeroUI> | SanityKeyed<ContactsUI>
+    | SanityKeyed<TextUI>
+    | SanityKeyed<HeroUI>
+    | SanityKeyed<ContactsUI>
+    | SanityKeyed<ListCardImageTextUI>
+    | SanityKeyed<ListLieuUI>
+    | SanityKeyed<ListStudioUI>
+    | SanityKeyed<ListLModulaireUI>
+    | SanityKeyed<ImageUI>
+    | SanityKeyed<MarqueeUI>
+    | SanityKeyed<SplitImageTextUI>
+    | SanityKeyed<SliderUI>
+    | SanityKeyed<CallOutUI>
   >;
 }
 
@@ -185,7 +214,7 @@ export interface Settings extends SanityDocument {
    *
    *
    */
-  navPrimary?: Array<SanityKeyed<LinkInternal> | SanityKeyed<LinkExternal>>;
+  navPrimary?: Array<SanityKeyed<MenuItem>>;
 
   /**
    * Naviguation Secondary — `array`
@@ -277,17 +306,28 @@ export interface PageModulaire extends SanityDocument {
    * Zone de contenu Modulaire (images, textes, embed)
    */
   modules?: Array<
-    SanityKeyed<TextUI> | SanityKeyed<HeroUI> | SanityKeyed<ContactsUI>
+    | SanityKeyed<TextUI>
+    | SanityKeyed<HeroUI>
+    | SanityKeyed<ContactsUI>
+    | SanityKeyed<ListCardImageTextUI>
+    | SanityKeyed<ListLieuUI>
+    | SanityKeyed<ListStudioUI>
+    | SanityKeyed<ListLModulaireUI>
+    | SanityKeyed<ImageUI>
+    | SanityKeyed<MarqueeUI>
+    | SanityKeyed<SplitImageTextUI>
+    | SanityKeyed<SliderUI>
+    | SanityKeyed<CallOutUI>
   >;
 }
 
 /**
- * Project
+ * Lieu
  *
  *
  */
-export interface Project extends SanityDocument {
-  _type: "project";
+export interface Lieu extends SanityDocument {
+  _type: "lieu";
 
   /**
    * seo — `seo`
@@ -306,7 +346,7 @@ export interface Project extends SanityDocument {
   /**
    * Slug — `slug`
    *
-   * URL basée sur le titre (sans espace ni caractère autre que a-z-0-9
+   * Click on generate, Semantic URL based on title (no space no char other than a-z-0-9
    */
   slug?: { _type: "slug"; current: string };
 
@@ -316,34 +356,6 @@ export interface Project extends SanityDocument {
    *
    */
   subTitle?: string;
-
-  /**
-   * Année — `string`
-   *
-   *
-   */
-  year?: string;
-
-  /**
-   * Thème — `array`
-   *
-   *
-   */
-  theme?: Array<SanityKeyedReference<Tag>>;
-
-  /**
-   * Géographie — `array`
-   *
-   *
-   */
-  geography?: Array<SanityKeyedReference<Tag>>;
-
-  /**
-   * Métier — `array`
-   *
-   *
-   */
-  job?: Array<SanityKeyedReference<Tag>>;
 
   /**
    * Image clef — `image`
@@ -358,75 +370,104 @@ export interface Project extends SanityDocument {
   };
 
   /**
-   * Chapo — `localeBlockContent`
+   * Modules — `array`
+   *
+   * Zone de contenu Modulaire (images, textes, embed)
+   */
+  modules?: Array<
+    | SanityKeyed<TextUI>
+    | SanityKeyed<HeroUI>
+    | SanityKeyed<ContactsUI>
+    | SanityKeyed<ListCardImageTextUI>
+    | SanityKeyed<ListLieuUI>
+    | SanityKeyed<ListStudioUI>
+    | SanityKeyed<ListLModulaireUI>
+    | SanityKeyed<ImageUI>
+    | SanityKeyed<MarqueeUI>
+    | SanityKeyed<SplitImageTextUI>
+    | SanityKeyed<SliderUI>
+    | SanityKeyed<CallOutUI>
+  >;
+}
+
+/**
+ * Studio
+ *
+ *
+ */
+export interface Studio extends SanityDocument {
+  _type: "studio";
+
+  /**
+   * seo — `seo`
    *
    *
    */
-  chapo?: LocaleBlockContent;
+  seo?: Seo;
 
   /**
-   * fiche technique — `array`
+   * Titre — `localeString`
    *
    *
    */
-  metas?: Array<SanityKeyed<KeyVal>>;
+  title?: LocaleString;
 
   /**
-   * Texte — `localeBlockContent`
+   * Slug — `slug`
+   *
+   * Click on generate, Semantic URL based on title (no space no char other than a-z-0-9
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
+   * Soustitre — `string`
+   *
+   *
+   */
+  subTitle?: string;
+
+  /**
+   * Image clef — `figure`
+   *
+   * Visible on liste pages, project cards (1400px)
+   */
+  imageCover?: Figure;
+
+  /**
+   * Image Hero — `figure`
+   *
+   * Visible on detail page (2000px)
+   */
+  imageHero?: Figure;
+
+  /**
+   * Extrait — `localeString`
+   *
+   *
+   */
+  excerpt?: LocaleString;
+
+  /**
+   * Text — `localeBlockContent`
    *
    *
    */
   text?: LocaleBlockContent;
 
   /**
-   * Modules — `array`
+   * Matétiel — `localeBlockContent`
    *
-   * Zone de contenu Modulaire (images, textes, embed)
+   *
    */
-  modules?: Array<
-    SanityKeyed<TextUI> | SanityKeyed<HeroUI> | SanityKeyed<ContactsUI>
-  >;
+  matos?: LocaleBlockContent;
+
+  /**
+   * infos — `array`
+   *
+   *
+   */
+  infos?: Array<SanityKeyed<SummaryDetail>>;
 }
-
-/**
- * Tag
- *
- *
- */
-export interface Tag extends SanityDocument {
-  _type: "tag";
-
-  /**
-   * Title — `localeString`
-   *
-   *
-   */
-  title?: LocaleString;
-
-  /**
-   * Type — `string`
-   *
-   *
-   */
-  tagType?: "theme" | "geography" | "job";
-}
-
-export type TagGroup = {
-  _type: "tagGroup";
-  /**
-   * title — `localeString`
-   *
-   *
-   */
-  title?: LocaleString;
-
-  /**
-   * tags — `array`
-   *
-   *
-   */
-  tags?: Array<SanityKeyedReference<Tag>>;
-};
 
 export type LocaleString = {
   _type: "localeString";
@@ -439,6 +480,23 @@ export type LocaleString = {
 
   /**
    * English — `string`
+   *
+   *
+   */
+  en?: string;
+};
+
+export type LocaleText = {
+  _type: "localeText";
+  /**
+   * Français — `text`
+   *
+   *
+   */
+  fr?: string;
+
+  /**
+   * English — `text`
    *
    *
    */
@@ -464,6 +522,7 @@ export type LocaleBlockContent = {
 
 export type BlockContent = Array<
   | SanityKeyed<SanityBlock>
+  | SanityKeyed<KeyValGroup>
   | SanityKeyed<{
       _type: "image";
       asset: SanityReference<SanityImageAsset>;
@@ -504,7 +563,7 @@ export type LinkInternal = {
    *
    *
    */
-  link?: SanityReference<Infos | PageModulaire | Home | Project>;
+  link?: SanityReference<PageModulaire | Home | Studio>;
 };
 
 export type LinkModal = {
@@ -522,6 +581,40 @@ export type LinkModal = {
    *
    */
   target?: "modal-works";
+};
+
+export type LinkAnchor = {
+  _type: "linkAnchor";
+  /**
+   * label — `string`
+   *
+   *
+   */
+  label?: string;
+
+  /**
+   * target — `string`
+   *
+   * html anchor id
+   */
+  target?: string;
+};
+
+export type MenuItem = {
+  _type: "menuItem";
+  /**
+   * link — `linkInternal`
+   *
+   *
+   */
+  link?: LinkInternal;
+
+  /**
+   * Sub menu — `array`
+   *
+   *
+   */
+  subMenu?: Array<SanityKeyed<LinkInternal> | SanityKeyed<LinkExternal>>;
 };
 
 export type Seo = {
@@ -563,14 +656,14 @@ export type Embed = {
   url?: string;
 };
 
-export type KeyVal = {
-  _type: "keyVal";
+export type KeyValText = {
+  _type: "keyValText";
   /**
-   * Clef — `string`
+   * Clef — `localeString`
    *
    *
    */
-  key?: string;
+  key?: LocaleString;
 
   /**
    * Valeur — `localeBlockContent`
@@ -578,6 +671,40 @@ export type KeyVal = {
    *
    */
   val?: LocaleBlockContent;
+};
+
+export type KeyValSimple = {
+  _type: "keyValSimple";
+  /**
+   * Clef — `localeString`
+   *
+   *
+   */
+  key?: LocaleString;
+
+  /**
+   * Valeur — `localeString`
+   *
+   *
+   */
+  val?: LocaleString;
+};
+
+export type KeyValGroup = {
+  _type: "keyValGroup";
+  /**
+   * title — `localeString`
+   *
+   *
+   */
+  title?: LocaleString;
+
+  /**
+   * items — `array`
+   *
+   *
+   */
+  items?: Array<SanityKeyed<KeyValSimple> | SanityKeyed<KeyValText>>;
 };
 
 export type Video = {
@@ -602,23 +729,6 @@ export type Video = {
   };
 };
 
-export type InterTitre = {
-  _type: "interTitre";
-  /**
-   * Index — `number`
-   *
-   *
-   */
-  index?: number;
-
-  /**
-   * Titre — `localeString`
-   *
-   *
-   */
-  title?: LocaleString;
-};
-
 export type Figure = {
   _type: "figure";
   /**
@@ -631,13 +741,6 @@ export type Figure = {
     asset: SanityReference<SanityImageAsset>;
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
-
-    /**
-     * Alt Description — `string`
-     *
-     *
-     */
-    alt?: string;
   };
 
   /**
@@ -648,14 +751,21 @@ export type Figure = {
   caption?: string;
 };
 
-export type HeroUI = {
-  _type: "heroUI";
+export type CardImageText = {
+  _type: "cardImageText";
   /**
-   * title — `string`
+   * title — `localeString`
    *
-   * Module title (displayed only in the admin)
+   *
    */
-  title?: string;
+  title?: LocaleString;
+
+  /**
+   * text — `localeBlockContent`
+   *
+   *
+   */
+  text?: LocaleBlockContent;
 
   /**
    * image — `figure`
@@ -665,14 +775,38 @@ export type HeroUI = {
   image?: Figure;
 };
 
+export type SummaryDetail = {
+  _type: "summaryDetail";
+  /**
+   * Libellé — `localeString`
+   *
+   *
+   */
+  summary?: LocaleString;
+
+  /**
+   * detail — `localeBlockContent`
+   *
+   *
+   */
+  detail?: LocaleBlockContent;
+};
+
 export type TextUI = {
   _type: "textUI";
   /**
-   * title — `string`
+   * look — `string`
+   *
+   *
+   */
+  look?: "default" | "columns" | "offset";
+
+  /**
+   * title — `localeString`
    *
    * Module title (displayed only in the admin)
    */
-  title?: string;
+  title?: LocaleString;
 
   /**
    * Text — `localeBlockContent`
@@ -708,6 +842,40 @@ export type TextUI = {
   foregroundColor?: string;
 };
 
+export type ImageUI = {
+  _type: "imageUI";
+  /**
+   * title — `string`
+   *
+   * Module title (displayed only in the admin)
+   */
+  title?: string;
+
+  /**
+   * image — `figure`
+   *
+   *
+   */
+  image?: Figure;
+};
+
+export type HeroUI = {
+  _type: "heroUI";
+  /**
+   * title — `string`
+   *
+   * Module title (displayed only in the admin)
+   */
+  title?: string;
+
+  /**
+   * image — `figure`
+   *
+   *
+   */
+  image?: Figure;
+};
+
 export type ContactsUI = {
   _type: "contactsUI";
   /**
@@ -725,11 +893,198 @@ export type ContactsUI = {
   items?: Array<SanityKeyed<LocaleBlockContent>>;
 };
 
+export type ListCardImageTextUI = {
+  _type: "listCardImageTextUI";
+  /**
+   * Titre — `localeString`
+   *
+   *
+   */
+  title?: LocaleString;
+
+  /**
+   * items — `array`
+   *
+   *
+   */
+  items?: Array<SanityKeyed<CardImageText>>;
+};
+
+export type ListLieuUI = {
+  _type: "listLieuUI";
+  /**
+   * Titre — `localeString`
+   *
+   *
+   */
+  title?: LocaleString;
+
+  /**
+   * items — `array`
+   *
+   *
+   */
+  items?: Array<SanityKeyedReference<Lieu>>;
+};
+
+export type ListStudioUI = {
+  _type: "listStudioUI";
+  /**
+   * Titre — `localeString`
+   *
+   *
+   */
+  title?: LocaleString;
+
+  /**
+   * items — `array`
+   *
+   *
+   */
+  items?: Array<SanityKeyedReference<Studio>>;
+};
+
+export type ListLModulaireUI = {
+  _type: "listLModulaireUI";
+  /**
+   * Titre — `localeString`
+   *
+   *
+   */
+  title?: LocaleString;
+
+  /**
+   * items — `array`
+   *
+   *
+   */
+  items?: Array<
+    | SanityKeyed<TextUI>
+    | SanityKeyed<HeroUI>
+    | SanityKeyed<ContactsUI>
+    | SanityKeyed<ListCardImageTextUI>
+    | SanityKeyed<ListLieuUI>
+    | SanityKeyed<ListStudioUI>
+    | SanityKeyed<ListLModulaireUI>
+    | SanityKeyed<ImageUI>
+    | SanityKeyed<MarqueeUI>
+    | SanityKeyed<SplitImageTextUI>
+    | SanityKeyed<SliderUI>
+    | SanityKeyed<CallOutUI>
+  >;
+};
+
+export type MarqueeUI = {
+  _type: "marqueeUI";
+  /**
+   * text — `string`
+   *
+   *
+   */
+  text?: string;
+
+  /**
+   * foregroundColor — `string`
+   *
+   * format hex : #123321
+   */
+  foregroundColor?: string;
+
+  /**
+   * backgroundColor — `string`
+   *
+   * format hex : #123321
+   */
+  backgroundColor?: string;
+};
+
+export type SplitImageTextUI = {
+  _type: "splitImageTextUI";
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * title — `localeString`
+   *
+   * Module title
+   */
+  title?: LocaleString;
+
+  /**
+   * Text — `localeBlockContent`
+   *
+   *
+   */
+  text?: LocaleBlockContent;
+};
+
+export type SliderUI = {
+  _type: "sliderUI";
+  /**
+   * title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * images — `array`
+   *
+   *
+   */
+  images?: Array<
+    SanityKeyed<{
+      _type: "image";
+      asset: SanityReference<SanityImageAsset>;
+      crop?: SanityImageCrop;
+      hotspot?: SanityImageHotspot;
+    }>
+  >;
+};
+
+export type CallOutUI = {
+  _type: "callOutUI";
+  /**
+   * title — `localeText`
+   *
+   * Module title
+   */
+  title?: LocaleText;
+
+  /**
+   * backgroundImage — `image`
+   *
+   * Image de fond
+   */
+  backgroundImage?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * links — `array`
+   *
+   *
+   */
+  links?: Array<SanityKeyed<LinkExternal>>;
+};
+
 export type Documents =
   | Home
   | Landing
   | Infos
   | Settings
   | PageModulaire
-  | Project
-  | Tag;
+  | Lieu
+  | Studio;

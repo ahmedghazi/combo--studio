@@ -29,6 +29,12 @@
         @media all and (max-width: $md) {
           padding: var(--space-50) var(--space-md);
         }
+        &.is-columns {
+          .text {
+            column-count: 2;
+            max-width: unset;
+          }
+        }
       }
     }
     &.module--contacts-ui {
@@ -61,6 +67,49 @@
             }
             display: inline-block;
           }
+        }
+      }
+    }
+    &.module--list-lieu-ui {
+      .lieu:nth-child(odd) {
+        .summary {
+          background-color: white;
+          color: black;
+          svg path {
+            fill: black;
+          }
+        }
+      }
+    }
+    &.module--list-studio-ui {
+      .detail {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        padding: var(--space-50);
+        background-color: black;
+        .btn--close {
+          position: absolute;
+          z-index: 1;
+          right: var(--space-md);
+          top: var(--space-md);
+        }
+      }
+    }
+    &.module--callout-ui {
+      background-color: #000;
+      color: #fff;
+      .inner {
+        padding: var(--space-50);
+        @media all and (max-width: $md) {
+          padding: var(--space-50) var(--space-md);
+        }
+        h2 {
+          text-align: center;
+          max-width: 13em;
+          margin: auto;
+          margin-bottom: var(--space-50);
+          text-transform: uppercase;
         }
       }
     }

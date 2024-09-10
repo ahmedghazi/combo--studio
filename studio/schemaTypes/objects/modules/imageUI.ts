@@ -2,8 +2,8 @@ import {defineField} from 'sanity'
 import {FiImage} from 'react-icons/fi'
 
 export default defineField({
-  name: 'moduleImage',
-  title: 'Image',
+  name: 'imageUI',
+  title: 'Image UI',
   type: 'object',
   icon: FiImage,
   fields: [
@@ -16,34 +16,20 @@ export default defineField({
       name: 'image',
       type: 'figure',
     }),
-    // defineField({
-    //   name: 'image',
-    //   type: 'image',
-    //   title: 'Image',
-    //   description: 'jpg, 1400px de large, 72dpi',
-    //   options: {
-    //     hotspot: true,
-    //   },
-    //   fields: [
-    //     // {name: 'title', title: 'Title', type: 'string'},
-    //     {name: 'alt', title: 'Alt Description', type: 'string'},
-    //     // {name: 'attribution', title: 'Attribution', type: 'string'}
-    //   ],
-    // }),
   ],
 
   preview: {
     select: {
-      image: 'image',
+      media: 'image.image',
       title: 'title',
     },
-    prepare(selection) {
-      const {title, image} = selection
-      return {
-        title: title,
-        subtitle: 'Image',
-        media: image,
-      }
-    },
+    // prepare(selection) {
+    //   const {title, image} = selection
+    //   return {
+    //     title: title,
+    //     subtitle: 'Image',
+    //     media: image,
+    //   }
+    // },
   },
 })

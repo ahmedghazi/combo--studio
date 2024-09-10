@@ -32,7 +32,7 @@ export default defineField({
       },
       fields: [
         // {name: 'title', title: 'Title', type: 'string'},
-        {name: 'alt', title: 'Alt Description', type: 'string'},
+        // {name: 'alt', title: 'Alt Description', type: 'string'},
         // {name: 'attribution', title: 'Attribution', type: 'string'}
       ],
     }),

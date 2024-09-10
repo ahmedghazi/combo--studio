@@ -1,38 +1,44 @@
 import home from './singletons/home'
 import landing from './singletons/landing'
 import pageModulaire from './documents/pageModulaire'
-import project from './documents/project'
-import tag from './documents/tag'
+import lieu from './documents/lieu'
+import studio from './documents/studio'
 import infos from './singletons/infos'
 import settings from './singletons/settings'
 
 import localeString from './locale/localeString'
+import localeText from './locale/localeText'
 import localeBlockContent from './locale/localeBlockContent'
-
-// import moduleImage from './objects/modules/imageUI'
-// import moduleImages from './objects/modules/imagesUI'
-// import moduleText from './objects/modules/textUI'
-// import moduleTexts from './objects/modules/textsUI'
-// import moduleEmbed from './objects/modules/embedUI'
-// import moduleProjects from './objects/modules/projectsUI'
-// import moduleInterTitreUI from './objects/modules/interTitreUI'
 
 import blockContent from './objects/blockContent'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
 import linkModal from './objects/linkModal'
-import tagGroup from './objects/tagGroup'
+import linkanchor from './objects/linkanchor'
+import menuItem from './objects/menuItem'
+// import tagGroup from './objects/tagGroup'
 import seo from './objects/seo'
 import embed from './objects/embed'
-import keyVal from './objects/keyVal'
-// import keyValGroup from './objects/keyValGroup'
+import keyValGroup from './objects/keyValGroup'
+import keyValText from './objects/keyValText'
+import keyValSimple from './objects/keyValSimple'
 import video from './objects/video'
-import interTitre from './objects/interTitre'
 import figure from './objects/figure'
+import cardImageText from './objects/cardImageText'
+import summaryDetail from './objects/summaryDetail'
 
 import heroUI from './objects/modules/heroUI'
 import textUI from './objects/modules/textUI'
 import contactsUI from './objects/modules/contactsUI'
+import listCardImageTextUI from './objects/modules/listCardImageTextUI'
+import imageUI from './objects/modules/imageUI'
+import marqueeUI from './objects/modules/marqueeUI'
+import splitImageTextUI from './objects/modules/splitImageTextUI'
+import sliderUI from './objects/modules/sliderUI'
+import calloutUI from './objects/modules/calloutUI'
+import listLieuUI from './objects/modules/listLieuUI'
+import listStudioUI from './objects/modules/listStudioUI'
+import listLModulaireUI from './objects/modules/listLModulaireUI'
 
 export const schemaTypes = [
   home,
@@ -40,27 +46,41 @@ export const schemaTypes = [
   infos,
   settings,
   pageModulaire,
-  project,
-  tag,
-  tagGroup,
+  lieu,
+  studio,
 
   localeString,
+  localeText,
   localeBlockContent,
 
   blockContent,
   linkExternal,
   linkInternal,
   linkModal,
+  linkanchor,
+  menuItem,
   seo,
   embed,
-  keyVal,
-  // keyValGroup,
+  keyValText,
+  keyValSimple,
+  keyValGroup,
   video,
-  interTitre,
+  // interTitre,
   figure,
+  cardImageText,
+  summaryDetail,
 
-  heroUI,
   textUI,
+  imageUI,
+  heroUI,
   contactsUI,
+  listCardImageTextUI,
+  listLieuUI,
+  listStudioUI,
+  listLModulaireUI,
+  marqueeUI,
+  splitImageTextUI,
+  sliderUI,
+  calloutUI,
 ]
 export default schemaTypes

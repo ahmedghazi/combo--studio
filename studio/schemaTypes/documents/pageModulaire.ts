@@ -24,19 +24,6 @@ export default defineType({
       title: 'SEO',
     },
   ],
-  preview: {
-    select: {
-      title: `title.${baseLanguage}`,
-      slug: 'slug',
-    },
-    prepare(selection) {
-      const {title, slug} = selection
-      return {
-        title: title,
-        subtitle: `/${slug.current}`,
-      }
-    },
-  },
 
   fields: [
     defineField({
@@ -79,4 +66,15 @@ export default defineType({
       group: 'editorial',
     }),
   ],
+  validation: (Rule) =>
+    Rule.custom((fields) => {
+      return fields && fields.seo ? true : 'SEO needed'
+    }),
+  preview: {
+    select: {
+      title: 'seo.metaTitle',
+      subtitle: 'seo.metaDescription',
+      media: 'seo.metaImage',
+    },
+  },
 })

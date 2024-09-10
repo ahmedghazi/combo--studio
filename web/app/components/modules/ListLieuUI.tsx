@@ -1,0 +1,29 @@
+import { ListLieuUI } from "@/app/types/schema";
+import React from "react";
+import SummaryDetailFramer from "../ui/SummaryDetailFramer";
+import { _localizeField } from "@/app/utils/utils";
+import ContentModulaire from "../ContentModulaire";
+
+type Props = {
+  input: ListLieuUI;
+};
+
+const ModuleListLieuUI = ({ input }: Props) => {
+  return (
+    <section className="module module--list-lieu-ui">
+      {input.items?.map((item, i) => (
+        <div className="lieu" key={i}>
+          <SummaryDetailFramer
+            summary={<h2 className="text-xl">{_localizeField(item.title)}</h2>}
+            detail={
+              <>{item.modules && <ContentModulaire modules={item.modules} />}</>
+            }
+          ></SummaryDetailFramer>
+        </div>
+      ))}
+      {/* <pre>{JSON.stringify(input.items, null, 2)}</pre> */}
+    </section>
+  );
+};
+
+export default ModuleListLieuUI;

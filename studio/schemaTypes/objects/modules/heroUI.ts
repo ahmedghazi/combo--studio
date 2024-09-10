@@ -27,7 +27,7 @@ export default defineField({
       const {title, image} = selection
       return {
         title: title,
-        subtitle: 'Image',
+        subtitle: 'Hero UI',
         media: image,
       }
     },

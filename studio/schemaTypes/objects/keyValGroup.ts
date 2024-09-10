@@ -14,12 +14,12 @@ export default defineField({
     defineField({
       name: 'items',
       type: 'array',
-      of: [{type: 'keyVal'}],
+      of: [{type: 'keyValSimple'}, {type: 'keyValText'}],
     }),
   ],
   preview: {
     select: {
-      title: 'title.en',
+      title: 'title.fr',
     },
   },
 })

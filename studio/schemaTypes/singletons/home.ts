@@ -33,39 +33,13 @@ export default defineType({
       group: 'editorial',
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      description: 'URL basée sur le titre (sans espace ni caractère autre que a-z-0-9',
-      options: {
-        source: `title.${baseLanguage}`,
-        maxLength: 96,
-      },
-      validation: (Rule) => Rule.required(),
-      group: 'editorial',
-    }),
-
-    defineField({
-      name: 'presentation',
-      title: 'Présentation courte',
-      type: 'localeBlockContent',
-      group: 'editorial',
-    }),
-    defineField({
-      name: 'featuredProjects',
-      title: 'Projets à la une',
+      name: 'modules',
+      title: 'Modules',
+      description: 'Zone de contenu Modulaire (images, textes, embed)',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'project'}]}],
+      of: modulesList,
       group: 'editorial',
     }),
-    // defineField({
-    //   name: 'modules',
-    //   title: 'Modules',
-    //   description: 'Zone de contenu Modulaire (images, textes, embed)',
-    //   type: 'array',
-    //   of: modulesList,
-    //   group: 'editorial',
-    // }),
   ],
   preview: {
     prepare() {

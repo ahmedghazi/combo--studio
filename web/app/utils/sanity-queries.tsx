@@ -1,9 +1,17 @@
 import { groq } from "next-sanity";
 import { cachedClient, client } from "./sanity-client";
-import { Home, Infos, Landing, Settings, Tag } from "../types/schema";
+import {
+  Home,
+  Infos,
+  Landing,
+  PageModulaire,
+  Settings,
+  Tag,
+} from "../types/schema";
 import {
   contactsUI,
   heroUI,
+  modules,
   // moduleImage,
   // moduleText,
   // moduleTextImage,
@@ -30,11 +38,21 @@ export async function getSettings(): Promise<Settings> {
       },
       navPrimary[]{
         ...,
-        _type == 'linkInternal' => {
+        _type == 'menuItem' => {
           ...,
-          link->{
-            _type,
-            slug
+          link{
+            ...,
+            link->{
+              _type,
+              slug
+            }
+          },
+          subMenu[]{
+            ...,
+             link->{
+              _type,
+              slug
+            }
           }
         }
       },
@@ -66,4 +84,20 @@ export const landingQ = groq`*[_type == "landing"][0]{
 export async function getLanding(): Promise<Landing> {
   // return client.fetch(landingQ, {});
   return cachedClient(landingQ, {});
+}
+
+/**
+ * PAGE MODULAIRE
+ */
+export const pageModulaireQuery = groq`*[_type == "pageModulaire" && slug.current == $slug][0]{
+  ...,
+  seo{
+    ${seo}
+  },
+  modules[]{
+    ${modules}
+  },
+}`;
+export async function getPageModulaire(slug: string): Promise<PageModulaire> {
+  return cachedClient(pageModulaireQuery, { slug: slug });
 }

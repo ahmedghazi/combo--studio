@@ -76,16 +76,15 @@ export default defineType({
     //   group: 'editorial',
     // }),
   ],
+  validation: (Rule) =>
+    Rule.custom((fields) => {
+      return fields && fields.seo ? true : 'SEO needed'
+    }),
   preview: {
     select: {
-      title: `title.${baseLanguage}`,
-    },
-    prepare(selection) {
-      const {title} = selection
-      // console.log(images)
-      return {
-        title: title,
-      }
+      title: 'seo.metaTitle',
+      subtitle: 'seo.metaDescription',
+      media: 'seo.metaImage',
     },
   },
 })

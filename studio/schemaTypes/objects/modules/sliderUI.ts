@@ -2,8 +2,8 @@ import {defineField} from 'sanity'
 import {BiCarousel} from 'react-icons/bi'
 
 export default defineField({
-  name: 'module.slider',
-  title: 'Slider',
+  name: 'sliderUI',
+  title: 'Slider UI',
   type: 'object',
   icon: BiCarousel,
   fields: [
@@ -30,7 +30,7 @@ export default defineField({
       const {title, media} = selection
       return {
         title: title,
-        subtitle: 'Slider',
+        subtitle: 'Slider UI',
         media: media,
       }
     },

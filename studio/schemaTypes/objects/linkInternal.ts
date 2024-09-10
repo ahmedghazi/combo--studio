@@ -1,6 +1,7 @@
 // import supportedLanguages from "../locale/supportedLanguages";
 import {defineField} from 'sanity'
 import {baseLanguage} from '../locale/supportedLanguages'
+import linkExternalTypes from '../misc/linkExternalTypes'
 
 export default defineField({
   title: 'Link Internal',
@@ -27,7 +28,7 @@ export default defineField({
       name: 'link',
       type: 'reference',
       weak: true,
-      to: [{type: 'infos'}, {type: 'pageModulaire'}, {type: 'home'}, {type: 'project'}],
+      to: linkExternalTypes,
     }),
   ],
 })

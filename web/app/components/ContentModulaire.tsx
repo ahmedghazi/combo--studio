@@ -1,17 +1,45 @@
 import React from "react";
-import { ContactsUI, HeroUI, Landing, TextUI } from "../types/schema";
+import {
+  CallOutUI,
+  ContactsUI,
+  HeroUI,
+  ImageUI,
+  Landing,
+  ListCardImageTextUI,
+  ListLieuUI,
+  ListLModulaireUI,
+  ListStudioUI,
+  MarqueeUI,
+  SliderUI,
+  SplitImageTextUI,
+  TextUI,
+} from "../types/schema";
 import Modules from "./modules";
 import { SanityKeyed } from "sanity-codegen";
 
 type Props = {
-  modules?: Array<
-    SanityKeyed<TextUI> | SanityKeyed<HeroUI> | SanityKeyed<ContactsUI>
+  // modules?: Array<
+  //   SanityKeyed<TextUI> | SanityKeyed<HeroUI> | SanityKeyed<ContactsUI> | any
+  // >;
+  modules: Array<
+    | SanityKeyed<TextUI>
+    | SanityKeyed<HeroUI>
+    | SanityKeyed<ContactsUI>
+    | SanityKeyed<ListCardImageTextUI>
+    | SanityKeyed<ListLieuUI>
+    | SanityKeyed<ListStudioUI>
+    | SanityKeyed<ListLModulaireUI>
+    | SanityKeyed<ImageUI>
+    | SanityKeyed<MarqueeUI>
+    | SanityKeyed<SplitImageTextUI>
+    | SanityKeyed<SliderUI>
+    | SanityKeyed<CallOutUI>
   >;
 };
 
 const ContentModulaire = ({ modules }: Props) => {
   return (
-    <div className='content content--modulaire'>
+    <div className="content content--modulaire">
       {modules && <Modules input={modules} />}
     </div>
   );

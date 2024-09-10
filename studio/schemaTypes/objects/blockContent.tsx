@@ -3,6 +3,9 @@ import {defineType, defineArrayMember} from 'sanity'
 import {LinkIcon} from '@sanity/icons'
 import {FiAlignCenter, FiAlignLeft, FiAlignRight} from 'react-icons/fi'
 import {BiLinkExternal} from 'react-icons/bi'
+import linkExternalTypes from '../misc/linkExternalTypes'
+import ExternalLinkRenderer from '../../src/components/ExternalLinkRenderer'
+import {RxButton} from 'react-icons/rx'
 
 const TextL = (props: any): JSX.Element => (
   <p style={{fontSize: '2rem', marginTop: 0}}> {props.children} </p>
@@ -73,6 +76,25 @@ export default defineType({
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
+            title: 'Internal link CTA',
+            name: 'linkInternalCta',
+            type: 'object',
+            icon: RxButton,
+            description: 'boutton avec outline',
+            fields: [
+              {
+                name: 'reference',
+                type: 'reference',
+                weak: true,
+                title: 'Reference',
+                to: linkExternalTypes,
+              },
+            ],
+            components: {
+              annotation: ExternalLinkRenderer,
+            },
+          },
+          {
             title: 'Internal link',
             name: 'linkInternal',
             type: 'object',
@@ -83,7 +105,7 @@ export default defineType({
                 type: 'reference',
                 weak: true,
                 title: 'Reference',
-                to: [{type: 'home'}, {type: 'pageModulaire'}, {type: 'project'}],
+                to: linkExternalTypes,
               },
             ],
           },
@@ -112,12 +134,14 @@ export default defineType({
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-
+    defineArrayMember({
+      // name: 'tableau',
+      type: 'keyValGroup',
+    }),
     defineArrayMember({
       type: 'image',
       options: {hotspot: true},
     }),
-
     defineArrayMember({
       type: 'embed',
     }),
