@@ -1,0 +1,20 @@
+.content--studio {
+  p {
+    text-align: left;
+  }
+  .summary-detail {
+    // margin-bottom: var(--space-xl);
+    .summary .pointer-events-none {
+      pointer-events: initial;
+    }
+    &.is-expanded {
+      .summary button {
+        background-color: white;
+        color: black;
+      }
+      .detail {
+        padding-top: var(--space-xl);
+      }
+    }
+  }
+}

@@ -106,7 +106,7 @@ const ModuleListStudioUI = ({ input }: Props) => {
           />
         ))}
       </div>
-      <div className="detail" ref={detailRef}>
+      <div className="detail detail--studio" ref={detailRef}>
         {detail && (
           <div className="inner">
             <button className="btn--close" onClick={_handleClose}>

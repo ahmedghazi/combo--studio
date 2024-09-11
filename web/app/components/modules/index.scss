@@ -71,8 +71,8 @@
       }
     }
     &.module--list-lieu-ui {
-      .lieu:nth-child(odd) {
-        .summary {
+      .lieu:nth-child(odd) > .summary-detail {
+        & > .summary {
           background-color: white;
           color: black;
           svg path {
@@ -82,7 +82,7 @@
       }
     }
     &.module--list-studio-ui {
-      .detail {
+      .detail.detail--studio {
         position: absolute;
         width: 100%;
         left: 0;
@@ -93,6 +93,17 @@
           z-index: 1;
           right: var(--space-md);
           top: var(--space-md);
+        }
+        .summary-detail {
+          .summary {
+            padding: 0;
+            svg {
+              display: none;
+            }
+          }
+          .detail {
+            position: initial;
+          }
         }
       }
     }

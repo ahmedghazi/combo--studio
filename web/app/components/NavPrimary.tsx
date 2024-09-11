@@ -11,7 +11,7 @@ type Props = {
 const NavPrimary = ({ input }: Props) => {
   return (
     <nav>
-      <ul className="flex">
+      <ul className="menu flex justify-center">
         {input.map((item, i) => (
           <li key={i}>
             <Link href={_linkResolver(item.link?.link)}>

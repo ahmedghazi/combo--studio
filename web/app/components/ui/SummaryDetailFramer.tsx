@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import clsx from "clsx";
 
@@ -9,6 +9,7 @@ type Props = {
 };
 const SummaryDetailFramer = ({ summary, detail }: Props) => {
   const [expand, setExpand] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   const controls = useAnimation();
   const variants = {
@@ -19,6 +20,11 @@ const SummaryDetailFramer = ({ summary, detail }: Props) => {
   useEffect(() => {
     if (expand) {
       controls.start("expanded");
+      if (ref && ref.current) {
+        ref.current.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
     } else {
       controls.start("collapsed");
     }
@@ -29,7 +35,7 @@ const SummaryDetailFramer = ({ summary, detail }: Props) => {
   // }, [expand, onOpen])
 
   return (
-    <div className="summary-detail ">
+    <div className={clsx("summary-detail", expand && "is-expanded")} ref={ref}>
       <div
         className={clsx("summary ")}
         onClick={() => setExpand(!expand)}

@@ -6,15 +6,18 @@ import { urlFor } from "../utils/sanity-utils";
 import { _localizeField } from "../utils/utils";
 import { PortableText } from "next-sanity";
 import portableTextComponents from "../utils/portableTextComponents";
+import SummaryDetailFramer from "./ui/SummaryDetailFramer";
 
 type Props = {
   input: Studio;
+  location: string;
 };
 
-const ContentStudio = ({ input }: Props) => {
-  const { imageHero, title, text } = input;
+const ContentStudio = ({ input, location }: Props) => {
+  const { imageHero, title, text, infos } = input;
+  // console.log(input);
   return (
-    <article>
+    <article className="content--studio">
       {imageHero && imageHero?.image && (
         <AOS>
           <Image
@@ -35,19 +38,49 @@ const ContentStudio = ({ input }: Props) => {
           />
         </AOS>
       )}
-      <AOS>
-        <div className="header">
-          <h4>{_localizeField(title)}</h4>
-        </div>
-      </AOS>
+      <div className="py-xl">
+        <div className="row center-xs">
+          <div className="col-md-10 col-xs-12">
+            <AOS>
+              <div className="header mb-xl">
+                <div className="location">{location}</div>
+                <h4 className="headline text-center">
+                  {_localizeField(title)}
+                </h4>
+              </div>
+            </AOS>
 
-      <div className="grid md:grid-cols-2 ">
-        <AOS>
-          <PortableText
-            value={_localizeField(text)}
-            components={portableTextComponents}
-          />
-        </AOS>
+            <div className="flex flex-wrap grid- md:grid-cols-2 gap-md- gap-y-xl ">
+              <div className="md:w-1/2">
+                <AOS>
+                  <PortableText
+                    value={_localizeField(text)}
+                    components={portableTextComponents}
+                  />
+                </AOS>
+              </div>
+              {infos?.map((item, i) => (
+                <div key={i} className="md:w-1/2">
+                  <AOS>
+                    <SummaryDetailFramer
+                      summary={
+                        <button className="btn--pill">
+                          {_localizeField(item.summary)}
+                        </button>
+                      }
+                      detail={
+                        <PortableText
+                          value={_localizeField(item.detail)}
+                          components={portableTextComponents}
+                        />
+                      }
+                    />
+                  </AOS>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   );

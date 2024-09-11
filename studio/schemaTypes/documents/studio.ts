@@ -38,6 +38,14 @@ export default defineType({
       type: 'string',
       title: 'Soustitre',
       group: 'editorial',
+      hidden: true,
+    }),
+    defineField({
+      name: 'location',
+      type: 'string',
+      title: 'Lieu',
+      description: 'Aubervilliers, Colombes, ...',
+      group: 'editorial',
     }),
 
     defineField({
@@ -66,12 +74,7 @@ export default defineType({
       title: 'Text',
       group: 'editorial',
     }),
-    defineField({
-      name: 'matos',
-      type: 'localeBlockContent',
-      title: 'Matétiel',
-      group: 'editorial',
-    }),
+
     defineField({
       name: 'infos',
       type: 'array',

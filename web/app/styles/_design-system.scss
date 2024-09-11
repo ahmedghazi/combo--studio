@@ -42,9 +42,6 @@
       }
       .overlay {
         opacity: 1;
-        .bg {
-          transform: translateY(0%);
-        }
       }
     }
     img {
@@ -57,7 +54,7 @@
       // display: flex;
       // align-items: center;
       // justify-content: center;
-      transition: opacity 0.2s;
+      // transition: opacity 0.2s;
       overflow: clip;
       .bg {
         // position: absolute;
@@ -65,7 +62,6 @@
         height: 100%;
         background-color: var(--color-green);
         mix-blend-mode: multiply;
-        transform: translateY(-100%);
       }
       button {
         z-index: 1;

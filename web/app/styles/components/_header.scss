@@ -2,8 +2,9 @@ header {
   position: fixed;
   width: 100%;
   top: 0;
-  padding: var(--space-xl);
+  padding: 12px var(--space-xl);
   z-index: 50;
+  background-color: black;
   transition: transform 0.2s var(--cubic), opacity 0.2s var(--cubic);
   &.is-down {
     transform: translateY(-100%);
@@ -11,8 +12,16 @@ header {
   }
 
   .logo {
-    width: 188px;
+    // width: 188px;
   }
+  nav {
+    margin: 0 155px;
+    font-family: var(--font-primary-mono);
+    ul {
+      gap: 70px;
+    }
+  }
+
   @media all and (max-width: $md) {
     padding: var(--space-md);
     .logo {

@@ -427,6 +427,13 @@ export interface Studio extends SanityDocument {
   subTitle?: string;
 
   /**
+   * Lieu — `string`
+   *
+   * Aubervilliers, Colombes, ...
+   */
+  location?: string;
+
+  /**
    * Image clef — `figure`
    *
    * Visible on liste pages, project cards (1400px)
@@ -453,13 +460,6 @@ export interface Studio extends SanityDocument {
    *
    */
   text?: LocaleBlockContent;
-
-  /**
-   * Matétiel — `localeBlockContent`
-   *
-   *
-   */
-  matos?: LocaleBlockContent;
 
   /**
    * infos — `array`
