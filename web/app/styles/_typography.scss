@@ -90,7 +90,8 @@ a[aria-current="page"] {
 
   &:hover,
   &.is-active,
-  &.is-current-page {
+  &.is-current-page,
+  &[aria-current="page"] {
     color: var(--color-accent);
   }
 }

@@ -9,6 +9,7 @@ const ModuleContactsUI = dynamic(() => import("./ContactsUI"), {
 import {
   CallOutUI,
   ContactsUI,
+  HeroSplitScrollUI,
   HeroUI,
   ImageUI,
   ListCardImageTextUI,
@@ -32,6 +33,7 @@ import ModuleMarqueeUI from "./MarqueeUI";
 import ModuleSliderUI from "./SliderUI";
 import ModuleCallOutUI from "./CallOutUI";
 import ModuleSplitImageTextUI from "./SplitImageTextUI";
+import ModuleHeroSplitScrollUI from "./HeroSplitScrollUI";
 
 type Props = {
   input: Array<
@@ -47,6 +49,7 @@ type Props = {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
+    | SanityKeyed<HeroSplitScrollUI>
   >;
 };
 
@@ -67,7 +70,8 @@ const Modules = ({ input }: Props) => {
           | SanityKeyed<MarqueeUI>
           | SanityKeyed<SplitImageTextUI>
           | SanityKeyed<SliderUI>
-          | SanityKeyed<CallOutUI>,
+          | SanityKeyed<CallOutUI>
+          | SanityKeyed<HeroSplitScrollUI>,
         i: number
       ) => {
         console.log(module._type);
@@ -98,6 +102,8 @@ const Modules = ({ input }: Props) => {
             return <ModuleSliderUI key={module._key} input={module} />;
           case "callOutUI":
             return <ModuleCallOutUI key={module._key} input={module} />;
+          case "heroSplitScrollUI":
+            return <ModuleHeroSplitScrollUI key={module._key} input={module} />;
           default:
             return null;
         }

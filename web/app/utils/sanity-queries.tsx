@@ -1,24 +1,9 @@
 import { groq } from "next-sanity";
 import { cachedClient, client } from "./sanity-client";
 import { Home, Infos, Landing, PageModulaire, Settings } from "../types/schema";
-import {
-  contactsUI,
-  heroUI,
-  modules,
-  // moduleImage,
-  // moduleText,
-  // moduleTextImage,
-  // productCard,
-  seo,
-  textUI,
-} from "./fragments";
-// import { PublisherExtend, TagExtend } from "../types/extend";
-import { cache } from "react";
+import { contactsUI, heroUI, modules, seo, textUI } from "./fragments";
 
-// const clientFetch = cache(client.fetch.bind(client));
-// export const cachedClient = cache(client.fetch.bind(client));
-
-/**
+/*****************************************************************************************************
  * SETTINGS
  */
 export async function getSettings(): Promise<Settings> {
@@ -57,7 +42,7 @@ export async function getSettings(): Promise<Settings> {
   );
 }
 
-/**
+/*****************************************************************************************************
  * Landing
  */
 
@@ -79,7 +64,24 @@ export async function getLanding(): Promise<Landing> {
   return cachedClient(landingQ, {});
 }
 
-/**
+/*****************************************************************************************************
+ * Home
+ */
+
+export const homeQ = groq`*[_type == "home"][0]{
+  ...,
+  seo{
+    ${seo}
+  },
+
+  modules[]{
+    ${modules}
+  }
+}`;
+export async function getHome(): Promise<Home> {
+  return cachedClient(homeQ, {});
+}
+/*****************************************************************************************************
  * PAGE MODULAIRE
  */
 export const pageModulaireQuery = groq`*[_type == "pageModulaire" && slug.current == $slug][0]{

@@ -13,15 +13,30 @@ export default defineField({
       description: 'Module title (displayed only in the admin)',
     }),
     defineField({
-      name: 'items',
+      name: 'titleLeft',
+      type: 'localeString',
+      description: '',
+    }),
+    defineField({
+      name: 'itemsLeft',
       type: 'array',
-      of: [{type: 'figure'}],
+      of: [{type: 'image'}],
+    }),
+    defineField({
+      name: 'titleRight',
+      type: 'localeString',
+      description: '',
+    }),
+    defineField({
+      name: 'itemsRight',
+      type: 'array',
+      of: [{type: 'image'}],
     }),
   ],
 
   preview: {
     select: {
-      image: 'items.0.image.image',
+      image: 'titleLeft.0',
       title: 'title',
     },
     prepare(selection) {

@@ -10,11 +10,10 @@ import SummaryDetailFramer from "./ui/SummaryDetailFramer";
 
 type Props = {
   input: Studio;
-  location: string;
 };
 
-const ContentStudio = ({ input, location }: Props) => {
-  const { imageHero, title, text, infos } = input;
+const ContentStudio = ({ input }: Props) => {
+  const { imageHero, title, location, text, infos } = input;
   // console.log(input);
   return (
     <article className="content--studio">
@@ -50,13 +49,15 @@ const ContentStudio = ({ input, location }: Props) => {
               </div>
             </AOS>
 
-            <div className="flex flex-wrap grid- md:grid-cols-2 gap-md- gap-y-xl ">
-              <div className="md:w-1/2">
+            <div className="flex flex-wrap items-end gap-y-xl ">
+              <div className="md:w-1/2 pr-lg">
                 <AOS>
-                  <PortableText
-                    value={_localizeField(text)}
-                    components={portableTextComponents}
-                  />
+                  <div className="text">
+                    <PortableText
+                      value={_localizeField(text)}
+                      components={portableTextComponents}
+                    />
+                  </div>
                 </AOS>
               </div>
               {infos?.map((item, i) => (
@@ -69,10 +70,12 @@ const ContentStudio = ({ input, location }: Props) => {
                         </button>
                       }
                       detail={
-                        <PortableText
-                          value={_localizeField(item.detail)}
-                          components={portableTextComponents}
-                        />
+                        <div className="text">
+                          <PortableText
+                            value={_localizeField(item.detail)}
+                            components={portableTextComponents}
+                          />
+                        </div>
                       }
                     />
                   </AOS>

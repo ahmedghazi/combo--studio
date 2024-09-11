@@ -1,5 +1,6 @@
 import {defineField} from 'sanity'
 import {FiAlignLeft} from 'react-icons/fi'
+import {baseLanguage} from '../../locale/supportedLanguages'
 
 export default defineField({
   name: 'textUI',
@@ -47,7 +48,7 @@ export default defineField({
   ],
   preview: {
     select: {
-      title: 'title',
+      title: `title.${baseLanguage}`,
     },
     prepare(selection) {
       const {title} = selection

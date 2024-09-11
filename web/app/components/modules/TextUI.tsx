@@ -28,46 +28,16 @@ const ModuleTextUI = ({ input }: Props) => {
     "--backgroundImage": backgroundImage?.asset.url,
     backgroundImage: `url(${backgroundImage?.asset.url})`,
   } as React.CSSProperties;
+  const hasImage = backgroundImage && backgroundImage?.asset.url !== "";
 
   return (
     <section className="module module--text-ui">
       <div className={clsx("inner", `is-${look}`)} style={style}>
-        {look === "default" && (
-          <div className="text mx-auto">
-            {text && (
-              <AOS>
-                <PortableText
-                  value={_localizeField(text)}
-                  components={portableTextComponents}
-                />
-              </AOS>
-            )}
-          </div>
-        )}
-        {look === "offset" && (
-          <div className="mx-auto">
-            <h2 className="title">
-              {_localizeField(title) || "localized title"}
-            </h2>
-            <div className="text ">
-              {text && (
-                <AOS>
-                  <PortableText
-                    value={_localizeField(text)}
-                    components={portableTextComponents}
-                  />
-                </AOS>
-              )}
-            </div>
-          </div>
-        )}
-        {look === "columns" && (
-          <div className="md:flex justify-center">
-            <div className="w-10/12">
-              <h2 className="title text-md md:text-xl font-secondary text-center">
-                {_localizeField(title) || "localized title"}
-              </h2>
-              <div className="text">
+        {hasImage && <div className="bg-blend"></div>}
+        <div className="row center-xs">
+          <div className="col-md-10">
+            {look === "default" && (
+              <div className="text mx-auto">
                 {text && (
                   <AOS>
                     <PortableText
@@ -77,9 +47,52 @@ const ModuleTextUI = ({ input }: Props) => {
                   </AOS>
                 )}
               </div>
-            </div>
+            )}
+            {look === "offset" && (
+              <div className="mx-auto">
+                <AOS>
+                  <h2 className="headline">
+                    {_localizeField(title) || "localized title"}
+                  </h2>
+                </AOS>
+
+                <div className="row">
+                  <div className="col-md-7 col-md-offset-3 ">
+                    <div className="text ">
+                      {text && (
+                        <AOS>
+                          <PortableText
+                            value={_localizeField(text)}
+                            components={portableTextComponents}
+                          />
+                        </AOS>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            {look === "columns" && (
+              <>
+                <AOS>
+                  <h2 className="headline">
+                    {_localizeField(title) || "localized title"}
+                  </h2>
+                </AOS>
+                <div className="text">
+                  {text && (
+                    <AOS>
+                      <PortableText
+                        value={_localizeField(text)}
+                        components={portableTextComponents}
+                      />
+                    </AOS>
+                  )}
+                </div>
+              </>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

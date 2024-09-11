@@ -1,13 +1,15 @@
 .btn--pill {
   border: var(--border);
-  padding: 0 1em;
+  padding: 0 toRem(60) 0.1em;
   border-radius: 2em;
   text-align: center;
+  display: inline-block;
   height: var(--space-50);
   line-height: calc(var(--space-50) * 0.9);
   text-transform: uppercase;
   transition: background-color 0.2s, color 0.2s;
   font-size: var(--text-lg);
+  font-family: var(--font-primary-mono);
   &:hover {
     background-color: white;
     color: black;
@@ -37,32 +39,19 @@
   }
   &--studio {
     &:hover {
-      img {
-        // filter: grayscale(100%);
-      }
       .overlay {
         opacity: 1;
       }
     }
-    img {
-      // transition: filter 0.2s;
+    button:hover {
+      background-color: white;
+      color: black;
     }
     .overlay {
       opacity: 0;
       position: absolute;
       inset: 0;
-      // display: flex;
-      // align-items: center;
-      // justify-content: center;
-      // transition: opacity 0.2s;
       overflow: clip;
-      .bg {
-        // position: absolute;
-        // inset: 0;
-        height: 100%;
-        background-color: var(--color-green);
-        mix-blend-mode: multiply;
-      }
       button {
         z-index: 1;
         @include center_it;
@@ -93,4 +82,11 @@
     .detail {
     }
   }
+}
+
+.bg-blend {
+  background-color: var(--color-green);
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: multiply;
 }

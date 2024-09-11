@@ -108,6 +108,19 @@ export const listLieuUI = `
 	}
 `;
 
+export const listLModulaireUI = `
+	_type == 'listLModulaireUI' => {
+		...,
+		items[] {
+			...,
+			backgroundImage{
+				...,
+				asset->
+			}
+		}
+	}
+`;
+
 export const callOutUI = `
 	_type == 'callOutUI' => {
 		...,
@@ -118,11 +131,52 @@ export const callOutUI = `
 	}
 `;
 
+export const splitImageTextUI = `
+	_type == 'splitImageTextUI' => {
+		...,
+		image{
+			...,
+			asset->
+		}
+	}
+`;
+
+export const heroSplitScrollUI = `
+	_type == 'heroSplitScrollUI' => {
+		...,
+		itemsLeft[]{
+			...,
+			asset->
+		},
+		itemsRight[]{
+			...,
+			asset->
+		}
+	}
+`;
+
+export const listCardImageTextUI = `
+	_type == 'listCardImageTextUI' => {
+		...,
+		items[] {
+			...,
+			image{
+				...,
+				asset->
+			}
+		}
+	}
+	`;
+
 export const modules = `
 	...,
 	${heroUI},
 	${textUI},
 	${contactsUI},
 	${listLieuUI},
-	${callOutUI}
+	${callOutUI},
+	${listLModulaireUI},
+	${splitImageTextUI},
+	${heroSplitScrollUI},
+	${listCardImageTextUI}
 `;

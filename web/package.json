@@ -16,6 +16,7 @@
     "@sanity/image-url": "^1.0.2",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.30",
+    "gsap": "^3.12.5",
     "next": "14.2.6",
     "next-sanity": "^9.4.7",
     "pubsub-js": "^1.9.4",

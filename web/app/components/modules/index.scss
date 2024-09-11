@@ -1,7 +1,10 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 .modules {
   section {
     width: 100%;
+    position: relative;
+    background-color: black;
     // margin-bottom: var(--space-xl);
     // &:last-child {
     //   margin-bottom: 0;
@@ -29,10 +32,22 @@
         @media all and (max-width: $md) {
           padding: var(--space-50) var(--space-md);
         }
+        h2,
+        .text {
+          text-align: left;
+        }
         &.is-columns {
+          h2 {
+            text-align: center;
+          }
           .text {
             column-count: 2;
             max-width: unset;
+          }
+        }
+        &.is-offset {
+          .headline {
+            max-width: 13em;
           }
         }
       }
@@ -110,6 +125,7 @@
     &.module--callout-ui {
       background-color: #000;
       color: #fff;
+      background-size: cover;
       .inner {
         padding: var(--space-50);
         @media all and (max-width: $md) {
@@ -122,6 +138,87 @@
           margin-bottom: var(--space-50);
           text-transform: uppercase;
         }
+      }
+    }
+    &.module--list-modulaire-ui {
+      &:nth-child(odd) .summary-detail {
+        & > .summary {
+          background-color: white;
+          color: black;
+          svg path {
+            fill: black;
+          }
+        }
+      }
+    }
+    &.module--split-image-text-ui {
+      &:nth-child(odd) .flex {
+        flex-direction: row-reverse;
+      }
+      .flex {
+      }
+      .bg {
+        background-color: var(--color-green);
+        position: absolute;
+        inset: 0;
+        mix-blend-mode: multiply;
+      }
+      .panel {
+        padding: var(--space-50);
+        min-height: calc(var(--vh) * 100 - var(--header-height));
+      }
+    }
+    &.module--hero-split-scroll-ui {
+      height: calc(var(--vh) * 100 - var(--header-height));
+      // margin-bottom: calc(var(--vh) * 100 - var(--header-height));
+      .scroller {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        // overflow: hidden;
+        height: calc(var(--vh) * 100 - var(--header-height));
+      }
+
+      .item {
+        position: absolute;
+        width: 100%;
+        height: calc(var(--vh) * 100 - var(--header-height));
+        will-change: transform;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        // aspect-ratio: 3 / 2;
+      }
+      svg {
+        @include center_it;
+      }
+
+      @media screen and (max-width: $md) {
+        .double-scroll {
+          .scroller {
+            height: 100vh;
+          }
+          .item {
+            height: 50vh;
+          }
+        }
+      }
+    }
+    &.module--list-card-image-text-ui {
+      .inner {
+        padding: var(--space-50);
+      }
+      .card {
+        .inner {
+          padding: 0;
+        }
+      }
+      h2 {
+        text-align: center;
       }
     }
   }

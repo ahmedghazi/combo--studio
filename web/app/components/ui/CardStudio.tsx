@@ -34,7 +34,7 @@ const CardStudio = ({ input, _onClick }: Props) => {
         <div className="image">
           {imageCover && <FigureUI asset={imageCover.image} />}
           <div className="overlay">
-            <div className="bg"></div>
+            <div className="bg-blend"></div>
             <button className="btn--pill">{_localizeText("reserver")}</button>
           </div>
         </div>

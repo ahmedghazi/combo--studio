@@ -7,7 +7,7 @@ import styled from "styled-components";
 const Container = styled.section`
   min-height: unset;
   .item {
-    padding: 0.5em 1em 0.3em;
+    padding: 0.4em 1em 0.5em;
     /* padding: 0 0.2em; */
     /* line-height: 1.2; */
     /* padding-top: 0.05em; */
@@ -31,7 +31,7 @@ const ModuleMarqueeUI = ({ input }: MarqueeProps): JSX.Element => {
     >
       <Marquee gradient={false} speed={100} play={true} className="">
         {new Array(20).fill(0).map((v, i) => (
-          <div key={i} className="item px-05e py-sm-">
+          <div key={i} className="item px-05e">
             {input.text}
           </div>
         ))}

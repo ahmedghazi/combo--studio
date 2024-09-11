@@ -85,6 +85,7 @@ export interface Home extends SanityDocument {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
+    | SanityKeyed<HeroSplitScrollUI>
   >;
 }
 
@@ -135,6 +136,7 @@ export interface Landing extends SanityDocument {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
+    | SanityKeyed<HeroSplitScrollUI>
   >;
 }
 
@@ -318,6 +320,7 @@ export interface PageModulaire extends SanityDocument {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
+    | SanityKeyed<HeroSplitScrollUI>
   >;
 }
 
@@ -387,6 +390,7 @@ export interface Lieu extends SanityDocument {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
+    | SanityKeyed<HeroSplitScrollUI>
   >;
 }
 
@@ -971,6 +975,7 @@ export type ListLModulaireUI = {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
+    | SanityKeyed<HeroSplitScrollUI>
   >;
 };
 
@@ -1078,6 +1083,58 @@ export type CallOutUI = {
    *
    */
   links?: Array<SanityKeyed<LinkExternal>>;
+};
+
+export type HeroSplitScrollUI = {
+  _type: "heroSplitScrollUI";
+  /**
+   * title — `string`
+   *
+   * Module title (displayed only in the admin)
+   */
+  title?: string;
+
+  /**
+   * titleLeft — `localeString`
+   *
+   *
+   */
+  titleLeft?: LocaleString;
+
+  /**
+   * itemsLeft — `array`
+   *
+   *
+   */
+  itemsLeft?: Array<
+    SanityKeyed<{
+      _type: "image";
+      asset: SanityReference<SanityImageAsset>;
+      crop?: SanityImageCrop;
+      hotspot?: SanityImageHotspot;
+    }>
+  >;
+
+  /**
+   * titleRight — `localeString`
+   *
+   *
+   */
+  titleRight?: LocaleString;
+
+  /**
+   * itemsRight — `array`
+   *
+   *
+   */
+  itemsRight?: Array<
+    SanityKeyed<{
+      _type: "image";
+      asset: SanityReference<SanityImageAsset>;
+      crop?: SanityImageCrop;
+      hotspot?: SanityImageHotspot;
+    }>
+  >;
 };
 
 export type Documents =
