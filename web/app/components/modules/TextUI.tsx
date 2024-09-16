@@ -31,9 +31,10 @@ const ModuleTextUI = ({ input }: Props) => {
   const hasImage = backgroundImage && backgroundImage?.asset.url !== "";
 
   return (
-    <section className="module module--text-ui">
+    <section className={clsx("module module--text-ui", `text-${look}`)}>
       <div className={clsx("inner", `is-${look}`)} style={style}>
         {hasImage && <div className="bg-blend"></div>}
+
         <div className="row center-xs">
           <div className="col-md-10">
             {look === "default" && (
@@ -76,19 +77,19 @@ const ModuleTextUI = ({ input }: Props) => {
               <>
                 <AOS>
                   <h2 className="headline">
-                    {_localizeField(title) || "localized title"}
+                    {_localizeField(title) || "edit localized title"}
                   </h2>
                 </AOS>
-                <div className="text">
-                  {text && (
+                {text && (
+                  <div className="text">
                     <AOS>
                       <PortableText
                         value={_localizeField(text)}
                         components={portableTextComponents}
                       />
                     </AOS>
-                  )}
-                </div>
+                  </div>
+                )}
               </>
             )}
           </div>
