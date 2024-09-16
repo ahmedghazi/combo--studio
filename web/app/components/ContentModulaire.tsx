@@ -2,6 +2,7 @@ import React from "react";
 import {
   CallOutUI,
   ContactsUI,
+  HeroSplitScrollUI,
   HeroUI,
   ImageUI,
   Landing,
@@ -34,6 +35,7 @@ type Props = {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
+    | SanityKeyed<HeroSplitScrollUI>
   >;
 };
 
