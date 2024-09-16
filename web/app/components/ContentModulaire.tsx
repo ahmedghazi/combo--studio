@@ -19,9 +19,6 @@ import Modules from "./modules";
 import { SanityKeyed } from "sanity-codegen";
 
 type Props = {
-  // modules?: Array<
-  //   SanityKeyed<TextUI> | SanityKeyed<HeroUI> | SanityKeyed<ContactsUI> | any
-  // >;
   modules: Array<
     | SanityKeyed<TextUI>
     | SanityKeyed<HeroUI>
