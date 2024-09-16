@@ -169,7 +169,7 @@
       }
     }
     &.module--hero-split-scroll-ui {
-      height: calc(var(--vh) * 100 - var(--header-height));
+      height: calc(var(--vh) * 200 - var(--header-height));
       // margin-bottom: calc(var(--vh) * 100 - var(--header-height));
       .scroller {
         position: fixed;
@@ -195,6 +195,8 @@
       }
       svg {
         @include center_it;
+        top: 50vh;
+        pointer-events: none;
       }
 
       @media screen and (max-width: $md) {

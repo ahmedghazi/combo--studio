@@ -10,10 +10,12 @@ header {
     transform: translateY(-100%);
     opacity: 0;
   }
-
-  .logo {
-    // width: 188px;
+  svg:hover {
+    path {
+      fill: var(--color-accent);
+    }
   }
+
   nav {
     margin: 0 155px;
     font-family: var(--font-primary-mono);

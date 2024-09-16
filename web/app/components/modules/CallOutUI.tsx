@@ -27,7 +27,7 @@ const ModuleCallOutUI = ({ input }: Props) => {
             {_localizeField(title)}
           </h2>
         </AOS>
-        <div className="items flex flex-col items-center gap-lg-">
+        <div className="items flex flex-col items-center gap-1e">
           {input.links?.map((item, i) => (
             <div className="item " key={i}>
               {item && (
