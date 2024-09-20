@@ -10,7 +10,10 @@ type Props = {
 
 const ModuleSplitImageTextUI = ({ input }: Props) => {
   return (
-    <section className="module module--split-image-text-ui">
+    <section
+      className="module module--split-image-text-ui"
+      id={input.slug?.current}
+    >
       <div
         className=""
         style={{

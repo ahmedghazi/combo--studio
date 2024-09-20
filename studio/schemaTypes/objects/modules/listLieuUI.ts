@@ -1,5 +1,6 @@
 import {RxViewGrid} from 'react-icons/rx'
 import {baseLanguage} from '../../locale/supportedLanguages'
+import {defineField} from 'sanity'
 
 export default {
   name: 'listLieuUI',
@@ -7,16 +8,32 @@ export default {
   type: 'object',
   icon: RxViewGrid,
   fields: [
-    {
+    defineField({
       name: 'title',
       type: 'localeString',
       title: 'Titre',
-    },
-    {
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description: 'Click sur generate',
+      // readOnly: true,
+      options: {
+        source: (doc, context) => {
+          console.log({doc})
+          console.log({context})
+          return context.parent ? context.parent.title.fr : 'title'
+        },
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'items',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'lieu'}]}],
-    },
+    }),
   ],
   preview: {
     select: {

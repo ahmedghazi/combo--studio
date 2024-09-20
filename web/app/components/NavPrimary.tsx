@@ -1,6 +1,12 @@
 "use client";
 import React from "react";
-import { MenuItem, SanityKeyed } from "../types/schema";
+import {
+  KeyVal,
+  LinkExternal,
+  LinkInternal,
+  MenuItem,
+  SanityKeyed,
+} from "../types/schema";
 import Link from "next/link";
 import { _linkResolver, _localizeField, _localizeText } from "../utils/utils";
 import { usePathname, useRouter } from "next/navigation";
@@ -23,22 +29,33 @@ const NavLink = ({ href, name }: NavLinkProps) => {
 };
 
 type Props = {
-  input: Array<SanityKeyed<MenuItem>>;
+  input: Array<SanityKeyed<LinkInternal> | SanityKeyed<LinkExternal>>;
 };
 const NavPrimary = ({ input }: Props) => {
-  console.log(input);
+  console.log(input[0]);
   return (
     <nav>
       <ul className="menu flex justify-center">
         {input.map((item, i) => (
           <li key={i}>
-            {/* <Link href={_linkResolver(item.link?.link)}>
-              {_localizeField(item.link?.label)}
-            </Link> */}
             <NavLink
-              href={_linkResolver(item.link?.link)}
-              name={_localizeField(item.link?.label)}
+              href={_linkResolver(item.link)}
+              name={_localizeField(item.label)}
             />
+            {item._type === "linkInternal" &&
+              item.link?._type === "pageModulaire" &&
+              item.link.subMenu &&
+              item.link.subMenu.length > 0 && (
+                <ul className="sub-menu">
+                  {item.link.subMenu.map((subItem: KeyVal, j) => (
+                    <li key={j}>
+                      <Link href={`${_linkResolver(item.link)}#${subItem.val}`}>
+                        {_localizeField(subItem.key)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
           </li>
         ))}
       </ul>

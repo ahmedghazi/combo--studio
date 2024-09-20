@@ -223,7 +223,7 @@ export interface Settings extends SanityDocument {
    *
    *
    */
-  navPrimary?: Array<SanityKeyed<MenuItem>>;
+  navPrimary?: Array<SanityKeyed<LinkInternal> | SanityKeyed<LinkExternal>>;
 
   /**
    * Naviguation Secondary — `array`
@@ -308,6 +308,13 @@ export interface PageModulaire extends SanityDocument {
    * URL basée sur le titre (sans espace ni caractère autre que a-z-0-9
    */
   slug?: { _type: "slug"; current: string };
+
+  /**
+   * Sous menu — `array`
+   *
+   * basé sur les slugs (ancre) des modules
+   */
+  subMenu?: Array<SanityKeyed<KeyVal>>;
 
   /**
    * Modules — `array`
@@ -955,6 +962,13 @@ export type ListLieuUI = {
   title?: LocaleString;
 
   /**
+   * Slug — `slug`
+   *
+   * Click sur generate
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
    * items — `array`
    *
    *
@@ -1102,6 +1116,13 @@ export type CallOutUI = {
    * Module title
    */
   title?: LocaleText;
+
+  /**
+   * Slug — `slug`
+   *
+   * Click sur generate
+   */
+  slug?: { _type: "slug"; current: string };
 
   /**
    * backgroundImage — `image`

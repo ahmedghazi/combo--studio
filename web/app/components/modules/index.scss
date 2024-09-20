@@ -9,6 +9,7 @@
     // &:last-child {
     //   margin-bottom: 0;
     // }
+    scroll-margin-top: var(--header-height);
     &.module--hero-ui {
       img {
         object-fit: cover;

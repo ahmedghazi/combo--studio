@@ -13,7 +13,22 @@ export default defineField({
       type: 'localeText',
       description: 'Module title',
     }),
-
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description: 'Click sur generate',
+      // readOnly: true,
+      options: {
+        source: (doc, context) => {
+          console.log({doc})
+          console.log({context})
+          return context.parent ? context.parent.title.fr : 'title'
+        },
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'backgroundImage',
       type: 'image',

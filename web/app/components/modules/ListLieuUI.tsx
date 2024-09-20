@@ -10,7 +10,7 @@ type Props = {
 
 const ModuleListLieuUI = ({ input }: Props) => {
   return (
-    <section className="module module--list-lieu-ui">
+    <section className="module module--list-lieu-ui" id={input.slug?.current}>
       {input.items?.map((item, i) => (
         <div className="lieu" key={i}>
           <SummaryDetailFramer

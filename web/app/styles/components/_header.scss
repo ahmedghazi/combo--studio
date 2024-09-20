@@ -22,6 +22,22 @@ header {
     ul {
       gap: 70px;
     }
+    li {
+      position: relative;
+      &:hover .sub-menu {
+        display: flex;
+      }
+    }
+    .sub-menu {
+      position: absolute;
+      padding: var(--space-md);
+      background-color: black;
+      left: calc(var(--space-md) * -1);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      display: none;
+    }
   }
 
   @media all and (max-width: $md) {

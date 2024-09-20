@@ -59,6 +59,18 @@ export default defineType({
       group: 'editorial',
     }),
     defineField({
+      name: 'subMenu',
+      title: 'Sous menu',
+      description: 'basé sur les slugs (ancre) des modules',
+      type: 'array',
+      of: [
+        {
+          type: 'keyVal',
+        },
+      ],
+      group: 'editorial',
+    }),
+    defineField({
       name: 'modules',
       title: 'Modules',
       description: 'Zone de contenu Modulaire (images, textes, embed)',

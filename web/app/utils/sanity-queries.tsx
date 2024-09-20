@@ -16,23 +16,15 @@ export async function getSettings(): Promise<Settings> {
       },
       navPrimary[]{
         ...,
-        _type == 'menuItem' => {
+        _type == 'linkInternal' => {
           ...,
-          link{
-            ...,
-            link->{
-              _type,
-              slug,
-              subMenu
-            }
+          link->{
+            // ...,
+            _type,
+            slug,
+            subMenu
           },
-          subMenu[]{
-            ...,
-             link->{
-              _type,
-              slug
-            }
-          }
+
         }
       },
       comboLogo{

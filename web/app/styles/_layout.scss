@@ -5,6 +5,10 @@ html {
   //   default;
   background-color: black;
 }
+html,
+body {
+  scroll-behavior: smooth;
+}
 body {
   // overflow-y: auto;
   // background-color: var(--color-bg);

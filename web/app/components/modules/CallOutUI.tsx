@@ -19,7 +19,11 @@ const ModuleCallOutUI = ({ input }: Props) => {
   } as React.CSSProperties;
   const hasImage = backgroundImage && backgroundImage.asset.url !== "";
   return (
-    <section className="module module--callout-ui" style={style}>
+    <section
+      className="module module--callout-ui"
+      style={style}
+      id={input.slug?.current}
+    >
       {hasImage && <div className="bg-blend"></div>}
       <div className="inner">
         <AOS>
