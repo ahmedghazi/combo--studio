@@ -68,6 +68,13 @@ export interface Home extends SanityDocument {
   title?: LocaleString;
 
   /**
+   * Sous menu — `array`
+   *
+   * basé sur les slugs (ancre) des modules
+   */
+  subMenu?: Array<SanityKeyed<KeyVal>>;
+
+  /**
    * Modules — `array`
    *
    * Zone de contenu Modulaire (images, textes, embed)
@@ -660,6 +667,23 @@ export type Embed = {
   url?: string;
 };
 
+export type KeyVal = {
+  _type: "keyVal";
+  /**
+   * Clef — `localeString`
+   *
+   *
+   */
+  key?: LocaleString;
+
+  /**
+   * Valeur — `string`
+   *
+   *
+   */
+  val?: string;
+};
+
 export type KeyValText = {
   _type: "keyValText";
   /**
@@ -907,6 +931,13 @@ export type ListCardImageTextUI = {
   title?: LocaleString;
 
   /**
+   * Slug — `slug`
+   *
+   * Click sur generate
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
    * items — `array`
    *
    *
@@ -1023,6 +1054,13 @@ export type SplitImageTextUI = {
    * Module title
    */
   title?: LocaleString;
+
+  /**
+   * Slug — `slug`
+   *
+   * Click sur generate
+   */
+  slug?: { _type: "slug"; current: string };
 
   /**
    * Text — `localeBlockContent`

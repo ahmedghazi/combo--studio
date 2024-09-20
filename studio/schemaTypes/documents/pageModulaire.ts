@@ -39,6 +39,7 @@ export default defineType({
       description: 'Le nom de la page',
       group: 'editorial',
     }),
+
     defineField({
       name: 'subTitle',
       type: 'localeString',

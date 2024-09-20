@@ -22,7 +22,8 @@ export async function getSettings(): Promise<Settings> {
             ...,
             link->{
               _type,
-              slug
+              slug,
+              subMenu
             }
           },
           subMenu[]{

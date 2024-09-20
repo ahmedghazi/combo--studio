@@ -34,7 +34,7 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
       infinitScroll(ref.current, itemsRight, "up");
     }
   }, []);
-  console.log(input);
+
   return (
     <section className="module module--hero-split-scroll-ui">
       <div className="scroller grid grid-rows-2 md:grid-cols-2" ref={ref}>
@@ -72,7 +72,7 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_29_246)">
+        <g clipPath="url(#clip0_29_246)">
           <path
             d="M130.294 75.9616H154.853C154.853 99.1178 141.096 113.63 115.93 113.63C88.2779 113.63 75.1468 91.7055 75.1468 56.8148C75.1468 21.924 88.2779 0 116.399 0C142.035 0 153.933 14.6682 153.933 39.5259H129.374C129.374 28.2607 126.595 18.834 116.086 18.834C102.485 18.834 99.2564 32.27 99.2564 56.8148C99.2564 81.3595 103.738 94.7956 116.869 94.7956C126.751 94.7956 130.313 87.6962 130.313 75.9616H130.294Z"
             fill="white"

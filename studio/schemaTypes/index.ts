@@ -19,6 +19,7 @@ import menuItem from './objects/menuItem'
 // import tagGroup from './objects/tagGroup'
 import seo from './objects/seo'
 import embed from './objects/embed'
+import keyVal from './objects/keyVal'
 import keyValGroup from './objects/keyValGroup'
 import keyValText from './objects/keyValText'
 import keyValSimple from './objects/keyValSimple'
@@ -62,6 +63,7 @@ export const schemaTypes = [
   menuItem,
   seo,
   embed,
+  keyVal,
   keyValText,
   keyValSimple,
   keyValGroup,

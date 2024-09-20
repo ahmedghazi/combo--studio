@@ -77,13 +77,13 @@ export default defineType({
       title: 'Naviguation Primary',
       type: 'array',
       of: [
-        // {
-        //   type: 'linkInternal',
-        // },
-        // {
-        //   type: 'linkExternal',
-        // },
-        {type: 'menuItem'},
+        {
+          type: 'linkInternal',
+        },
+        {
+          type: 'linkExternal',
+        },
+        // {type: 'menuItem'},
       ],
       group: 'header',
     }),

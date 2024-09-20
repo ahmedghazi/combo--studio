@@ -1,6 +1,8 @@
 import { PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "./sanity-utils";
 import Image from "next/image";
+import Link from "next/link";
+import { _linkResolver } from "./utils";
 
 const portableTextComponents: PortableTextComponents = {
   // block(props) {
@@ -19,7 +21,7 @@ const portableTextComponents: PortableTextComponents = {
   block: {
     h2: ({ children }) => <h2>{children}</h2>,
     "text-lg": ({ children }) => (
-      <p className='text-md md:text-xl'>{children}</p>
+      <p className="text-md md:text-xl">{children}</p>
     ),
     // align_center: ({ children }) => <p className="text-center">{children}</p>,
   },
@@ -32,7 +34,7 @@ const portableTextComponents: PortableTextComponents = {
       return (
         <Image
           src={urlFor(value.icon.asset, 60)}
-          alt='icon'
+          alt="icon"
           width={60}
           height={60}
         />
@@ -51,25 +53,36 @@ const portableTextComponents: PortableTextComponents = {
         </a>
       );
     },
+    linkInternal: ({ children, value }) => {
+      return <Link href={_linkResolver(value.reference)}>{children}</Link>;
+    },
+    linkInternalCta: ({ children, value }) => {
+      return (
+        <Link href={_linkResolver(value.reference)} className="btn--pill">
+          {children} cta à mettre en forme
+        </Link>
+      );
+    },
     linkExternal: ({ children, value }) => {
       return (
         <a
           href={value.href}
           rel={"noreferrer noopener"}
-          target='_blank'
-          className={value.cta && "btn--pill"}>
+          target="_blank"
+          className={value.cta && "btn--pill"}
+        >
           {children}
         </a>
       );
     },
     align_left: ({ children, value }) => (
-      <span className='text-left block'>{children}</span>
+      <span className="text-left block">{children}</span>
     ),
     align_center: ({ children, value }) => (
-      <span className='text-center block'>{children}</span>
+      <span className="text-center block">{children}</span>
     ),
     align_right: ({ children, value }) => (
-      <span className='text-right block'>{children}</span>
+      <span className="text-right block">{children}</span>
     ),
   },
 };

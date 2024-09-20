@@ -13,6 +13,7 @@ export default defineField({
       type: 'localeText',
       description: 'Module title',
     }),
+
     defineField({
       name: 'backgroundImage',
       type: 'image',

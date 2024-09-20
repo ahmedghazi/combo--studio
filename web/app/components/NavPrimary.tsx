@@ -26,6 +26,7 @@ type Props = {
   input: Array<SanityKeyed<MenuItem>>;
 };
 const NavPrimary = ({ input }: Props) => {
+  console.log(input);
   return (
     <nav>
       <ul className="menu flex justify-center">
