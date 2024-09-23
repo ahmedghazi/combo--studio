@@ -23,8 +23,7 @@ const Wrapper = styled.div<WrapperProps>`
   .dot {
     width: ${(props) => props.size}px;
     height: ${(props) => props.size}px;
-    border-radius: 3px;
-    /* border-radius: 100%; */
+    border-radius: 2px;
     background: ${(props) => props.color};
     transition: background-color 150ms ease, transform 150ms ease-out;
   }
