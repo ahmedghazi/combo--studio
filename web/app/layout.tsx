@@ -27,20 +27,19 @@ export default async function RootLayout({
   const settings = await getSettings();
 
   return (
-    <html lang="en">
+    <html lang="fr">
       <body className={""}>
         {/* <PageTransition> */}
-        <div id="page">
-          <LocaleContextProvider>
-            <PageContextProvider>
+        <LocaleContextProvider>
+          <PageContextProvider>
+            <div id="page">
               <Header settings={settings} />
               <main>{children}</main>
               <Footer settings={settings} />
-              {/* <Splash /> */}
               <Cursor color="#fff" size={10} />
-            </PageContextProvider>
-          </LocaleContextProvider>
-        </div>
+            </div>
+          </PageContextProvider>
+        </LocaleContextProvider>
         {/* </PageTransition> */}
       </body>
     </html>

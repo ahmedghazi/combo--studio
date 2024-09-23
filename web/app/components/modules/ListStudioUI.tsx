@@ -110,7 +110,7 @@ const ModuleListStudioUI = ({ input }: Props) => {
         {detail && (
           <div className="inner">
             <button className="btn--close" onClick={_handleClose}>
-              close
+              fermer
             </button>
             <ContentStudio input={detail} />
           </div>

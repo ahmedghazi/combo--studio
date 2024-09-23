@@ -53,7 +53,6 @@ const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
       data-template="page-modulaire"
     >
       {data.modules && <ContentModulaire modules={data.modules} />}
-      {/* <pre>{JSON.stringify(data.modules, null, 2)}</pre> */}
     </div>
   );
 };

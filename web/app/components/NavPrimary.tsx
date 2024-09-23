@@ -32,7 +32,6 @@ type Props = {
   input: Array<SanityKeyed<LinkInternal> | SanityKeyed<LinkExternal>>;
 };
 const NavPrimary = ({ input }: Props) => {
-  console.log(input[0]);
   return (
     <nav>
       <ul className="menu flex justify-center">

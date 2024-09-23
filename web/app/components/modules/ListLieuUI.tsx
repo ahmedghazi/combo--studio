@@ -3,6 +3,7 @@ import React from "react";
 import SummaryDetailFramer from "../ui/SummaryDetailFramer";
 import { _localizeField } from "@/app/utils/utils";
 import ContentModulaire from "../ContentModulaire";
+import AOS from "../ui/AOS";
 
 type Props = {
   input: ListLieuUI;
@@ -14,7 +15,11 @@ const ModuleListLieuUI = ({ input }: Props) => {
       {input.items?.map((item, i) => (
         <div className="lieu" key={i}>
           <SummaryDetailFramer
-            summary={<h2 className="text-xl">{_localizeField(item.title)}</h2>}
+            summary={
+              <h2 className="text-xl">
+                <AOS>{_localizeField(item.title)}</AOS>
+              </h2>
+            }
             detail={
               <>{item.modules && <ContentModulaire modules={item.modules} />}</>
             }

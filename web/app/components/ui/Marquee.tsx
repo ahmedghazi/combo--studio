@@ -1,14 +1,7 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import RFMarquee from "react-fast-marquee";
-import styled from "styled-components";
-
-const Container = styled.section`
-  min-height: unset;
-  .item {
-    padding: 0.4em 1em 0.5em;
-  }
-`;
+import { publish } from "pubsub-js";
 
 type Props = {
   text: string;
@@ -18,8 +11,8 @@ type Props = {
 
 const Marquee = ({ text, backgroundColor, foregroundColor }: Props) => {
   return (
-    <Container
-      className="module-marquee  "
+    <div
+      className="marquee"
       style={{
         background: backgroundColor,
         color: foregroundColor,
@@ -27,12 +20,12 @@ const Marquee = ({ text, backgroundColor, foregroundColor }: Props) => {
     >
       <RFMarquee gradient={false} speed={100} play={true} className="">
         {new Array(20).fill(0).map((v, i) => (
-          <div key={i} className="item px-05e">
+          <div key={i} className="item">
             {text}
           </div>
         ))}
       </RFMarquee>
-    </Container>
+    </div>
   );
 };
 

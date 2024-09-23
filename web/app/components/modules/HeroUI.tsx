@@ -11,26 +11,26 @@ type Props = {
 const ModuleHeroUI = ({ input }: Props) => {
   const { image } = input;
   return (
-    <section className='module module--hero-ui'>
+    <section className="module module--hero-ui">
       {image && image.image && (
-        <AOS>
-          <Image
-            src={urlFor(image.image?.asset, 2000)}
-            width={image.image.asset?.metadata?.dimensions.width || 2000}
-            height={image.image.asset?.metadata?.dimensions.height || 2000}
-            alt={image.caption || ""}
-            sizes='100vw'
-            style={{
-              width: "100%",
-              height: "100vh",
-              aspectRatio: `${image.image.asset?.metadata?.dimensions.width} / ${image.image.asset?.metadata?.dimensions.height}`,
-              // objectFit: "cover",
-            }}
-            blurDataURL={image.image.asset?.metadata?.lqip}
-            // placeholder='blur'
-            // placeholder={logo.asset?.metadata?.lqip}
-          />
-        </AOS>
+        // <AOS>
+        <Image
+          src={urlFor(image.image?.asset, 2000)}
+          width={image.image.asset?.metadata?.dimensions.width || 2000}
+          height={image.image.asset?.metadata?.dimensions.height || 2000}
+          alt={image.caption || ""}
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "100vh",
+            aspectRatio: `${image.image.asset?.metadata?.dimensions.width} / ${image.image.asset?.metadata?.dimensions.height}`,
+            // objectFit: "cover",
+          }}
+          blurDataURL={image.image.asset?.metadata?.lqip}
+          // placeholder='blur'
+          // placeholder={logo.asset?.metadata?.lqip}
+        />
+        // </AOS>
       )}
     </section>
   );

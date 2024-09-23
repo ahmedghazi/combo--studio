@@ -7,6 +7,7 @@ import React, {
   useState,
 } from "react";
 import { usePathname } from "next/navigation";
+import { subscribe, unsubscribe } from "pubsub-js";
 // import { getSettings } from "../utils/sanity-queries";
 
 const PageContext = createContext({});
