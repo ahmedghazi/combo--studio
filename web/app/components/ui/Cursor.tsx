@@ -18,7 +18,7 @@ const Wrapper = styled.div<WrapperProps>`
   opacity: 0;
   pointer-events: none;
   will-change: transform;
-  /* mix-blend-mode: difference; */
+  mix-blend-mode: difference;
   transition: transform 150ms ease-out;
   .dot {
     width: ${(props) => props.size}px;
