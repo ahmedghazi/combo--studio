@@ -73,6 +73,12 @@ export default defineType({
       group: 'header',
     }),
     defineField({
+      name: 'marqueeTopNav',
+      type: 'string',
+      title: 'Message défilant top header',
+      group: 'header',
+    }),
+    defineField({
       name: 'navPrimary',
       title: 'Naviguation Primary',
       type: 'array',

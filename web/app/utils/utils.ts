@@ -6,7 +6,7 @@ import { Home, Infos, PageModulaire, Lieu } from "../types/schema";
 export const _linkResolver = (node: Infos | PageModulaire | Home | any) => {
   // console.log(node);
   if (!node || !node._type || node._type === "home") return "/";
-  console.log(node._type);
+  // console.log(node._type);
   if (node._type === "home") return "/";
   switch (node._type) {
     case "lieu":

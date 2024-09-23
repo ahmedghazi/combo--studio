@@ -3,6 +3,7 @@ import portableTextComponents from "@/app/utils/portableTextComponents";
 import { _localizeField } from "@/app/utils/utils";
 import { PortableText } from "next-sanity";
 import React from "react";
+import AOS from "../ui/AOS";
 
 type Props = {
   input: SplitImageTextUI;
@@ -25,13 +26,17 @@ const ModuleSplitImageTextUI = ({ input }: Props) => {
           <div className="w-1/2 ">
             <div className="bg"></div>
             <div className="panel">
-              <h2 className="headline">{_localizeField(input.title)}</h2>
-              <div className="text">
-                <PortableText
-                  value={_localizeField(input.text)}
-                  components={portableTextComponents}
-                />
-              </div>
+              <AOS>
+                <h2 className="headline">{_localizeField(input.title)}</h2>
+              </AOS>
+              <AOS delay={0.2}>
+                <div className="text">
+                  <PortableText
+                    value={_localizeField(input.text)}
+                    components={portableTextComponents}
+                  />
+                </div>
+              </AOS>
             </div>
           </div>
           <div className="w-1/2"></div>

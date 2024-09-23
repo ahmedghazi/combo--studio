@@ -219,6 +219,13 @@ export interface Settings extends SanityDocument {
   };
 
   /**
+   * Message défilant top header — `string`
+   *
+   *
+   */
+  marqueeTopNav?: string;
+
+  /**
    * Naviguation Primary — `array`
    *
    *
