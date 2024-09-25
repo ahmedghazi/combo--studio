@@ -13,16 +13,20 @@ type Props = {
 const Header = ({ settings }: Props) => {
   // const logo = settings.comboStudioLogo;
 
-  const { scrollDirection } = useScroll();
+  const { scrollDirection, scrollY } = useScroll();
 
   return (
-    <header className={`is-${scrollDirection}`}>
+    <header
+      className={`is-${scrollY > 10 && scrollDirection ? scrollDirection : ""}`}
+    >
       {settings.marqueeTopNav && (
-        <Marquee
-          text={settings.marqueeTopNav}
-          foregroundColor="#000"
-          backgroundColor="#FEC81E"
-        />
+        <div className="text-sm">
+          <Marquee
+            text={settings.marqueeTopNav}
+            foregroundColor="#000"
+            backgroundColor="#FEC81E"
+          />
+        </div>
       )}
       <div className="inner">
         <div className="flex justify-between items-center">

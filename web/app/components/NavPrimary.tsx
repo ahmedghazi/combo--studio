@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { _linkResolver, _localizeField, _localizeText } from "../utils/utils";
 import { usePathname, useRouter } from "next/navigation";
+import LinkTransition from "./ui/LinkTransition";
 
 type NavLinkProps = {
   href: string;
@@ -22,9 +23,9 @@ const NavLink = ({ href, name }: NavLinkProps) => {
   const ariaCurrent = href === pathname ? "page" : undefined;
 
   return (
-    <Link href={href} aria-current={ariaCurrent}>
+    <LinkTransition href={href} aria-current={ariaCurrent}>
       {name}
-    </Link>
+    </LinkTransition>
   );
 };
 

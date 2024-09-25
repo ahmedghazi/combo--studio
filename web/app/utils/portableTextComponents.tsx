@@ -59,7 +59,7 @@ const portableTextComponents: PortableTextComponents = {
     linkInternalCta: ({ children, value }) => {
       return (
         <Link href={_linkResolver(value.reference)} className="btn--pill">
-          {children} cta à mettre en forme
+          {children}
         </Link>
       );
     },
