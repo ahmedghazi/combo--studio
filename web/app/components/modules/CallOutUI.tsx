@@ -14,8 +14,9 @@ const ModuleCallOutUI = ({ input }: Props) => {
     backgroundImage,
   } = input;
   const style = {
-    "--backgroundImage": backgroundImage?.asset.url,
+    // "--backgroundImage": backgroundImage?.asset.url,
     backgroundImage: `url(${backgroundImage?.asset.url})`,
+    backgroundPosition: "center",
   } as React.CSSProperties;
   const hasImage = backgroundImage && backgroundImage.asset.url !== "";
   return (
