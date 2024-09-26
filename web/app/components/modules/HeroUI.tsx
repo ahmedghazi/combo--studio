@@ -22,7 +22,7 @@ const ModuleHeroUI = ({ input }: Props) => {
           sizes="100vw"
           style={{
             width: "100%",
-            height: "100vh",
+            height: "100%",
             aspectRatio: `${image.image.asset?.metadata?.dimensions.width} / ${image.image.asset?.metadata?.dimensions.height}`,
             // objectFit: "cover",
           }}

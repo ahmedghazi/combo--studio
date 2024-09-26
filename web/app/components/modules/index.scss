@@ -11,10 +11,11 @@
     // }
     scroll-margin-top: var(--header-height);
     &.module--hero-ui {
-      min-height: calc(var(--vh) * 100);
+      height: calc(var(--vh) * 100 - var(--header-height));
       img {
         object-fit: cover;
         object-position: center center;
+        // height: 100% !important;
         @media all and (max-width: $md) {
           object-fit: contain;
           height: auto !important;
