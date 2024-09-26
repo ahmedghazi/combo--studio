@@ -20,7 +20,7 @@ const Header = ({ settings }: Props) => {
       className={`is-${scrollY > 10 && scrollDirection ? scrollDirection : ""}`}
     >
       {settings.marqueeTopNav && (
-        <div className="text-sm">
+        <div className="marquee-wrapper text-sm">
           <Marquee
             text={settings.marqueeTopNav}
             foregroundColor="#000"

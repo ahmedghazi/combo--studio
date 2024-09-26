@@ -1,4 +1,4 @@
-import gsap from "gsap";
+import { gsap, Power4 } from "gsap";
 
 export function infinitScroll(
   wrapper: HTMLDivElement,
@@ -7,10 +7,6 @@ export function infinitScroll(
   onScroll: Function,
   rootMargin: boolean
 ) {
-  // console.log({ direction });
-  // wrapper = document.querySelector(".scroller");
-  // console.log(wrapper);
-  // console.log(items);
   var imagesBoundingRect: any = null,
     deltaTotal = 0,
     wrapY: any,
@@ -18,20 +14,40 @@ export function infinitScroll(
     rootMarginSize: number = 0;
 
   if (!wrapper) return;
-  // articlesElement = Array.from(wrapper.querySelectorAll("article"));
-  // articlesElement = wrapper.querySelectorAll("article");
 
   window.addEventListener("resize", _onResize);
   wrapper.addEventListener("wheel", _onWheel);
   _onResize();
 
   requestAnimationFrame(_update);
+  _animeIntro();
 
+  function _animeIntro() {
+    if (rootMargin) {
+      const header = document.querySelector("header");
+      if (header) {
+        const bounding = header.getBoundingClientRect();
+        rootMarginSize = bounding.height;
+      }
+    }
+
+    var obj = { lerpCache: 0 };
+    const nextVal = window.innerHeight * 1 - rootMarginSize;
+    gsap.to(obj, 1, {
+      lerpCache: nextVal,
+      duration: 4,
+      delay: 1,
+      ease: Power4.easeInOut,
+      onUpdate: (o) => {
+        lerpCache = obj.lerpCache;
+      },
+    });
+  }
   function _onResize() {
     imagesBoundingRect = items.map(function (article) {
       return article.getBoundingClientRect();
     });
-    // console.log(imagesBoundingRect);
+
     //set range
     //start pos => minus first height
     if (window.innerWidth < 1080) {
@@ -59,11 +75,13 @@ export function infinitScroll(
     }
 
     wrapY = gsap.utils.wrap(first, last);
-    // console.log(wrapY);
-    const header = document.querySelector("header");
-    if (header) {
-      const bounding = header.getBoundingClientRect();
-      rootMarginSize = bounding.height;
+
+    if (rootMargin) {
+      const header = document.querySelector("header");
+      if (header) {
+        const bounding = header.getBoundingClientRect();
+        rootMarginSize = bounding.height;
+      }
     }
   }
 
@@ -89,7 +107,7 @@ export function infinitScroll(
         let nextY: number = wrapY(
           lerpCacheByDirection + index * imagesBoundingRect[index].height
         );
-        nextY += rootMarginSize;
+        if (rootMargin) nextY += rootMarginSize;
         el.style.transform = "translate3d(0," + nextY + "px, 0)";
         if (typeof onScroll === "function") onScroll(nextY);
       }

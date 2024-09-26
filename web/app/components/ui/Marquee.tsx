@@ -1,7 +1,6 @@
 "use client";
-import React, { useEffect } from "react";
-import RFMarquee from "react-fast-marquee";
-import { publish } from "pubsub-js";
+import React from "react";
+import ReactFastMarquee from "react-fast-marquee";
 
 type Props = {
   text: string;
@@ -18,13 +17,13 @@ const Marquee = ({ text, backgroundColor, foregroundColor }: Props) => {
         color: foregroundColor,
       }}
     >
-      <RFMarquee gradient={false} speed={100} play={true} className="">
+      <ReactFastMarquee gradient={false} speed={100} play={true} className="">
         {new Array(20).fill(0).map((v, i) => (
           <div key={i} className="item">
             {text}
           </div>
         ))}
-      </RFMarquee>
+      </ReactFastMarquee>
     </div>
   );
 };
