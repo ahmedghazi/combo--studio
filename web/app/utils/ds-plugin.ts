@@ -4,7 +4,8 @@ export function infinitScroll(
   wrapper: HTMLDivElement,
   items: HTMLElement[],
   direction: string,
-  onScroll: Function
+  onScroll: Function,
+  rootMargin: boolean
 ) {
   // console.log({ direction });
   // wrapper = document.querySelector(".scroller");
@@ -13,7 +14,8 @@ export function infinitScroll(
   var imagesBoundingRect: any = null,
     deltaTotal = 0,
     wrapY: any,
-    lerpCache = 0;
+    lerpCache = 0,
+    rootMarginSize: number = 0;
 
   if (!wrapper) return;
   // articlesElement = Array.from(wrapper.querySelectorAll("article"));
@@ -58,6 +60,11 @@ export function infinitScroll(
 
     wrapY = gsap.utils.wrap(first, last);
     // console.log(wrapY);
+    const header = document.querySelector("header");
+    if (header) {
+      const bounding = header.getBoundingClientRect();
+      rootMarginSize = bounding.height;
+    }
   }
 
   function _onWheel(e: WheelEvent | any) {
@@ -71,15 +78,18 @@ export function infinitScroll(
         direction === "up" ? lerpCache * -1 : lerpCache;
 
       if (window.innerWidth < 1080) {
+        // MOBILE
         const nextY: number = wrapY(
           lerpCacheByDirection + index * imagesBoundingRect[index].width
         );
         el.style.transform = "translate3d(" + nextY + "px,0, 0)";
         if (typeof onScroll === "function") onScroll(nextY);
       } else {
-        const nextY: number = wrapY(
+        // DESKTOP
+        let nextY: number = wrapY(
           lerpCacheByDirection + index * imagesBoundingRect[index].height
         );
+        nextY += rootMarginSize;
         el.style.transform = "translate3d(0," + nextY + "px, 0)";
         if (typeof onScroll === "function") onScroll(nextY);
       }
