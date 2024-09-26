@@ -53,7 +53,7 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
   };
 
   useEffect(() => {
-    console.log(loadCount);
+    // console.log(loadCount);
     setReady(loadCount === totalImages);
   }, [loadCount]);
 
