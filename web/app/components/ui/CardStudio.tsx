@@ -9,7 +9,7 @@ type Props = {
 };
 
 const CardStudio = ({ input, _onClick }: Props) => {
-  const { imageCover, title, excerpt } = input;
+  const { imageCover, title, excerpt, location } = input;
   const onClick = (event: MouseEvent<HTMLElement>) => {
     /**
      * RESET all others
@@ -38,7 +38,10 @@ const CardStudio = ({ input, _onClick }: Props) => {
             <button className="btn--pill">{_localizeText("reserver")}</button>
           </div>
         </div>
-        {title && <h3>{_localizeField(title)}</h3>}
+        <div className="header flex justify-between items-baseline">
+          {title && <h3>{_localizeField(title)}</h3>}
+          {location && <span>{location}</span>}
+        </div>
         {excerpt && <p className="excerpt">{_localizeField(excerpt)}</p>}
       </div>
     </article>
