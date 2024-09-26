@@ -173,6 +173,7 @@ export const modules = `
 	${heroUI},
 	${textUI},
 	${contactsUI},
+	${listStudioUI},
 	${listLieuUI},
 	${callOutUI},
 	${listLModulaireUI},

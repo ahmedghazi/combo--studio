@@ -19,12 +19,28 @@ export async function getSettings(): Promise<Settings> {
         _type == 'linkInternal' => {
           ...,
           link->{
-            // ...,
             _type,
             slug,
             subMenu
           },
-
+        },
+        _type == 'menuItem' => {
+          ...,
+          link{
+            ...,
+            link->{
+              _type,
+              slug,
+              subMenu
+            }
+          },
+          subMenu[]{
+            ...,
+            link->{
+              _type,
+              slug
+            }
+          }
         }
       },
       comboLogo{

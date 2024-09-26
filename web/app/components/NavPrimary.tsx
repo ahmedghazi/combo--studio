@@ -30,9 +30,14 @@ const NavLink = ({ href, name }: NavLinkProps) => {
 };
 
 type Props = {
-  input: Array<SanityKeyed<LinkInternal> | SanityKeyed<LinkExternal>>;
+  input: Array<
+    | SanityKeyed<LinkInternal>
+    | SanityKeyed<LinkExternal>
+    | SanityKeyed<MenuItem>
+  >;
 };
 const NavPrimary = ({ input }: Props) => {
+  // console.log(input);
   return (
     <nav>
       <ul className="menu flex justify-center">
@@ -40,7 +45,11 @@ const NavPrimary = ({ input }: Props) => {
           <li key={i}>
             <NavLink
               href={_linkResolver(item.link)}
-              name={_localizeField(item.label)}
+              name={
+                item._type === "menuItem"
+                  ? _localizeField(item.link?.label)
+                  : _localizeField(item.label)
+              }
             />
             {item._type === "linkInternal" &&
               item.link?._type === "pageModulaire" &&
@@ -51,6 +60,19 @@ const NavPrimary = ({ input }: Props) => {
                     <li key={j}>
                       <Link href={`${_linkResolver(item.link)}#${subItem.val}`}>
                         {_localizeField(subItem.key)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            {item._type === "menuItem" &&
+              item.subMenu &&
+              item.subMenu.length > 0 && (
+                <ul className="sub-menu">
+                  {item.subMenu.map((subItem, j) => (
+                    <li key={j}>
+                      <Link href={_linkResolver(subItem.link)}>
+                        {_localizeField(subItem.label)}
                       </Link>
                     </li>
                   ))}

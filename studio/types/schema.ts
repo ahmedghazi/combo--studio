@@ -221,7 +221,11 @@ export interface Settings extends SanityDocument {
    *
    *
    */
-  navPrimary?: Array<SanityKeyed<LinkInternal> | SanityKeyed<LinkExternal>>;
+  navPrimary?: Array<
+    | SanityKeyed<LinkInternal>
+    | SanityKeyed<LinkExternal>
+    | SanityKeyed<MenuItem>
+  >;
 
   /**
    * Naviguation Secondary — `array`

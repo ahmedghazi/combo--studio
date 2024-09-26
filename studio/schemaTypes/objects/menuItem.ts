@@ -3,7 +3,7 @@ import {defineField} from 'sanity'
 import {baseLanguage} from '../locale/supportedLanguages'
 
 export default defineField({
-  title: 'Menu Item',
+  title: 'Menu Item (avec sous menu)',
   name: 'menuItem',
   type: 'object',
   preview: {
