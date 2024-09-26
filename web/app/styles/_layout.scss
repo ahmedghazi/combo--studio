@@ -12,7 +12,7 @@ body {
 body {
   // overflow-y: auto;
   // background-color: var(--color-bg);
-  // @include debugFiletX(50%);
+  @include debugFiletY(50%);
 
   // @include debugOutline(var(--space-md));
 }

@@ -3,7 +3,8 @@ import gsap from "gsap";
 export function infinitScroll(
   wrapper: HTMLDivElement,
   items: HTMLElement[],
-  direction: string
+  direction: string,
+  onScroll: Function
 ) {
   // console.log({ direction });
   // wrapper = document.querySelector(".scroller");
@@ -70,15 +71,17 @@ export function infinitScroll(
         direction === "up" ? lerpCache * -1 : lerpCache;
 
       if (window.innerWidth < 1080) {
-        const nextY = wrapY(
+        const nextY: number = wrapY(
           lerpCacheByDirection + index * imagesBoundingRect[index].width
         );
         el.style.transform = "translate3d(" + nextY + "px,0, 0)";
+        if (typeof onScroll === "function") onScroll(nextY);
       } else {
-        const nextY = wrapY(
+        const nextY: number = wrapY(
           lerpCacheByDirection + index * imagesBoundingRect[index].height
         );
         el.style.transform = "translate3d(0," + nextY + "px, 0)";
+        if (typeof onScroll === "function") onScroll(nextY);
       }
       el.style.opacity = "1";
     });

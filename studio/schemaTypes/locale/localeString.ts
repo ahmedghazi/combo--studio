@@ -8,7 +8,7 @@ export default {
     {
       title: 'Traduction',
       name: 'translations',
-      options: {collapsible: true, collapsed: true},
+      options: {collapsible: false, collapsed: true},
     },
   ],
   fields: supportedLanguages.map((lang) => ({
