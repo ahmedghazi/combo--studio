@@ -10,6 +10,7 @@ type Props = {
 };
 
 const ModuleSplitImageTextUI = ({ input }: Props) => {
+  // console.log(input.title);
   return (
     <section
       className="module module--split-image-text-ui"

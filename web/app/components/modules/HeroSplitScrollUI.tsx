@@ -57,6 +57,9 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
     setReady(loadCount === totalImages);
   }, [loadCount]);
 
+  const _titleLeftLocalized = _localizeField(titleLeft);
+  const _titleRightLocalized = _localizeField(titleRight);
+
   return (
     <section className="module module--hero-split-scroll-ui">
       <div className="scroller grid grid-rows-2 md:grid-cols-2" ref={ref}>
@@ -78,7 +81,7 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
             ))}
           <div className="title headline">
             {ready ? (
-              <span>{_localizeField(titleLeft)} </span>
+              <span>{_titleLeftLocalized} </span>
             ) : (
               <span>{loadCount}</span>
             )}
@@ -101,7 +104,7 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
             ))}
           <div className="title headline">
             {ready ? (
-              <span>{_localizeField(titleRight)} </span>
+              <span>{_titleRightLocalized} </span>
             ) : (
               <span>{totalImages}</span>
             )}
