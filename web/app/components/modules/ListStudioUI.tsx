@@ -18,6 +18,7 @@ const ModuleListStudioUI = ({ input }: Props) => {
   const detailRef = useRef<HTMLDivElement | any>(null);
   const [detail, setDetail] = useState<Studio | null>(null);
 
+  //use callback
   const _onResize = useCallback(() => {
     if (detail) {
       const activeItem = document.querySelector<HTMLElement>(
