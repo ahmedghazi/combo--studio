@@ -314,7 +314,7 @@ export interface PageModulaire extends SanityDocument {
   /**
    * Sous menu — `array`
    *
-   * basé sur les slugs (ancre) des modules
+   * basé sur les slugs (ancre) des modules, générer le slug depuis le module, et mettre le slug dans le champs val
    */
   subMenu?: Array<SanityKeyed<KeyVal>>;
 
@@ -681,7 +681,7 @@ export type KeyVal = {
   /**
    * Clef — `localeString`
    *
-   *
+   * Libelé
    */
   key?: LocaleString;
 
@@ -942,7 +942,7 @@ export type ListCardImageTextUI = {
   /**
    * Slug — `slug`
    *
-   * Click sur generate
+   * Click sur generate, ancre servant au sous menu, pour que la page scroll vers cette section
    */
   slug?: { _type: "slug"; current: string };
 
@@ -966,7 +966,7 @@ export type ListLieuUI = {
   /**
    * Slug — `slug`
    *
-   * Click sur generate
+   * Click sur generate, ancre servant au sous menu, pour que la page scroll vers cette section
    */
   slug?: { _type: "slug"; current: string };
 
@@ -1074,7 +1074,7 @@ export type SplitImageTextUI = {
   /**
    * Slug — `slug`
    *
-   * Click sur generate
+   * Click sur generate, ancre servant au sous menu, pour que la page scroll vers cette section
    */
   slug?: { _type: "slug"; current: string };
 
@@ -1122,7 +1122,7 @@ export type CallOutUI = {
   /**
    * Slug — `slug`
    *
-   * Click sur generate
+   * Click sur generate, ancre servant au sous menu, pour que la page scroll vers cette section
    */
   slug?: { _type: "slug"; current: string };
 
@@ -1156,46 +1156,18 @@ export type HeroSplitScrollUI = {
   title?: string;
 
   /**
-   * titleLeft — `localeString`
-   *
-   *
-   */
-  titleLeft?: LocaleString;
-
-  /**
    * itemsLeft — `array`
    *
    *
    */
-  itemsLeft?: Array<
-    SanityKeyed<{
-      _type: "image";
-      asset: SanityReference<SanityImageAsset>;
-      crop?: SanityImageCrop;
-      hotspot?: SanityImageHotspot;
-    }>
-  >;
-
-  /**
-   * titleRight — `localeString`
-   *
-   *
-   */
-  titleRight?: LocaleString;
+  itemsLeft?: Array<SanityKeyed<Figure>>;
 
   /**
    * itemsRight — `array`
    *
    *
    */
-  itemsRight?: Array<
-    SanityKeyed<{
-      _type: "image";
-      asset: SanityReference<SanityImageAsset>;
-      crop?: SanityImageCrop;
-      hotspot?: SanityImageHotspot;
-    }>
-  >;
+  itemsRight?: Array<SanityKeyed<Figure>>;
 };
 
 export type Documents =

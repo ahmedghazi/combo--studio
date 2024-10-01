@@ -1,22 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  HeroSplitScrollUI,
-  HeroUI,
-  SanityImageAsset,
-  SanityReference,
-} from "@/app/types/schema";
+import { Figure, HeroSplitScrollUI } from "@/app/types/schema";
 import { urlFor } from "@/app/utils/sanity-utils";
 import Image from "next/image";
 import { infinitScroll } from "@/app/utils/infinite-scroll-plugin";
 import { _localizeField } from "@/app/utils/utils";
-import { useScroll } from "@/app/hooks/useScroll";
 
 type Props = {
   input: HeroSplitScrollUI;
 };
 
 const ModuleHeroSplitScrollUI = ({ input }: Props) => {
-  const { titleLeft, itemsLeft, titleRight, itemsRight } = input;
+  const { itemsLeft, itemsRight } = input;
   const totalImages: number =
     (itemsLeft?.length || 0) + (itemsRight?.length || 0);
 
@@ -57,58 +51,59 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
     setReady(loadCount === totalImages);
   }, [loadCount]);
 
-  const _titleLeftLocalized = _localizeField(titleLeft);
-  const _titleRightLocalized = _localizeField(titleRight);
+  // const _titleLeftLocalized = _localizeField(titleLeft);
+  // const _titleRightLocalized = _localizeField(titleRight);
 
   return (
     <section className="module module--hero-split-scroll-ui">
       <div className="scroller grid grid-rows-2 md:grid-cols-2" ref={ref}>
         <div className="column column--left">
           {itemsLeft &&
-            itemsLeft.map((item: SanityImageAsset | any, i: number) => (
+            itemsLeft.map((item: Figure | any, i: number) => (
               <article className="item" key={i}>
                 <Image
-                  src={urlFor(item?.asset, 1500)}
+                  src={urlFor(item?.image.asset, 1500)}
                   alt={item.caption || ""}
                   priority={true}
-                  width={item?.asset.metadata.dimensions.width}
-                  height={item?.asset.metadata.dimensions.height}
-                  blurDataURL={item?.asset?.metadata?.lqip}
+                  width={item?.image.asset.metadata.dimensions.width}
+                  height={item?.image.asset.metadata.dimensions.height}
+                  blurDataURL={item?.image.asset?.metadata?.lqip}
                   placeholder="blur"
                   onLoad={_handleImagesLoaded}
                 />
+                <div className="title headline">
+                  {ready ? (
+                    <span>{item.caption} </span>
+                  ) : (
+                    <span>{loadCount}</span>
+                  )}
+                </div>
               </article>
             ))}
-          <div className="title headline">
-            {ready ? (
-              <span>{_titleLeftLocalized} </span>
-            ) : (
-              <span>{loadCount}</span>
-            )}
-          </div>
         </div>
         <div className="column column--right">
           {itemsRight &&
-            itemsRight.map((item: SanityImageAsset | any, i: number) => (
+            itemsRight.map((item: Figure | any, i: number) => (
               <article className="item" key={i}>
                 <Image
-                  src={urlFor(item?.asset, 2000)}
+                  src={urlFor(item?.image.asset, 1500)}
                   alt={item.caption || ""}
-                  width={item?.asset.metadata.dimensions.width}
-                  height={item?.asset.metadata.dimensions.height}
-                  blurDataURL={item?.asset?.metadata?.lqip}
+                  priority={true}
+                  width={item?.image.asset.metadata.dimensions.width}
+                  height={item?.image.asset.metadata.dimensions.height}
+                  blurDataURL={item?.image.asset?.metadata?.lqip}
                   placeholder="blur"
                   onLoad={_handleImagesLoaded}
                 />
+                <div className="title headline">
+                  {ready ? (
+                    <span>{item.caption} </span>
+                  ) : (
+                    <span>{totalImages}</span>
+                  )}
+                </div>
               </article>
             ))}
-          <div className="title headline">
-            {ready ? (
-              <span>{_titleRightLocalized} </span>
-            ) : (
-              <span>{totalImages}</span>
-            )}
-          </div>
         </div>
 
         <svg

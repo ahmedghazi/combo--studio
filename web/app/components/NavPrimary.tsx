@@ -38,6 +38,16 @@ type Props = {
 };
 const NavPrimary = ({ input }: Props) => {
   // console.log(input);
+  const isLinkInternalWithSubmenu = (item: SanityKeyed<LinkInternal>) => {
+    return (
+      item.link?._type === "pageModulaire" &&
+      item.link.subMenu &&
+      item.link.subMenu.length > 0
+    );
+  };
+  const isMenuItemWithSubmenu = (item: SanityKeyed<MenuItem>) => {
+    return item.subMenu && item.subMenu.length > 0;
+  };
   return (
     <nav>
       <ul className="menu flex justify-center">
@@ -52,11 +62,37 @@ const NavPrimary = ({ input }: Props) => {
               }
             />
             {item._type === "linkInternal" &&
-              item.link?._type === "pageModulaire" &&
-              item.link.subMenu &&
-              item.link.subMenu.length > 0 && (
+              isLinkInternalWithSubmenu(item) && (
                 <ul className="sub-menu">
-                  {item.link.subMenu.map((subItem: KeyVal, j) => (
+                  {item.link?._type === "pageModulaire" &&
+                    item.link.subMenu &&
+                    item.link.subMenu.map((subItem: KeyVal, j: number) => (
+                      <li key={j}>
+                        <Link
+                          href={`${_linkResolver(item.link)}#${subItem.val}`}
+                        >
+                          {_localizeField(subItem.key)}
+                        </Link>
+                      </li>
+                    ))}
+                </ul>
+              )}
+
+            {item._type === "menuItem" && isMenuItemWithSubmenu(item) && (
+              <ul className="sub-menu">
+                {item.subMenu?.map((subItem, j) => (
+                  <li key={j}>
+                    <Link href={_linkResolver(subItem.link)}>
+                      {_localizeField(subItem.label)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {/* {item._type === "linkInternal" &&
+              isLinkInternalWithSubmenu(item) && (
+                <ul className="sub-menu">
+                  {item.link.subMenu.map((subItem: KeyVal, j: number) => (
                     <li key={j}>
                       <Link href={`${_linkResolver(item.link)}#${subItem.val}`}>
                         {_localizeField(subItem.key)}
@@ -65,19 +101,18 @@ const NavPrimary = ({ input }: Props) => {
                   ))}
                 </ul>
               )}
-            {item._type === "menuItem" &&
-              item.subMenu &&
-              item.subMenu.length > 0 && (
-                <ul className="sub-menu">
-                  {item.subMenu.map((subItem, j) => (
+            {item._type === "menuItem" && isMenuItemWithSubmenu(item) && (
+              <ul className="sub-menu">
+                {item.subMenu &&
+                  item.subMenu.map((subItem, j: number) => (
                     <li key={j}>
                       <Link href={_linkResolver(subItem.link)}>
                         {_localizeField(subItem.label)}
                       </Link>
                     </li>
                   ))}
-                </ul>
-              )}
+              </ul>
+            )} */}
           </li>
         ))}
       </ul>

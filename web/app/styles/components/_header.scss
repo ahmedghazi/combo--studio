@@ -42,6 +42,9 @@ header {
       flex-direction: column;
       gap: 12px;
       display: none;
+      a {
+        white-space: nowrap;
+      }
     }
   }
   @media all and (min-width: $md) {

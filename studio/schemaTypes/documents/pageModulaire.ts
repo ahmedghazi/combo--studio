@@ -61,7 +61,8 @@ export default defineType({
     defineField({
       name: 'subMenu',
       title: 'Sous menu',
-      description: 'basé sur les slugs (ancre) des modules',
+      description:
+        'basé sur les slugs (ancre) des modules, générer le slug depuis le module, et mettre le slug dans le champs val',
       type: 'array',
       of: [
         {

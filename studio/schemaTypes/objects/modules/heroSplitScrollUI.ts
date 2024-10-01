@@ -12,25 +12,25 @@ export default defineField({
       type: 'string',
       description: 'Module title (displayed only in the admin)',
     }),
-    defineField({
-      name: 'titleLeft',
-      type: 'localeString',
-      description: '',
-    }),
+    // defineField({
+    //   name: 'titleLeft',
+    //   type: 'localeString',
+    //   description: '',
+    // }),
     defineField({
       name: 'itemsLeft',
       type: 'array',
-      of: [{type: 'image'}],
+      of: [{type: 'figure'}],
     }),
-    defineField({
-      name: 'titleRight',
-      type: 'localeString',
-      description: '',
-    }),
+    // defineField({
+    //   name: 'titleRight',
+    //   type: 'localeString',
+    //   description: '',
+    // }),
     defineField({
       name: 'itemsRight',
       type: 'array',
-      of: [{type: 'image'}],
+      of: [{type: 'figure'}],
     }),
   ],
 

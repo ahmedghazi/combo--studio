@@ -146,11 +146,15 @@ export const heroSplitScrollUI = `
 		...,
 		itemsLeft[]{
 			...,
-			asset->
+			image{
+				asset->
+			}
 		},
 		itemsRight[]{
 			...,
-			asset->
+			image{
+				asset->
+			}
 		}
 	}
 `;

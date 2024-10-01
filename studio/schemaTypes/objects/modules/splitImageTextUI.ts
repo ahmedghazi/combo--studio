@@ -22,7 +22,8 @@ export default defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'Click sur generate',
+      description:
+        'Click sur generate, ancre servant au sous menu, pour que la page scroll vers cette section',
       // readOnly: true,
       options: {
         source: (doc, context) => {

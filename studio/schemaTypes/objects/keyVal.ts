@@ -11,6 +11,7 @@ export default defineField({
       name: 'key',
       type: 'localeString',
       title: 'Clef',
+      description: 'Libelé',
     }),
     defineField({
       name: 'val',
