@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import clsx from "clsx";
 import { debounce } from "throttle-debounce";
@@ -78,6 +78,26 @@ const Cursor = ({ color, size }: CProps) => {
     return () => document.body.classList.remove("has-custom-cursor");
   }, []);
 
+  const _onMouseMove = useCallback(
+    (e: MouseEvent) => {
+      const isTouch = typeof window !== undefined && window.innerWidth < 1080;
+      if (isTouch) return;
+
+      const _isAnchorOrButton = _getIsAnchorOrButton(e.target as Element);
+      setIsAnchorOrButton(_isAnchorOrButton);
+
+      let offset = size / 2;
+
+      setCss((css) => ({
+        ...css,
+        x: e.clientX - offset,
+        y: e.clientY - offset,
+        opacity: 1,
+      }));
+    },
+    [size]
+  );
+
   useEffect(() => {
     document.addEventListener("mousemove", _onMouseMove);
     document.addEventListener("mousedown", _onMouseDown);
@@ -88,9 +108,9 @@ const Cursor = ({ color, size }: CProps) => {
       document.removeEventListener("mousedown", _onMouseDown);
       document.removeEventListener("mouseup", _onMouseUp);
     };
-  }, [size]);
+  }, [size, _onMouseMove]);
 
-  const _onMouseMove = (e: MouseEvent) => {
+  /*const _onMouseMove = (e: MouseEvent) => {
     const isTouch = typeof window !== undefined && window.innerWidth < 1080;
     if (isTouch) return;
 
@@ -107,11 +127,7 @@ const Cursor = ({ color, size }: CProps) => {
       y: e.clientY - offset,
       opacity: 1,
     }));
-
-    // if (__isAnchorOrButton || __isInput) {
-    //   debounceFunc();
-    // }
-  };
+  };*/
 
   // const debounceFunc = debounce(
   //   30,
@@ -120,8 +136,6 @@ const Cursor = ({ color, size }: CProps) => {
   //   },
   //   { atBegin: true }
   // );
-
-  // const _update = e => {}
 
   const _onMouseDown = () => setIsMouseDown(true);
   const _onMouseUp = () => setIsMouseDown(false);

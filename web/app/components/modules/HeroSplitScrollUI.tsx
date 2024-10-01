@@ -49,7 +49,7 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
   useEffect(() => {
     // console.log(loadCount);
     setReady(loadCount === totalImages);
-  }, [loadCount]);
+  }, [loadCount, totalImages]);
 
   // const _titleLeftLocalized = _localizeField(titleLeft);
   // const _titleRightLocalized = _localizeField(titleRight);
