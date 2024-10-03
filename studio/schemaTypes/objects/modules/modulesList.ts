@@ -9,7 +9,7 @@ export default [
   {type: 'imageUI'},
   {type: 'marqueeUI'},
   {type: 'splitImageTextUI'},
-  {type: 'sliderUI'},
+  // {type: 'sliderUI'},
   {type: 'callOutUI'},
   {type: 'heroSplitScrollUI'},
 ]

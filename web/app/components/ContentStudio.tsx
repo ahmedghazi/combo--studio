@@ -18,26 +18,30 @@ const ContentStudio = ({ input }: Props) => {
   return (
     <article className="content--studio">
       {imageHero && imageHero?.image && (
-        <AOS>
-          <Image
-            src={urlFor(imageHero?.image?.asset, 2000)}
-            width={imageHero?.image.asset?.metadata?.dimensions.width || 2000}
-            height={imageHero?.image.asset?.metadata?.dimensions.height || 2000}
-            alt={imageHero.caption || ""}
-            sizes="100vw"
-            style={{
-              width: "100%",
-              height: "100vh",
-              aspectRatio: `${imageHero?.image.asset?.metadata?.dimensions.width} / ${imageHero?.image.asset?.metadata?.dimensions.height}`,
-              objectFit: "cover",
-            }}
-            blurDataURL={imageHero?.image.asset?.metadata?.lqip}
-            // placeholder='blur'
-            // placeholder={logo.asset?.metadata?.lqip}
-          />
-        </AOS>
+        <div className="hero">
+          <AOS>
+            <Image
+              src={urlFor(imageHero?.image?.asset, 2000)}
+              width={imageHero?.image.asset?.metadata?.dimensions.width || 2000}
+              height={
+                imageHero?.image.asset?.metadata?.dimensions.height || 2000
+              }
+              alt={imageHero.caption || ""}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "100vh",
+                aspectRatio: `${imageHero?.image.asset?.metadata?.dimensions.width} / ${imageHero?.image.asset?.metadata?.dimensions.height}`,
+                objectFit: "cover",
+              }}
+              blurDataURL={imageHero?.image.asset?.metadata?.lqip}
+              // placeholder='blur'
+              // placeholder={logo.asset?.metadata?.lqip}
+            />
+          </AOS>
+        </div>
       )}
-      <div className="py-xl">
+      <div className="p-xl">
         <div className="row center-xs">
           <div className="col-md-10 col-xs-12">
             <AOS>

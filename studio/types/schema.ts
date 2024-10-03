@@ -81,7 +81,6 @@ export interface Home extends SanityDocument {
     | SanityKeyed<ImageUI>
     | SanityKeyed<MarqueeUI>
     | SanityKeyed<SplitImageTextUI>
-    | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
   >;
@@ -132,7 +131,6 @@ export interface Landing extends SanityDocument {
     | SanityKeyed<ImageUI>
     | SanityKeyed<MarqueeUI>
     | SanityKeyed<SplitImageTextUI>
-    | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
   >;
@@ -334,7 +332,6 @@ export interface PageModulaire extends SanityDocument {
     | SanityKeyed<ImageUI>
     | SanityKeyed<MarqueeUI>
     | SanityKeyed<SplitImageTextUI>
-    | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
   >;
@@ -404,7 +401,6 @@ export interface Lieu extends SanityDocument {
     | SanityKeyed<ImageUI>
     | SanityKeyed<MarqueeUI>
     | SanityKeyed<SplitImageTextUI>
-    | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
   >;
@@ -1020,7 +1016,6 @@ export type ListLModulaireUI = {
     | SanityKeyed<ImageUI>
     | SanityKeyed<MarqueeUI>
     | SanityKeyed<SplitImageTextUI>
-    | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
   >;
