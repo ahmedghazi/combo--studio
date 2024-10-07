@@ -27,14 +27,14 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
           ".column--left article"
         ) as NodeListOf<HTMLElement>
       );
-      infinitScroll(ref.current, itemsLeft, "up", onScroll, true);
+      infinitScroll(ref.current, itemsLeft, "down", onScroll, true);
 
       const itemsRight = Array.from(
         ref.current.querySelectorAll(
           ".column--right article"
         ) as NodeListOf<HTMLElement>
       );
-      infinitScroll(ref.current, itemsRight, "down", onScroll, true);
+      infinitScroll(ref.current, itemsRight, "up", onScroll, true);
     }
   }, [ready]);
 

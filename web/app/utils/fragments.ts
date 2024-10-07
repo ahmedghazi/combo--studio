@@ -27,6 +27,11 @@ export const blockContent = `
 				...,
 				reference->,
 
+			},
+			_type == "linkInternalCta" => {
+				...,
+				reference->,
+
 			}
 		}
 	},
@@ -37,6 +42,15 @@ export const blockContent = `
 			_type == "linkInternal" => {
 				...,
 				reference->,
+
+			},
+			_type == "linkInternalCta" => {
+				...,
+				reference->{
+					_type,
+					slug
+				}
+
 			}
 		}
 	}
@@ -137,6 +151,9 @@ export const splitImageTextUI = `
 		image{
 			...,
 			asset->
+		},
+		text{
+			${blockContent}
 		}
 	}
 `;
