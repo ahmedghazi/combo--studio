@@ -48,7 +48,7 @@ const ContentStudio = ({ input }: Props) => {
               <div className="header mb-xl">
                 <div className="location">{location}</div>
                 <h4 className="headline text-center">
-                  {_localizeField(title)}
+                  <div>{_localizeField(title)}</div>
                 </h4>
               </div>
             </AOS>
