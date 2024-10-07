@@ -9,6 +9,7 @@ import React, {
 } from "react";
 import CardStudio from "../ui/CardStudio";
 import ContentStudio from "../ContentStudio";
+import clsx from "clsx";
 
 type Props = {
   input: ListStudioUI;
@@ -102,7 +103,12 @@ const ModuleListStudioUI = ({ input }: Props) => {
 
   return (
     <section className="module module--list-studio-ui ">
-      <div className="grid grid-cols-3 gap-gutter grid-card">
+      <div
+        className={clsx(
+          "grid gap-gutter grid-card",
+          `md:grid-cols-${input.gridSize || 3}`
+        )}
+      >
         {input.items?.map((item, i) => (
           <CardStudio
             key={i}

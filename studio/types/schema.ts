@@ -984,6 +984,13 @@ export type ListStudioUI = {
   title?: LocaleString;
 
   /**
+   * gridSize — `number`
+   *
+   * Items par ligne, par défaut 3
+   */
+  gridSize?: number;
+
+  /**
    * items — `array`
    *
    *

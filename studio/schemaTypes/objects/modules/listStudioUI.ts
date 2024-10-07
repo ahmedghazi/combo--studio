@@ -1,5 +1,6 @@
 import {RxViewGrid} from 'react-icons/rx'
 import {baseLanguage} from '../../locale/supportedLanguages'
+import {defineField} from 'sanity'
 
 export default {
   name: 'listStudioUI',
@@ -7,16 +8,22 @@ export default {
   type: 'object',
   icon: RxViewGrid,
   fields: [
-    {
+    defineField({
       name: 'title',
       type: 'localeString',
       title: 'Titre',
-    },
-    {
+    }),
+    defineField({
+      name: 'gridSize',
+      type: 'number',
+      initialValue: 3,
+      description: 'Items par ligne, par défaut 3',
+    }),
+    defineField({
       name: 'items',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'studio'}]}],
-    },
+    }),
   ],
   preview: {
     select: {
