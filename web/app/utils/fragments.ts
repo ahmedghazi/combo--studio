@@ -176,7 +176,6 @@ export const listCardImageTextUI = `
 	}
 	`;
 
-//			// ${listStudioUI}
 export const listLieuUI = `
 _type == 'listLieuUI' => {
 	...,
