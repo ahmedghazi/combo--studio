@@ -109,19 +109,6 @@ export const listStudioUI = `
 	}
 `;
 
-export const listLieuUI = `
-	_type == 'listLieuUI' => {
-		...,
-		items[]-> {
-			...,
-			modules[]{
-				...,
-				${listStudioUI}
-  		},
-		}
-	}
-`;
-
 export const listLModulaireUI = `
 	_type == 'listLModulaireUI' => {
 		...,
@@ -188,6 +175,28 @@ export const listCardImageTextUI = `
 		}
 	}
 	`;
+
+//			// ${listStudioUI}
+export const listLieuUI = `
+_type == 'listLieuUI' => {
+	...,
+	items[]-> {
+		...,
+		modules[]{
+			...,
+			${heroUI},
+			${textUI},
+			${contactsUI},
+			${listStudioUI},
+			${callOutUI},
+			${listLModulaireUI},
+			${splitImageTextUI},
+			${heroSplitScrollUI},
+			${listCardImageTextUI}
+		},
+	}
+}
+`;
 
 export const modules = `
 	...,

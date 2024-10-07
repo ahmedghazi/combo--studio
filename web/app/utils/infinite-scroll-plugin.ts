@@ -94,7 +94,7 @@ export function infinitScroll(
     items.forEach(function (el, index) {
       const lerpCacheByDirection =
         direction === "up" ? lerpCache * -1 : lerpCache;
-      console.log(lerpCache);
+      // console.log(lerpCache);
       if (window.innerWidth < 1080) {
         // MOBILE
         const nextY: number = wrapY(
