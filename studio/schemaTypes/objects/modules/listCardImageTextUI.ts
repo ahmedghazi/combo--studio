@@ -31,6 +31,12 @@ export default {
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'gridSize',
+      type: 'number',
+      initialValue: 3,
+      description: 'Items par ligne, par défaut 3',
+    }),
+    defineField({
       name: 'items',
       type: 'array',
       of: [{type: 'cardImageText'}],

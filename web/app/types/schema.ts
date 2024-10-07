@@ -952,6 +952,13 @@ export type ListCardImageTextUI = {
   slug?: { _type: "slug"; current: string };
 
   /**
+   * gridSize — `number`
+   *
+   * Items par ligne, par défaut 3
+   */
+  gridSize?: number;
+
+  /**
    * items — `array`
    *
    *

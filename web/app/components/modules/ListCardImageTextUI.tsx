@@ -3,6 +3,7 @@ import { _localizeField } from "@/app/utils/utils";
 import React from "react";
 import Card from "../ui/Card";
 import AOS from "../ui/AOS";
+import clsx from "clsx";
 
 type Props = {
   input: ListCardImageTextUI;
@@ -13,7 +14,9 @@ const ModuleListCardImageTextUI = ({ input }: Props) => {
     <section className="module module--list-card-image-text-ui">
       <div className="inner">
         <h2 className="headline">{_localizeField(input.title)}</h2>
-        <div className="grid md:grid-cols-3 gap-md">
+        <div
+          className={clsx("grid gap-md", `md:grid-cols-${input.gridSize || 3}`)}
+        >
           {input.items?.map((item, i) => (
             <div key={i}>
               <AOS delay={i / 5}>
