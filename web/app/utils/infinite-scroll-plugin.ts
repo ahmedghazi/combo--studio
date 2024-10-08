@@ -16,7 +16,7 @@ export function infinitScroll(
   if (!wrapper) return;
 
   window.addEventListener("resize", _onResize);
-  wrapper.addEventListener("wheel", _onWheel);
+  // wrapper.addEventListener("wheel", _onWheel);
   _onResize();
 
   requestAnimationFrame(_update);

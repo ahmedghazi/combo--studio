@@ -3,6 +3,7 @@ import { urlFor } from "./sanity-utils";
 import Image from "next/image";
 import Link from "next/link";
 import { _linkResolver } from "./utils";
+import Figure from "../components/ui/Figure";
 
 const portableTextComponents: PortableTextComponents = {
   // block(props) {
@@ -26,10 +27,10 @@ const portableTextComponents: PortableTextComponents = {
     // align_center: ({ children }) => <p className="text-center">{children}</p>,
   },
   types: {
-    // image: ({ value }) => {
-    //   console.log(value)
-    //   return <img src={urlFor(value.asset)} alt="some image" />
-    // },
+    image: ({ value }) => {
+      console.log(value);
+      return <Figure asset={value.asset} />;
+    },
     textIcon: ({ value }) => {
       return (
         <Image
