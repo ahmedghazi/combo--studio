@@ -3,6 +3,7 @@ import {
   CallOutUI,
   ContactsUI,
   HeroSplitScrollUI,
+  HeroSplitUI,
   HeroUI,
   ImageUI,
   Landing,
@@ -33,6 +34,7 @@ type Props = {
     | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
+    | SanityKeyed<HeroSplitUI>
   >;
 };
 

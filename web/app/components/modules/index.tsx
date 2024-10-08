@@ -55,6 +55,7 @@ type Props = {
     | SanityKeyed<SliderUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
+    | SanityKeyed<HeroSplitUI>
   >;
 };
 
