@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { _linkResolver } from "./utils";
 import Figure from "../components/ui/Figure";
+import { VideoWrapper } from "../components/ui/player";
 
 const portableTextComponents: PortableTextComponents = {
   // block(props) {
@@ -31,15 +32,8 @@ const portableTextComponents: PortableTextComponents = {
       // console.log(value);
       return <Figure asset={value.asset} />;
     },
-    textIcon: ({ value }) => {
-      return (
-        <Image
-          src={urlFor(value.icon.asset, 60)}
-          alt="icon"
-          width={60}
-          height={60}
-        />
-      );
+    embed: ({ value }) => {
+      return <VideoWrapper url={value.url} />;
     },
   },
 
