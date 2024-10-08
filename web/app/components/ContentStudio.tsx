@@ -17,74 +17,78 @@ const ContentStudio = ({ input }: Props) => {
   // console.log(input);
   return (
     <article className="content--studio">
-      {imageHero && imageHero?.image && (
-        <div className="hero">
-          <AOS>
-            <Image
-              src={urlFor(imageHero?.image?.asset, 2000)}
-              width={imageHero?.image.asset?.metadata?.dimensions.width || 2000}
-              height={
-                imageHero?.image.asset?.metadata?.dimensions.height || 2000
-              }
-              alt={imageHero.caption || ""}
-              sizes="100vw"
-              style={{
-                width: "100%",
-                height: "100vh",
-                aspectRatio: `${imageHero?.image.asset?.metadata?.dimensions.width} / ${imageHero?.image.asset?.metadata?.dimensions.height}`,
-                objectFit: "cover",
-              }}
-              blurDataURL={imageHero?.image.asset?.metadata?.lqip}
-              // placeholder='blur'
-              // placeholder={logo.asset?.metadata?.lqip}
-            />
-          </AOS>
-        </div>
-      )}
-      <div className="p-xl">
-        <div className="row center-xs">
-          <div className="col-md-10 col-xs-12">
+      <div className="px-50">
+        {imageHero && imageHero?.image && (
+          <div className="hero">
             <AOS>
-              <div className="header mb-xl">
-                <div className="location">{location}</div>
-                <h4 className="headline text-center">
-                  <div>{_localizeField(title)}</div>
-                </h4>
-              </div>
+              <Image
+                src={urlFor(imageHero?.image?.asset, 2000)}
+                width={
+                  imageHero?.image.asset?.metadata?.dimensions.width || 2000
+                }
+                height={
+                  imageHero?.image.asset?.metadata?.dimensions.height || 2000
+                }
+                alt={imageHero.caption || ""}
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "100vh",
+                  aspectRatio: `${imageHero?.image.asset?.metadata?.dimensions.width} / ${imageHero?.image.asset?.metadata?.dimensions.height}`,
+                  objectFit: "cover",
+                }}
+                blurDataURL={imageHero?.image.asset?.metadata?.lqip}
+                // placeholder='blur'
+                // placeholder={logo.asset?.metadata?.lqip}
+              />
             </AOS>
+          </div>
+        )}
+        <div className="px-50 pt-50">
+          <div className="row center-xs">
+            <div className="col-md-10 col-xs-12">
+              <AOS>
+                <div className="header mb-xl">
+                  <div className="location">{location}</div>
+                  <h4 className="headline text-center">
+                    <div>{_localizeField(title)}</div>
+                  </h4>
+                </div>
+              </AOS>
 
-            <div className="flex flex-wrap items-end gap-y-xl ">
-              <div className="md:w-1/2 pr-lg">
-                <AOS>
-                  <div className="text">
-                    <PortableText
-                      value={_localizeField(text)}
-                      components={portableTextComponents}
-                    />
-                  </div>
-                </AOS>
-              </div>
-              {infos?.map((item, i) => (
-                <div key={i} className="md:w-1/2">
+              <div className="flex flex-wrap items-end gap-y-xl ">
+                <div className="md:w-1/2 pr-lg">
                   <AOS>
-                    <SummaryDetailFramer
-                      summary={
-                        <button className="btn--pill">
-                          {_localizeField(item.summary)}
-                        </button>
-                      }
-                      detail={
-                        <div className="text">
-                          <PortableText
-                            value={_localizeField(item.detail)}
-                            components={portableTextComponents}
-                          />
-                        </div>
-                      }
-                    />
+                    <div className="text">
+                      <PortableText
+                        value={_localizeField(text)}
+                        components={portableTextComponents}
+                      />
+                    </div>
                   </AOS>
                 </div>
-              ))}
+                {infos?.map((item, i) => (
+                  <div key={i} className="md:w-1/2">
+                    <AOS>
+                      <SummaryDetailFramer
+                        summary={
+                          <button className="btn--pill">
+                            {_localizeField(item.summary)}
+                          </button>
+                        }
+                        detail={
+                          <div className="text">
+                            <PortableText
+                              value={_localizeField(item.detail)}
+                              components={portableTextComponents}
+                            />
+                          </div>
+                        }
+                      />
+                    </AOS>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

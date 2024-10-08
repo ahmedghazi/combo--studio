@@ -59,6 +59,9 @@ const ModuleHeroSplitUI = ({ input }: Props) => {
         width="841.89"
         height="595.28"
         viewBox="0 0 841.89 595.28"
+        style={{
+          transform: `translate(-50%, -50%) scale(0.4)`,
+        }}
       >
         <path
           fill="white"

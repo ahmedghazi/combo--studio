@@ -1,4 +1,7 @@
 .content--studio {
+  .hero img {
+    max-height: calc(var(--vh) * 100 - var(--header-height) * 2);
+  }
   p {
     text-align: left;
   }

@@ -116,8 +116,8 @@
         .btn--close {
           position: absolute;
           z-index: 1;
-          right: var(--space-md);
-          top: var(--space-md);
+          right: var(--space-50);
+          bottom: 0;
         }
         .summary-detail {
           .summary {
@@ -176,6 +176,21 @@
       .panel {
         padding: var(--space-50);
         min-height: calc(var(--vh) * 100 - var(--header-height));
+      }
+    }
+    &.module--hero-split-ui {
+      img {
+        height: calc(var(--vh) * 100 - var(--header-height));
+      }
+      .title {
+        @include center_it;
+      }
+      svg {
+        @include center_it;
+        // top: 50vh;
+        pointer-events: none;
+        transform-origin: center;
+        // background-color: red;
       }
     }
     &.module--hero-split-scroll-ui {
