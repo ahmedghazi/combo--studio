@@ -12,4 +12,5 @@ export default [
   // {type: 'sliderUI'},
   {type: 'callOutUI'},
   {type: 'heroSplitScrollUI'},
+  {type: 'heroSplitUI'},
 ]

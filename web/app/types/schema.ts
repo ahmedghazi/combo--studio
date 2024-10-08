@@ -92,6 +92,7 @@ export interface Home extends SanityDocument {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
+    | SanityKeyed<HeroSplitUI>
   >;
 }
 
@@ -142,6 +143,7 @@ export interface Landing extends SanityDocument {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
+    | SanityKeyed<HeroSplitUI>
   >;
 }
 
@@ -343,6 +345,7 @@ export interface PageModulaire extends SanityDocument {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
+    | SanityKeyed<HeroSplitUI>
   >;
 }
 
@@ -412,6 +415,7 @@ export interface Lieu extends SanityDocument {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
+    | SanityKeyed<HeroSplitUI>
   >;
 }
 
@@ -1041,6 +1045,7 @@ export type ListLModulaireUI = {
     | SanityKeyed<SplitImageTextUI>
     | SanityKeyed<CallOutUI>
     | SanityKeyed<HeroSplitScrollUI>
+    | SanityKeyed<HeroSplitUI>
   >;
 };
 
@@ -1186,6 +1191,30 @@ export type HeroSplitScrollUI = {
    *
    */
   itemsRight?: Array<SanityKeyed<Figure>>;
+};
+
+export type HeroSplitUI = {
+  _type: "heroSplitUI";
+  /**
+   * title — `string`
+   *
+   * Module title (displayed only in the admin)
+   */
+  title?: string;
+
+  /**
+   * itemsLeft — `figure`
+   *
+   *
+   */
+  itemsLeft?: Figure;
+
+  /**
+   * itemsRight — `figure`
+   *
+   *
+   */
+  itemsRight?: Figure;
 };
 
 export type Documents =

@@ -48,13 +48,18 @@ const NavPrimary = ({ input }: Props) => {
   const isMenuItemWithSubmenu = (item: SanityKeyed<MenuItem>) => {
     return item.subMenu && item.subMenu.length > 0;
   };
+  console.log(input);
   return (
     <nav>
       <ul className="menu flex justify-center">
         {input.map((item, i) => (
           <li key={i}>
             <NavLink
-              href={_linkResolver(item.link)}
+              href={
+                item._type === "menuItem"
+                  ? _linkResolver(item.link?.link)
+                  : _linkResolver(item.link)
+              }
               name={
                 item._type === "menuItem"
                   ? _localizeField(item.link?.label)

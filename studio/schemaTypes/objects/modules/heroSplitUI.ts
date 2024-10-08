@@ -2,8 +2,8 @@ import {defineField} from 'sanity'
 import {FiImage} from 'react-icons/fi'
 
 export default defineField({
-  name: 'heroSplitScrollUI',
-  title: 'Hero Split Scroll UI',
+  name: 'heroSplitUI',
+  title: 'Hero Split UI',
   type: 'object',
   icon: FiImage,
   fields: [
@@ -19,8 +19,8 @@ export default defineField({
     // }),
     defineField({
       name: 'itemsLeft',
-      type: 'array',
-      of: [{type: 'figure'}],
+      type: 'figure',
+      // of: [{type: 'figure'}],
     }),
     // defineField({
     //   name: 'titleRight',
@@ -29,21 +29,21 @@ export default defineField({
     // }),
     defineField({
       name: 'itemsRight',
-      type: 'array',
-      of: [{type: 'figure'}],
+      type: 'figure',
+      // of: [{type: 'figure'}],
     }),
   ],
 
   preview: {
     select: {
-      image: 'titleLeft.0',
+      image: 'itemsLeft.image',
       title: 'title',
     },
     prepare(selection) {
       const {title, image} = selection
       return {
         title: title,
-        subtitle: 'Hero Split Scroll UI',
+        subtitle: 'Hero Split UI',
         media: image,
       }
     },

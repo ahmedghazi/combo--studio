@@ -163,6 +163,24 @@ export const heroSplitScrollUI = `
 	}
 `;
 
+export const heroSplitUI = `
+	_type == 'heroSplitUI' => {
+		...,
+		itemsLeft{
+			...,
+			image{
+				asset->
+			}
+		},
+		itemsRight{
+			...,
+			image{
+				asset->
+			}
+		}
+	}
+`;
+
 export const listCardImageTextUI = `
 	_type == 'listCardImageTextUI' => {
 		...,
@@ -191,7 +209,8 @@ _type == 'listLieuUI' => {
 			${listLModulaireUI},
 			${splitImageTextUI},
 			${heroSplitScrollUI},
-			${listCardImageTextUI}
+			${listCardImageTextUI},
+			${heroSplitUI}
 		},
 	}
 }
@@ -208,5 +227,6 @@ export const modules = `
 	${listLModulaireUI},
 	${splitImageTextUI},
 	${heroSplitScrollUI},
-	${listCardImageTextUI}
+	${listCardImageTextUI},
+	${heroSplitUI}
 `;

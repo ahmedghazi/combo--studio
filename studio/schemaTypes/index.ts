@@ -41,6 +41,7 @@ import listLieuUI from './objects/modules/listLieuUI'
 import listStudioUI from './objects/modules/listStudioUI'
 import listLModulaireUI from './objects/modules/listLModulaireUI'
 import heroSplitScrollUI from './objects/modules/heroSplitScrollUI'
+import heroSplitUI from './objects/modules/heroSplitUI'
 
 export const schemaTypes = [
   home,
@@ -86,5 +87,6 @@ export const schemaTypes = [
   sliderUI,
   calloutUI,
   heroSplitScrollUI,
+  heroSplitUI,
 ]
 export default schemaTypes

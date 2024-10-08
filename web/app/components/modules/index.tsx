@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
-const ModuleTextUI = dynamic(() => import("./TextUI"), { ssr: false });
-const ModuleHeroUI = dynamic(() => import("./HeroUI"), { ssr: false });
-const ModuleContactsUI = dynamic(() => import("./ContactsUI"), {
-  ssr: false,
-});
+// const ModuleTextUI = dynamic(() => import("./TextUI"), { ssr: false });
+// const ModuleHeroUI = dynamic(() => import("./HeroUI"), { ssr: false });
+// const ModuleContactsUI = dynamic(() => import("./ContactsUI"), {
+//   ssr: false,
+// });
 import {
   CallOutUI,
   ContactsUI,
   HeroSplitScrollUI,
+  HeroSplitUI,
   HeroUI,
   ImageUI,
   ListCardImageTextUI,
@@ -24,6 +25,9 @@ import {
 } from "../../types/schema";
 
 import "./index.scss";
+import ModuleHeroUI from "./HeroUI";
+import ModuleTextUI from "./TextUI";
+import ModuleContactsUI from "./ContactsUI";
 import ModuleListCardImageTextUI from "./ListCardImageTextUI";
 import ModuleListLieuUI from "./ListLieuUI";
 import ModuleListStudioUI from "./ListStudioUI";
@@ -34,6 +38,7 @@ import ModuleSliderUI from "./SliderUI";
 import ModuleCallOutUI from "./CallOutUI";
 import ModuleSplitImageTextUI from "./SplitImageTextUI";
 import ModuleHeroSplitScrollUI from "./HeroSplitScrollUI";
+import ModuleHeroSplitUI from "./HeroSplitUI";
 
 type Props = {
   input: Array<
@@ -71,7 +76,8 @@ const Modules = ({ input }: Props) => {
           | SanityKeyed<SplitImageTextUI>
           | SanityKeyed<SliderUI>
           | SanityKeyed<CallOutUI>
-          | SanityKeyed<HeroSplitScrollUI>,
+          | SanityKeyed<HeroSplitScrollUI>
+          | SanityKeyed<HeroSplitUI>,
         i: number
       ) => {
         console.log(module._type);
@@ -104,6 +110,8 @@ const Modules = ({ input }: Props) => {
             return <ModuleCallOutUI key={module._key} input={module} />;
           case "heroSplitScrollUI":
             return <ModuleHeroSplitScrollUI key={module._key} input={module} />;
+          case "heroSplitUI":
+            return <ModuleHeroSplitUI key={module._key} input={module} />;
           default:
             return null;
         }
