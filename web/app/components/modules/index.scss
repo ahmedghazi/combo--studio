@@ -181,6 +181,7 @@
     &.module--hero-split-ui {
       img {
         height: calc(var(--vh) * 100 - var(--header-height));
+        object-fit: cover;
       }
       .title {
         @include center_it;

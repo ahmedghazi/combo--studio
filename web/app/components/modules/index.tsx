@@ -81,7 +81,7 @@ const Modules = ({ input }: Props) => {
           | SanityKeyed<HeroSplitUI>,
         i: number
       ) => {
-        console.log(module._type);
+        // console.log(module._type);
         switch (module._type) {
           case "textUI":
             return <ModuleTextUI key={module._key} input={module} />;

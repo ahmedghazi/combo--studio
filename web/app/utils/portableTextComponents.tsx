@@ -51,8 +51,6 @@ const portableTextComponents: PortableTextComponents = {
       return <Link href={_linkResolver(value.reference)}>{children}</Link>;
     },
     linkInternalCta: ({ children, value }) => {
-      // console.log(value);
-      console.log(value.reference);
       return (
         <Link href={_linkResolver(value.reference)} className="btn--pill">
           {children}

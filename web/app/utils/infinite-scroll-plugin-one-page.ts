@@ -1,6 +1,6 @@
 import { gsap, Power4 } from "gsap";
 
-export function infinitScroll(
+export function infinitScrollOnePage(
   wrapper: HTMLDivElement,
   items: HTMLElement[],
   direction: string,
@@ -8,15 +8,19 @@ export function infinitScroll(
   rootMargin: boolean
 ) {
   var imagesBoundingRect: any = null,
-    deltaTotal = 0,
+    deltaTotal: number = 0,
     wrapY: any,
-    lerpCache = 0,
-    rootMarginSize: number = 0;
+    lerpCache: number = 0,
+    rootMarginSize: number = 0,
+    // isScrolling: boolean = false,
+    // isNotScrolling: boolean = true,
+    prevDeltaY: number = 0;
 
   if (!wrapper) return;
 
   window.addEventListener("resize", _onResize);
-  wrapper.addEventListener("wheel", _onWheel);
+  const debounceWheel = CallLock(_onWheel, 3000);
+  wrapper.addEventListener("wheel", debounceWheel);
   _onResize();
 
   requestAnimationFrame(_update);
@@ -86,8 +90,20 @@ export function infinitScroll(
   }
 
   function _onWheel(e: WheelEvent | any) {
-    deltaTotal = deltaTotal - e.deltaY;
+    console.log(e.deltaY, prevDeltaY, e.deltaY === prevDeltaY);
+
+    const isScrolling = e.deltaY !== prevDeltaY;
+    // console.log({ isScrolling });
+
+    prevDeltaY = e.deltaY;
+    // if (!isScrolling) {
+    const direction = e.deltaY > 0 ? 1 : -1;
+    const nextVal = window.innerHeight * direction - rootMarginSize;
+    deltaTotal = deltaTotal - nextVal;
+    console.log(deltaTotal);
     lerpCache = lerp(lerpCache, deltaTotal, 0.1);
+    // }
+    // console.log(-1 !== -1);
   }
 
   function _update() {
@@ -122,5 +138,40 @@ export function infinitScroll(
     */
   function lerp(start: number, end: number, amt: number) {
     return (1 - amt) * start + amt * end;
+  }
+
+  function debounce(func: Function, delay: number) {
+    let timerId: any;
+
+    return function (...args: any) {
+      clearTimeout(timerId);
+      timerId = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    };
+  }
+  function CallLock(toCall: Function, lockout: number) {
+    let argv;
+    let lastCall = 0;
+    let timer = 0;
+    function recall() {
+      timer = 0;
+      lastCall = Date.now();
+      toCall(...argv);
+    }
+    return function (...args) {
+      let now = Date.now();
+      if (timer == 0) {
+        if (now >= lastCall + lockout) {
+          lastCall = now;
+          toCall(...args);
+        } else {
+          argv = args;
+          timer = setTimeout(recall, lastCall + lockout - now);
+        }
+      } else {
+        argv = args; // use most recent arguments
+      }
+    };
   }
 }

@@ -4,6 +4,7 @@ import { urlFor } from "@/app/utils/sanity-utils";
 import Image from "next/image";
 import { infinitScroll } from "@/app/utils/infinite-scroll-plugin";
 import { _localizeField } from "@/app/utils/utils";
+// import { infinitScrol } from "@/app/utils/infinite-scroll-plugin-one-page";
 
 type Props = {
   input: HeroSplitScrollUI;
