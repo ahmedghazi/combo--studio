@@ -28,7 +28,7 @@ const portableTextComponents: PortableTextComponents = {
   },
   types: {
     image: ({ value }) => {
-      console.log(value);
+      // console.log(value);
       return <Figure asset={value.asset} />;
     },
     textIcon: ({ value }) => {
