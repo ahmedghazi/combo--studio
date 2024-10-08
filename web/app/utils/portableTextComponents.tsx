@@ -25,7 +25,6 @@ const portableTextComponents: PortableTextComponents = {
     "text-lg": ({ children }) => (
       <p className="text-md md:text-xl">{children}</p>
     ),
-    // align_center: ({ children }) => <p className="text-center">{children}</p>,
   },
   types: {
     image: ({ value }) => {
