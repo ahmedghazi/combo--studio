@@ -116,6 +116,9 @@ p,
   a {
     font-family: var(--font-primary-mono);
   }
+  &.headline a {
+    font-family: var(--font-secondary);
+  }
 }
 .ellipsis {
   overflow: hidden;

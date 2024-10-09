@@ -23,7 +23,7 @@ const portableTextComponents: PortableTextComponents = {
   block: {
     h2: ({ children }) => <h2>{children}</h2>,
     "text-lg": ({ children }) => (
-      <p className="text-md md:text-xl">{children}</p>
+      <p className="text-md md:text-xl- headline">{children}</p>
     ),
   },
   types: {
