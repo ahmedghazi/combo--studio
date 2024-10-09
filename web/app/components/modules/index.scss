@@ -100,6 +100,9 @@
       }
     }
     &.module--list-studio-ui {
+      article.card img {
+        max-height: calc(var(--vh) * 100 - var(--header-height));
+      }
       .headline {
         text-align: center;
         div {
