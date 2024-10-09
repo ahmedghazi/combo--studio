@@ -58,7 +58,7 @@ const ModuleTextUI = ({ input }: Props) => {
                 </AOS>
 
                 <div className="row">
-                  <div className="col-md-7 col-md-offset-3 ">
+                  <div className="col-md-6 col-md-offset-3 ">
                     <div className="text ">
                       {text && (
                         <AOS>
