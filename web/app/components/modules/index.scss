@@ -117,7 +117,10 @@
           position: absolute;
           z-index: 1;
           right: var(--space-50);
-          bottom: 0;
+          // bottom: 0;
+          top: calc(
+            var(--vh) * 100 - var(--header-height) * 2 + var(--space-50)
+          );
         }
         .summary-detail {
           .summary {
