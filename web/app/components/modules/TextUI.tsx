@@ -51,11 +51,11 @@ const ModuleTextUI = ({ input }: Props) => {
             )}
             {look === "offset" && (
               <div className="mx-auto">
-                <AOS>
-                  <h2 className="headline">
-                    {_localizeField(title) || "localized title"}
-                  </h2>
-                </AOS>
+                {title && (
+                  <AOS>
+                    <h2 className="headline">{_localizeField(title)}</h2>
+                  </AOS>
+                )}
 
                 <div className="row">
                   <div className="col-md-6 col-md-offset-3 ">
@@ -75,11 +75,11 @@ const ModuleTextUI = ({ input }: Props) => {
             )}
             {look === "columns" && (
               <>
-                <AOS>
-                  <h2 className="headline">
-                    {_localizeField(title) || "edit localized title"}
-                  </h2>
-                </AOS>
+                {title && (
+                  <AOS>
+                    <h2 className="headline">{_localizeField(title)}</h2>
+                  </AOS>
+                )}
                 {text && (
                   <div className="text">
                     <AOS>

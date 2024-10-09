@@ -8,6 +8,12 @@ import ExternalLinkRenderer from '../../src/components/ExternalLinkRenderer'
 import {RxButton} from 'react-icons/rx'
 
 const TextL = (props: any): JSX.Element => (
+  <p style={{fontSize: '1.5rem', marginTop: 0}}> {props.children} </p>
+)
+const Text2L = (props: any): JSX.Element => (
+  <p style={{fontSize: '1.7rem', marginTop: 0}}> {props.children} </p>
+)
+const TextXL = (props: any): JSX.Element => (
   <p style={{fontSize: '2rem', marginTop: 0}}> {props.children} </p>
 )
 
@@ -28,15 +34,26 @@ export default defineType({
       // you want and decide how you want to deal with it where you want to
       // use your content.
       styles: [
-        {title: 'Normal', value: 'normal'},
-        {title: 'Titre H2', value: 'h2'},
-        {title: 'Titre H3', value: 'h3'},
+        {
+          title: 'Normal',
+          value: 'normal',
+        },
+        {
+          title: 'Titre H2',
+          value: 'h2 text-lg',
+          component: TextL,
+        },
+        {
+          title: 'Titre H3',
+          value: 'h3 text-2lg',
+          component: Text2L,
+        },
         // {title: 'H4', value: 'h4'},
         // {title: 'Quote', value: 'blockquote'},
         {
-          title: 'Text LG (50px)',
-          value: 'text-lg',
-          component: TextL,
+          title: 'Text XL (50px)',
+          value: 'text-xl',
+          component: TextXL,
         },
         // {
         //   title: 'Texte indenté',
