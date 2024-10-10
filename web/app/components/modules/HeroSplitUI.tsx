@@ -4,6 +4,7 @@ import { urlFor } from "@/app/utils/sanity-utils";
 import Image from "next/image";
 import { infinitScroll } from "@/app/utils/infinite-scroll-plugin";
 import { _localizeField } from "@/app/utils/utils";
+import AOS from "../ui/AOS";
 
 type Props = {
   input: HeroSplitUI;
@@ -30,7 +31,9 @@ const ModuleHeroSplitUI = ({ input }: Props) => {
               placeholder="blur"
             />
             <div className="title headline">
-              <span>{itemsLeft.caption} </span>
+              <AOS>
+                <span>{itemsLeft.caption} </span>
+              </AOS>
             </div>
           </div>
         )}
@@ -46,7 +49,9 @@ const ModuleHeroSplitUI = ({ input }: Props) => {
               placeholder="blur"
             />
             <div className="title headline">
-              <span>{itemsRight.caption} </span>
+              <AOS delay={0.2}>
+                <span>{itemsRight.caption} </span>
+              </AOS>
             </div>
           </div>
         )}
