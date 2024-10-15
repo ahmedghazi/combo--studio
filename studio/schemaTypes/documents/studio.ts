@@ -59,7 +59,19 @@ export default defineType({
       name: 'imageHero',
       type: 'figure',
       title: 'Image Hero',
-      description: 'Visible on detail page (2000px)',
+      description: 'Visible on detail page (2000px), if no Slider Hero',
+      group: 'editorial',
+    }),
+    defineField({
+      name: 'SliderHero',
+      type: 'array',
+      of: [
+        {
+          type: 'figure',
+        },
+      ],
+      title: 'Slider Hero',
+      description: 'Visible on detail page (2000px), if no Image Hero',
       group: 'editorial',
     }),
     defineField({

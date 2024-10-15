@@ -102,9 +102,15 @@ export const listStudioUI = `
 		...,
 		items[]-> {
 			...,
-			modules[]{
-				...
-  		},
+			sliderHero[]{
+				image {
+					...,
+					asset->
+				}
+			}
+			// modules[]{
+			// 	...
+  		// },
 		}
 	}
 `;

@@ -472,9 +472,16 @@ export interface Studio extends SanityDocument {
   /**
    * Image Hero — `figure`
    *
-   * Visible on detail page (2000px)
+   * Visible on detail page (2000px), if no Slider Hero
    */
   imageHero?: Figure;
+
+  /**
+   * Slider Hero — `array`
+   *
+   * Visible on detail page (2000px), if no Image Hero
+   */
+  SliderHero?: Array<SanityKeyed<Figure>>;
 
   /**
    * Extrait — `localeString`

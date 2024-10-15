@@ -18,7 +18,7 @@ type Props = {
 const ModuleListStudioUI = ({ input }: Props) => {
   const detailRef = useRef<HTMLDivElement | any>(null);
   const [detail, setDetail] = useState<Studio | null>(null);
-
+  console.log(input);
   //use callback
   const _onResize = useCallback(() => {
     if (detail) {

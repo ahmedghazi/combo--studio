@@ -26,7 +26,7 @@ const Header = ({ settings }: Props) => {
           <Marquee
             text={settings.marqueeTopNav}
             foregroundColor="#000"
-            backgroundColor="#FEC81E"
+            backgroundColor="#ffdc00"
           />
         </div>
       )}

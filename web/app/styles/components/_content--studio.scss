@@ -1,5 +1,6 @@
 .content--studio {
-  .hero img {
+  .image-hero img,
+  .slider-hero img {
     max-height: calc(var(--vh) * 100 - var(--header-height) * 2);
   }
   p {

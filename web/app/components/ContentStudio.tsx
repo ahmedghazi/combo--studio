@@ -7,19 +7,54 @@ import { _localizeField } from "../utils/utils";
 import { PortableText } from "next-sanity";
 import portableTextComponents from "../utils/portableTextComponents";
 import SummaryDetailFramer from "./ui/SummaryDetailFramer";
-
+import Slider from "./ui/slick-slider";
 type Props = {
   input: Studio;
 };
 
 const ContentStudio = ({ input }: Props) => {
-  const { imageHero, title, location, text, infos } = input;
-  // console.log(input);
+  const { imageHero, SliderHero, title, location, text, infos } = input;
+  console.log(SliderHero);
   return (
     <article className="content--studio">
       <div className="px-50">
-        {imageHero && imageHero?.image && (
-          <div className="hero">
+        {SliderHero && SliderHero.length > 0 && (
+          <div className="slider-hero">
+            <Slider
+              settingsOverride={{
+                autoplay: true,
+              }}
+            >
+              {SliderHero.map((item, i) => (
+                <div className="slide" key={i}>
+                  {item?.image && (
+                    <Image
+                      src={urlFor(item?.image?.asset, 2000)}
+                      width={
+                        item?.image.asset?.metadata?.dimensions.width || 2000
+                      }
+                      height={
+                        item?.image.asset?.metadata?.dimensions.height || 2000
+                      }
+                      alt={item.caption || ""}
+                      sizes="100vw"
+                      style={{
+                        width: "100%",
+                        height: "100vh",
+                        aspectRatio: `${item?.image.asset?.metadata?.dimensions.width} / ${item?.image.asset?.metadata?.dimensions.height}`,
+                        objectFit: "cover",
+                        objectPosition: "center",
+                      }}
+                      blurDataURL={item?.image.asset?.metadata?.lqip}
+                    />
+                  )}
+                </div>
+              ))}
+            </Slider>
+          </div>
+        )}
+        {!SliderHero && imageHero && imageHero?.image && (
+          <div className="image-hero">
             <AOS>
               <Image
                 src={urlFor(imageHero?.image?.asset, 2000)}
@@ -36,6 +71,7 @@ const ContentStudio = ({ input }: Props) => {
                   height: "100vh",
                   aspectRatio: `${imageHero?.image.asset?.metadata?.dimensions.width} / ${imageHero?.image.asset?.metadata?.dimensions.height}`,
                   objectFit: "cover",
+                  objectPosition: "center",
                 }}
                 blurDataURL={imageHero?.image.asset?.metadata?.lqip}
                 // placeholder='blur'
