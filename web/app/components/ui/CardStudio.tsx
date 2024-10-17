@@ -2,6 +2,7 @@ import { Figure, LocaleString, LocaleText, Studio } from "@/app/types/schema";
 import React, { MouseEvent } from "react";
 import FigureUI from "./Figure";
 import { _localizeField, _localizeText } from "@/app/utils/utils";
+import AOS from "./AOS";
 
 type Props = {
   input: Studio;
@@ -30,20 +31,22 @@ const CardStudio = ({ input, _onClick }: Props) => {
 
   return (
     <article className="card card--studio" onClick={onClick}>
-      <div className="inner">
-        <div className="image">
-          {imageCover && <FigureUI asset={imageCover.image} />}
-          <div className="overlay">
-            <div className="bg-blend"></div>
-            <button className="btn--pill">{_localizeText("reserver")}</button>
+      <AOS>
+        <div className="inner">
+          <div className="image">
+            {imageCover && <FigureUI asset={imageCover.image} />}
+            <div className="overlay">
+              <div className="bg-blend"></div>
+              <button className="btn--pill">{_localizeText("reserver")}</button>
+            </div>
           </div>
+          <div className="header flex justify-between items-baseline">
+            {title && <h3>{_localizeField(title)}</h3>}
+            {location && <span>{location}</span>}
+          </div>
+          {excerpt && <p className="excerpt">{_localizeField(excerpt)}</p>}
         </div>
-        <div className="header flex justify-between items-baseline">
-          {title && <h3>{_localizeField(title)}</h3>}
-          {location && <span>{location}</span>}
-        </div>
-        {excerpt && <p className="excerpt">{_localizeField(excerpt)}</p>}
-      </div>
+      </AOS>
     </article>
   );
 };

@@ -16,9 +16,14 @@ header {
     transform: translateY(-100%);
     opacity: 0;
   }
-  svg:hover {
-    path {
-      fill: var(--color-accent);
+  .logo {
+    svg {
+      max-width: 10em;
+      &:hover {
+        path {
+          fill: var(--color-accent);
+        }
+      }
     }
   }
 

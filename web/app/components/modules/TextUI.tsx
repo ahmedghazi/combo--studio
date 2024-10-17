@@ -81,14 +81,14 @@ const ModuleTextUI = ({ input }: Props) => {
                   </AOS>
                 )}
                 {text && (
-                  <div className="text">
-                    <AOS>
+                  <AOS>
+                    <div className="text">
                       <PortableText
                         value={_localizeField(text)}
                         components={portableTextComponents}
                       />
-                    </AOS>
-                  </div>
+                    </div>
+                  </AOS>
                 )}
               </>
             )}
