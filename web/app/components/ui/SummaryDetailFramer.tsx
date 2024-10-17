@@ -2,6 +2,7 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import clsx from "clsx";
+import { publish } from "pubsub-js";
 
 type Props = {
   summary: ReactNode;
@@ -25,6 +26,7 @@ const SummaryDetailFramer = ({ summary, detail }: Props) => {
           behavior: "smooth",
         });
       }
+      publish("SUMMARY_DETAIL_CHANGE");
     } else {
       controls.start("collapsed");
     }

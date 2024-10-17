@@ -11,6 +11,7 @@ import CardStudio from "../ui/CardStudio";
 import ContentStudio from "../ContentStudio";
 import clsx from "clsx";
 import AOS from "../ui/AOS";
+import { subscribe, unsubscribe } from "pubsub-js";
 
 type Props = {
   input: ListStudioUI;
@@ -19,7 +20,7 @@ type Props = {
 const ModuleListStudioUI = ({ input }: Props) => {
   const detailRef = useRef<HTMLDivElement | any>(null);
   const [detail, setDetail] = useState<Studio | null>(null);
-  console.log(input);
+
   //use callback
   const _onResize = useCallback(() => {
     if (detail) {
@@ -54,8 +55,12 @@ const ModuleListStudioUI = ({ input }: Props) => {
   useEffect(() => {
     _onResize();
     window.addEventListener("resize", _onResize);
+    const token = subscribe("SUMMARY_DETAIL_CHANGE", _onResize);
 
-    return () => window.removeEventListener("resize", _onResize);
+    return () => {
+      window.removeEventListener("resize", _onResize);
+      unsubscribe(token);
+    };
   }, [detail, _onResize]);
 
   const _handleDetail = (event: MouseEvent, itemData: Studio) => {
@@ -111,17 +116,13 @@ const ModuleListStudioUI = ({ input }: Props) => {
         )}
       >
         {input.items?.map((item, i) => (
-          <div key={i}>
-            <AOS delay={i / 5}>
-              <CardStudio
-                key={i}
-                input={item}
-                _onClick={(event: MouseEvent) => {
-                  _handleDetail(event, item);
-                }}
-              />
-            </AOS>
-          </div>
+          <CardStudio
+            key={i}
+            input={item}
+            _onClick={(event: MouseEvent) => {
+              _handleDetail(event, item);
+            }}
+          />
         ))}
       </div>
       <div className="detail detail--studio" ref={detailRef}>

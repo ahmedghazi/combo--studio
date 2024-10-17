@@ -14,7 +14,7 @@ type Props = {
 
 const ContentStudio = ({ input }: Props) => {
   const { imageHero, SliderHero, title, location, text, infos } = input;
-  console.log(SliderHero);
+
   return (
     <article className="content--studio">
       <div className="px-50">
@@ -124,40 +124,6 @@ const ContentStudio = ({ input }: Props) => {
                   ))}
                 </div>
               </div>
-
-              {/* <div className="flex flex-wrap items-end gap-y-xl ">
-                <div className="md:w-1/2 pr-lg">
-                  <AOS>
-                    <div className="text">
-                      <PortableText
-                        value={_localizeField(text)}
-                        components={portableTextComponents}
-                      />
-                    </div>
-                  </AOS>
-                </div>
-                {infos?.map((item, i) => (
-                  <div key={i} className="md:w-1/2">
-                    <AOS>
-                      <SummaryDetailFramer
-                        summary={
-                          <button className="btn--pill">
-                            {_localizeField(item.summary)}
-                          </button>
-                        }
-                        detail={
-                          <div className="text">
-                            <PortableText
-                              value={_localizeField(item.detail)}
-                              components={portableTextComponents}
-                            />
-                          </div>
-                        }
-                      />
-                    </AOS>
-                  </div>
-                ))}
-              </div> */}
             </div>
           </div>
         </div>
