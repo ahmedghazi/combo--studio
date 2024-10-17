@@ -10,6 +10,7 @@ import React, {
 import CardStudio from "../ui/CardStudio";
 import ContentStudio from "../ContentStudio";
 import clsx from "clsx";
+import AOS from "../ui/AOS";
 
 type Props = {
   input: ListStudioUI;
@@ -110,13 +111,17 @@ const ModuleListStudioUI = ({ input }: Props) => {
         )}
       >
         {input.items?.map((item, i) => (
-          <CardStudio
-            key={i}
-            input={item}
-            _onClick={(event: MouseEvent) => {
-              _handleDetail(event, item);
-            }}
-          />
+          <div key={i}>
+            <AOS delay={i / 5}>
+              <CardStudio
+                key={i}
+                input={item}
+                _onClick={(event: MouseEvent) => {
+                  _handleDetail(event, item);
+                }}
+              />
+            </AOS>
+          </div>
         ))}
       </div>
       <div className="detail detail--studio" ref={detailRef}>

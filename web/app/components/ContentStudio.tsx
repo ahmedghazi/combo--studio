@@ -85,14 +85,47 @@ const ContentStudio = ({ input }: Props) => {
             <div className="col-md-10 col-xs-12">
               <AOS>
                 <div className="header mb-xl">
-                  <div className="location">{location}</div>
+                  <div className="location btn--pill">{location}</div>
                   <h4 className="headline text-center">
                     <div>{_localizeField(title)}</div>
                   </h4>
                 </div>
               </AOS>
+              <div className="grid md:grid-cols-2 gap-md">
+                <AOS>
+                  <div className="text mb-lg">
+                    <PortableText
+                      value={_localizeField(text)}
+                      components={portableTextComponents}
+                    />
+                  </div>
+                </AOS>
+                <div>
+                  {infos?.map((item, i) => (
+                    <div key={i} className="mb-xl">
+                      <AOS>
+                        <SummaryDetailFramer
+                          summary={
+                            <button className="btn--pill">
+                              {_localizeField(item.summary)}
+                            </button>
+                          }
+                          detail={
+                            <div className="text pt-xl">
+                              <PortableText
+                                value={_localizeField(item.detail)}
+                                components={portableTextComponents}
+                              />
+                            </div>
+                          }
+                        />
+                      </AOS>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-              <div className="flex flex-wrap items-end gap-y-xl ">
+              {/* <div className="flex flex-wrap items-end gap-y-xl ">
                 <div className="md:w-1/2 pr-lg">
                   <AOS>
                     <div className="text">
@@ -124,7 +157,7 @@ const ContentStudio = ({ input }: Props) => {
                     </AOS>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
