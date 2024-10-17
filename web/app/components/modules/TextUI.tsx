@@ -36,7 +36,7 @@ const ModuleTextUI = ({ input }: Props) => {
         {hasImage && <div className="bg-blend"></div>}
 
         <div className="row center-xs">
-          <div className="col-md-10">
+          <div className="col-md-10 col-xs-12">
             {look === "default" && (
               <div className="text mx-auto">
                 {text && (
@@ -58,7 +58,7 @@ const ModuleTextUI = ({ input }: Props) => {
                 )}
 
                 <div className="row">
-                  <div className="col-md-6 col-md-offset-3 ">
+                  <div className="col-md-6 col-md-offset-3 col-xs-12">
                     <div className="text ">
                       {text && (
                         <AOS>

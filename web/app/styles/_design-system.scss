@@ -16,13 +16,16 @@
   }
 
   @media all and (max-width: $md) {
-    font-size: var(--text-md);
+    font-size: var(--text-m-md);
     padding: 0 2em;
   }
 }
 
 .grid-card {
   padding: var(--space-50);
+  @media all and (max-width: $md) {
+    padding: var(--space-m-md);
+  }
   .card {
     margin-bottom: var(--space-50);
   }
@@ -36,6 +39,9 @@
   }
   h3 {
     font-size: var(--text-2lg);
+    @media all and (max-width: $md) {
+      font-size: var(--text-m-2lg);
+    }
   }
   &--studio {
     &:hover {

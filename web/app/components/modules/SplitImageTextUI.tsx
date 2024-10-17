@@ -23,8 +23,8 @@ const ModuleSplitImageTextUI = ({ input }: Props) => {
           backgroundSize: "cover",
         }}
       >
-        <div className="flex">
-          <div className="w-1/2 ">
+        <div className="flex flex-col md:flex-row">
+          <div className="md:w-1/2 ">
             <div className="bg"></div>
             <div className="panel">
               <AOS>
@@ -40,7 +40,7 @@ const ModuleSplitImageTextUI = ({ input }: Props) => {
               </AOS>
             </div>
           </div>
-          <div className="w-1/2"></div>
+          <div className="md:w-1/2 aspect-square md:aspect-auto hidden-sm"></div>
         </div>
       </div>
     </section>

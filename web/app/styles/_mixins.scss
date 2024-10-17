@@ -293,8 +293,8 @@ $sass-burger-add-vendor-prefixes: true !default;
       background-color: $color;
     }
   }
-  $burger-gutter: 4px;
-  $burger-height: 2px;
+  $burger-gutter: 6px;
+  $burger-height: 1px;
   &::before {
     @if $sass-burger-add-vendor-prefixes {
       -webkit-transform: translateY($burger-gutter + $burger-height)

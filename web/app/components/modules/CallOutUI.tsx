@@ -28,9 +28,7 @@ const ModuleCallOutUI = ({ input }: Props) => {
       {hasImage && <div className="bg-blend"></div>}
       <div className="inner">
         <AOS>
-          <h2 className="text-md md:text-xl font-secondary">
-            {_localizeField(title)}
-          </h2>
+          <h2 className="headline">{_localizeField(title)}</h2>
         </AOS>
         <div className="items flex flex-col items-center gap-1e">
           {input.links?.map((item, i) => (

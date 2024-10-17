@@ -17,7 +17,7 @@ const ContentStudio = ({ input }: Props) => {
 
   return (
     <article className="content--studio">
-      <div className="px-50">
+      <div className="px-m-md md:px-50">
         {SliderHero && SliderHero.length > 0 && (
           <div className="slider-hero">
             <Slider
@@ -80,7 +80,7 @@ const ContentStudio = ({ input }: Props) => {
             </AOS>
           </div>
         )}
-        <div className="px-50 pt-50">
+        <div className="md:px-50 pt-50">
           <div className="row center-xs">
             <div className="col-md-10 col-xs-12">
               <AOS>

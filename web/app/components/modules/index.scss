@@ -11,7 +11,9 @@
     // }
     scroll-margin-top: var(--header-height);
     &.module--hero-ui {
-      height: calc(var(--vh) * 100 - var(--header-height));
+      @media all and (min-width: $md) {
+        height: calc(var(--vh) * 100 - var(--header-height));
+      }
       img {
         object-fit: cover;
         object-position: center center;
@@ -33,7 +35,7 @@
         color: var(--color, #fff);
         // background-attachment: fixed;
         @media all and (max-width: $md) {
-          padding: var(--space-50) var(--space-md);
+          padding: var(--space-50) var(--space-m-md);
         }
         h2,
         .text {
@@ -50,7 +52,10 @@
         }
         &.is-offset {
           .headline {
-            max-width: 13em;
+            @media all and (min-width: $md) {
+              max-width: 13em;
+              background-color: red;
+            }
           }
         }
       }
@@ -124,6 +129,9 @@
           top: calc(
             var(--vh) * 100 - var(--header-height) * 2 + var(--space-50)
           );
+          @media all and (max-width: $md) {
+            right: var(--space-m-md);
+          }
         }
         .summary-detail {
           .summary {
@@ -183,6 +191,15 @@
         padding: var(--space-50);
         min-height: calc(var(--vh) * 100 - var(--header-height));
       }
+      @media all and (max-width: $md) {
+        text-align: center;
+        .flex {
+          flex-direction: column-reverse !important;
+        }
+        .btn--pill {
+          margin-top: var(--space-xl);
+        }
+      }
     }
     &.module--hero-split-ui {
       img {
@@ -211,6 +228,11 @@
         // overflow: hidden;
         height: calc(var(--vh) * 100 - var(--header-height));
         height: calc(var(--vh) * 200);
+      }
+      @media all and (max-width: $md) {
+        .scroller {
+          height: calc(var(--vh) * 100);
+        }
       }
 
       .item {
@@ -252,6 +274,10 @@
     &.module--list-card-image-text-ui {
       .inner {
         padding: var(--space-50);
+        @media all and (max-width: $md) {
+          padding: var(--space-lg) var(--space-m-md);
+          gap: 1em;
+        }
       }
       .card {
         .inner {

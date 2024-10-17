@@ -31,22 +31,26 @@ const CardStudio = ({ input, _onClick }: Props) => {
 
   return (
     <article className="card card--studio" onClick={onClick}>
-      <AOS>
-        <div className="inner">
-          <div className="image">
-            {imageCover && <FigureUI asset={imageCover.image} />}
-            <div className="overlay">
-              <div className="bg-blend"></div>
-              <button className="btn--pill">{_localizeText("reserver")}</button>
+      <div className="pointer-events-none ">
+        <AOS>
+          <div className="inner">
+            <div className="image">
+              {imageCover && <FigureUI asset={imageCover.image} />}
+              <div className="overlay">
+                <div className="bg-blend"></div>
+                <button className="btn--pill">
+                  {_localizeText("reserver")}
+                </button>
+              </div>
             </div>
+            <div className="header flex justify-between items-baseline">
+              {title && <h3>{_localizeField(title)}</h3>}
+              {location && <span>{location}</span>}
+            </div>
+            {excerpt && <p className="excerpt">{_localizeField(excerpt)}</p>}
           </div>
-          <div className="header flex justify-between items-baseline">
-            {title && <h3>{_localizeField(title)}</h3>}
-            {location && <span>{location}</span>}
-          </div>
-          {excerpt && <p className="excerpt">{_localizeField(excerpt)}</p>}
-        </div>
-      </AOS>
+        </AOS>
+      </div>
     </article>
   );
 };

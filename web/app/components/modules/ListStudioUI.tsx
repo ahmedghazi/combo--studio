@@ -28,7 +28,7 @@ const ModuleListStudioUI = ({ input }: Props) => {
         ".grid article.is-active"
       );
 
-      // console.log(activeItem);
+      console.log(activeItem);
       if (activeItem) {
         const inner = activeItem.querySelector(".inner");
         if (inner) {
@@ -67,7 +67,7 @@ const ModuleListStudioUI = ({ input }: Props) => {
     // console.log(itemData);
     const target = event.target as Element;
     target.classList.toggle("is-active");
-
+    console.log(target);
     if (!target.classList.contains("is-active")) {
       const articles: NodeListOf<HTMLElement> =
         document.querySelectorAll(".grid article");
@@ -120,6 +120,7 @@ const ModuleListStudioUI = ({ input }: Props) => {
             key={i}
             input={item}
             _onClick={(event: MouseEvent) => {
+              console.log(event);
               _handleDetail(event, item);
             }}
           />

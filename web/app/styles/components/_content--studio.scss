@@ -29,4 +29,16 @@
       max-width: 100%;
     }
   }
+  @media all and (max-width: $md) {
+    .header {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 1em;
+    }
+    .location {
+      position: initial;
+      // margin-bottom: 1em;
+    }
+  }
 }

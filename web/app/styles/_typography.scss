@@ -40,7 +40,7 @@ body {
 }
 
 html {
-  font-size: 14px;
+  font-size: 12px;
 }
 @media all and (min-width: 1080px) {
   html {
@@ -226,5 +226,11 @@ sub {
   top: 0.5ex;
 }
 
-@media all and (max-width: $sm) {
+@media all and (max-width: $md) {
+  body {
+    font-size: var(--text-m-md);
+  }
+  .headline {
+    font-size: var(--text-m-xl);
+  }
 }

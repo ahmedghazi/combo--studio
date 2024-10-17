@@ -15,7 +15,10 @@ const ModuleListCardImageTextUI = ({ input }: Props) => {
       <div className="inner">
         <h2 className="headline">{_localizeField(input.title)}</h2>
         <div
-          className={clsx("grid gap-md", `md:grid-cols-${input.gridSize || 3}`)}
+          className={clsx(
+            "grid gap-xl md:gap-md",
+            `md:grid-cols-${input.gridSize || 3}`
+          )}
         >
           {input.items?.map((item, i) => (
             <div key={i}>

@@ -49,6 +49,15 @@ $half-gutter-width: calc(#{$gutter-width} * 0.5);
   @include flex-wrap(wrap);
   margin-right: calc(-1 * #{$gutter-width});
   margin-left: calc(-1 * #{$gutter-width});
+  @media all and (max-width: $md) {
+    margin-right: calc(-1 * var(--space-m-md));
+    margin-left: calc(-1 * var(--space-m-md));
+    & > [class^="col-"],
+    & > [class*=" col-"] {
+      padding-right: var(--space-m-md);
+      padding-left: var(--space-m-md);
+    }
+  }
   &.no-gutter {
     margin-right: 0;
     margin-left: 0;

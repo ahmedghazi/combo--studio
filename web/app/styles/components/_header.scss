@@ -62,9 +62,54 @@ header {
     }
   }
   @media all and (max-width: $md) {
-    padding: var(--space-md);
+    padding: 0;
+    .inner {
+      padding: toRem(11) toRem(16);
+    }
     .logo {
-      width: 94px;
+      // width: 94px;
+      z-index: 10;
+      svg {
+        max-width: 88px;
+        max-height: 25px;
+      }
+    }
+    .burger-wrapper {
+      z-index: 10;
+      width: toRem(30);
+      height: toRem(25);
+      margin: auto;
+      .burger {
+        @include burger(30px, 1px, 6px, white);
+        transform: translateY(10px);
+      }
+      &.is-active {
+        .burger {
+          @include burger-to-cross;
+        }
+        & + nav {
+          display: block;
+        }
+      }
+    }
+
+    nav {
+      position: fixed;
+      background-color: black;
+      inset: 0;
+      z-index: 0;
+      padding: toRem(16);
+      padding-top: var(--header-height);
+      display: none;
+      ul {
+        flex-direction: column;
+        gap: 1em;
+        .sub-menu {
+          display: block;
+          position: initial;
+          padding-top: 0;
+        }
+      }
     }
   }
 }

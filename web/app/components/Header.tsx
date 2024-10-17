@@ -5,6 +5,7 @@ import NavPrimary from "./NavPrimary";
 import Link from "next/link";
 import Marquee from "./ui/Marquee";
 import { useScroll } from "../hooks/useScroll";
+import Burger from "./ui/Burger";
 
 type Props = {
   settings: Settings;
@@ -65,6 +66,7 @@ const Header = ({ settings }: Props) => {
             </Link>
           </div>
           <div className="flex-2">
+            <Burger />
             {settings.navPrimary && <NavPrimary input={settings.navPrimary} />}
           </div>
 
