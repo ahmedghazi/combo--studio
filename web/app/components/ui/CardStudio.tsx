@@ -52,7 +52,7 @@ const CardStudio = ({ input, _onClick }: Props) => {
                 </button>
               </div>
             </div>
-            <div className="header flex justify-between items-baseline">
+            <div className="header flex justify-between items-center">
               {title && <h3>{_localizeField(title)}</h3>}
               {location && (
                 <span className="cartouche cartouche--sm">{location}</span>
