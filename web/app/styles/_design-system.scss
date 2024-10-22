@@ -1,3 +1,15 @@
+.cartouche {
+  padding: 0.4em toRem(60);
+  font-family: var(--font-primary-mono);
+  background-color: white;
+  color: black;
+  font-size: var(--text-lg);
+  text-transform: uppercase;
+  &--sm {
+    padding: 0.4em 1em;
+    font-size: var(--text-sm);
+  }
+}
 .btn--pill {
   border: var(--border);
   padding: 0 toRem(60) 0.1em;
