@@ -212,6 +212,10 @@
       .title {
         @include center_it;
         color: var(--color-primary);
+        span {
+          display: block;
+          text-align: center;
+        }
       }
       svg {
         @include center_it;
