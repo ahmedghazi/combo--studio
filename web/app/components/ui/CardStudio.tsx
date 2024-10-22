@@ -1,8 +1,9 @@
 import { Figure, LocaleString, LocaleText, Studio } from "@/app/types/schema";
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, useEffect } from "react";
 import FigureUI from "./Figure";
 import { _localizeField, _localizeText } from "@/app/utils/utils";
 import AOS from "./AOS";
+import { subscribe } from "pubsub-js";
 
 type Props = {
   input: Studio;
@@ -11,6 +12,14 @@ type Props = {
 
 const CardStudio = ({ input, _onClick }: Props) => {
   const { imageCover, title, excerpt, location } = input;
+
+  // useEffect(() => {
+  //   //LIST_STUDIO_DETAIL_CHANGE
+  //   const token = subscribe("LIST_STUDIO_DETAIL_CHANGE", (e, d) => {
+
+  //   })
+  // }, [])
+
   const onClick = (event: MouseEvent<HTMLElement>) => {
     /**
      * RESET all others

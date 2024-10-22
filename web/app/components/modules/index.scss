@@ -185,7 +185,7 @@
       .flex {
       }
       .bg {
-        background-color: var(--color-green);
+        background-color: var(--color-accent);
         position: absolute;
         inset: 0;
         mix-blend-mode: multiply;
@@ -211,6 +211,7 @@
       }
       .title {
         @include center_it;
+        color: var(--color-primary);
       }
       svg {
         @include center_it;
@@ -261,6 +262,7 @@
       }
       .title {
         @include center_it;
+        color: var(--color-primary);
       }
 
       @media screen and (max-width: $md) {

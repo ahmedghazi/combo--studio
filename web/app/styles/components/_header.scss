@@ -19,6 +19,9 @@ header {
   .logo {
     svg {
       max-width: 10em;
+      path {
+        fill: var(--color-primary);
+      }
       &:hover {
         path {
           fill: var(--color-accent);

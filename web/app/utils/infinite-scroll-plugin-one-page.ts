@@ -1,4 +1,5 @@
 // import { gsap, Power4 } from "gsap";
+// import _ from "lodash";
 
 // export function infinitScrollOnePage(
 //   wrapper: HTMLDivElement,
@@ -19,21 +20,24 @@
 //   if (!wrapper) return;
 
 //   window.addEventListener("resize", _onResize);
-//   const debounceWheel = CallLock(_onWheel, 3000);
-//   wrapper.addEventListener("wheel", debounceWheel);
+
+//   wrapper.addEventListener(
+//     "wheel",
+//     _.throttle(_onWheel, 3000, { leading: true, trailing: true })
+//   );
 //   _onResize();
 
-//   requestAnimationFrame(_update);
+//   // requestAnimationFrame(_update);
 //   _animeIntro();
 
 //   function _animeIntro() {
-//     if (rootMargin) {
-//       const header = document.querySelector("header");
-//       if (header) {
-//         const bounding = header.getBoundingClientRect();
-//         rootMarginSize = bounding.height;
-//       }
-//     }
+//     // if (rootMargin) {
+//     //   const header = document.querySelector("header");
+//     //   if (header) {
+//     //     const bounding = header.getBoundingClientRect();
+//     //     rootMarginSize = bounding.height;
+//     //   }
+//     // }
 
 //     var obj = { lerpCache: 0 };
 //     const nextVal = window.innerHeight * 1 - rootMarginSize;
@@ -92,16 +96,28 @@
 //   function _onWheel(e: WheelEvent | any) {
 //     console.log(e.deltaY, prevDeltaY, e.deltaY === prevDeltaY);
 
-//     const isScrolling = e.deltaY !== prevDeltaY;
+//     // const isScrolling = e.deltaY !== prevDeltaY;
 //     // console.log({ isScrolling });
 
-//     prevDeltaY = e.deltaY;
+//     // prevDeltaY = e.deltaY;
 //     // if (!isScrolling) {
 //     const direction = e.deltaY > 0 ? 1 : -1;
 //     const nextVal = window.innerHeight * direction - rootMarginSize;
-//     deltaTotal = deltaTotal - nextVal;
-//     console.log(deltaTotal);
-//     lerpCache = lerp(lerpCache, deltaTotal, 0.1);
+//     var obj = { lerpCache: lerpCache };
+//     // const nextVal = window.innerHeight * 1 - rootMarginSize;
+//     gsap.to(obj, 1, {
+//       lerpCache: nextVal,
+//       duration: 4,
+//       delay: 0,
+//       ease: Power4.easeInOut,
+//       onUpdate: (o) => {
+//         lerpCache = obj.lerpCache;
+//         _update();
+//       },
+//     });
+//     // deltaTotal = deltaTotal - nextVal;
+//     // console.log(deltaTotal);
+//     // lerpCache = lerp(lerpCache, deltaTotal, 0.1);
 //     // }
 //     // console.log(-1 !== -1);
 //   }
@@ -130,7 +146,7 @@
 //       el.style.opacity = "1";
 //     });
 
-//     requestAnimationFrame(_update);
+//     // requestAnimationFrame(_update);
 //   }
 
 //   /*
@@ -139,39 +155,27 @@
 //   function lerp(start: number, end: number, amt: number) {
 //     return (1 - amt) * start + amt * end;
 //   }
-
-//   function debounce(func: Function, delay: number) {
-//     let timerId: any;
-
-//     return function (...args: any) {
-//       clearTimeout(timerId);
-//       timerId = setTimeout(() => {
-//         func.apply(this, args);
-//       }, delay);
-//     };
-//   }
-//   function CallLock(toCall: Function, lockout: number) {
-//     let argv;
-//     let lastCall = 0;
-//     let timer = 0;
-//     function recall() {
-//       timer = 0;
-//       lastCall = Date.now();
-//       toCall(...argv);
-//     }
-//     return function (...args) {
-//       let now = Date.now();
-//       if (timer == 0) {
-//         if (now >= lastCall + lockout) {
-//           lastCall = now;
-//           toCall(...args);
-//         } else {
-//           argv = args;
-//           timer = setTimeout(recall, lastCall + lockout - now);
-//         }
-//       } else {
-//         argv = args; // use most recent arguments
-//       }
-//     };
-//   }
 // }
+
+// const throttle = (callback: Function, delay: number) => {
+//   var wait = false;
+//   return function () {
+//     if (!wait) {
+//       callback();
+//       wait = true;
+//       setTimeout(function () {
+//         wait = false;
+//       }, delay);
+//     }
+//   };
+// };
+
+// const debounce = (callback: Function, delay: number) => {
+//   let timeout: NodeJS.Timeout | undefined;
+//   return function () {
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => {
+//       callback();
+//     }, delay);
+//   };
+// };
