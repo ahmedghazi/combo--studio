@@ -82,10 +82,7 @@ header {
       width: toRem(30);
       height: toRem(25);
       margin: auto;
-      .burger {
-        @include burger(30px, 1px, 6px, white);
-        transform: translateY(10px);
-      }
+
       &.is-active {
         .burger {
           @include burger-to-cross;
@@ -93,6 +90,10 @@ header {
         & + nav {
           display: block;
         }
+      }
+      .burger {
+        transform: translateY(10px);
+        @include burger(30px, 1px, 6px, white);
       }
     }
 

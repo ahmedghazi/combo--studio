@@ -5,9 +5,6 @@ import Footer from "./components/Footer";
 import website from "./config/website";
 import { getSettings } from "./utils/sanity-queries";
 import { PageContextProvider } from "./context/PageContext";
-import PageTransition from "./components/ui/PageTransition";
-// import Splash from "./components/Splash";
-import { usePathname } from "next/navigation";
 import { LocaleContextProvider } from "./context/LocaleContext";
 import Cursor from "./components/ui/Cursor";
 

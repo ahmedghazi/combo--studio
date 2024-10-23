@@ -4,7 +4,7 @@ import { urlFor } from "@/app/utils/sanity-utils";
 import Image from "next/image";
 import { _localizeField } from "@/app/utils/utils";
 import { infinitScroll } from "@/app/utils/infinite-scroll-plugin";
-// import { infinitScrollOnePage } from "@/app/utils/infinite-scroll-plugin-one-page";
+import { infinitScrollOnePage } from "@/app/utils/infinite-scroll-plugin-one-page";
 
 type Props = {
   input: HeroSplitScrollUI;
@@ -28,14 +28,14 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
           ".column--left article"
         ) as NodeListOf<HTMLElement>
       );
-      infinitScroll(ref.current, itemsLeft, "down", onScroll, true);
+      infinitScrollOnePage(ref.current, itemsLeft, "down", onScroll, true);
 
       const itemsRight = Array.from(
         ref.current.querySelectorAll(
           ".column--right article"
         ) as NodeListOf<HTMLElement>
       );
-      infinitScroll(ref.current, itemsRight, "up", onScroll, true);
+      infinitScrollOnePage(ref.current, itemsRight, "up", onScroll, true);
     }
   }, [ready]);
 
