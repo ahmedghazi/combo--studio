@@ -96,17 +96,12 @@ export function infinitScrollOnePage(
   // console.log(wrapY);
 
   function _onWheel(e: WheelEvent | any) {
-    console.log({ lerpCache });
+    // console.log({ lerpCache });
 
-    // const isScrolling = e.deltaY !== prevDeltaY;
-    // console.log({ isScrolling });
-
-    // prevDeltaY = e.deltaY;
-    // if (!isScrolling) {
     const direction = e.deltaY > 0 ? 1 : -1;
     const gap = (window.innerHeight - rootMarginSize) * direction;
     const nextVal = lerpCache + gap;
-    console.log(gap, nextVal);
+
     var obj = { lerpCache: lerpCache };
     // const nextVal = window.innerHeight * 1 - rootMarginSize;
     gsap.to(obj, 1, {
@@ -119,11 +114,6 @@ export function infinitScrollOnePage(
         _update();
       },
     });
-    // deltaTotal = deltaTotal - nextVal;
-    // console.log(deltaTotal);
-    // lerpCache = lerp(lerpCache, deltaTotal, 0.1);
-    // }
-    // console.log(-1 !== -1);
   }
 
   function _update() {
