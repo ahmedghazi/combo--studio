@@ -9,13 +9,14 @@ export function infinitScrollOnePage(
   rootMargin: boolean
 ) {
   var imagesBoundingRect: any = null,
-    deltaTotal: number = 0,
+    // deltaTotal: number = 0,
     wrapY: any,
     lerpCache: number = 0,
     rootMarginSize: number = 0,
     // isScrolling: boolean = false,
     // isNotScrolling: boolean = true,
-    prevDeltaY: number = 0;
+    // prevDeltaY: number = 0,
+    step = 0;
 
   if (!wrapper) return;
 
@@ -26,7 +27,6 @@ export function infinitScrollOnePage(
     _.throttle(_onWheel, 2000, { leading: true, trailing: false })
   );
   _onResize();
-
   _animeIntro();
 
   function _animeIntro() {
@@ -86,13 +86,14 @@ export function infinitScrollOnePage(
         rootMarginSize = bounding.height;
       }
     }
+    step = window.innerHeight - rootMarginSize;
   }
   // console.log(wrapY);
 
   function _onWheel(e: WheelEvent | any) {
     // console.log({ lerpCache });
     const direction = e.deltaY > 0 ? 1 : -1;
-    const step = window.innerHeight - rootMarginSize;
+    // const step = window.innerHeight - rootMarginSize;
     const gap = step * direction;
     const nextVal = lerpCache + gap;
     _transition(nextVal);
