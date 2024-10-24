@@ -40,7 +40,9 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
   }, [ready]);
 
   const onScroll = (val: number) => {
-    setRotate(val * 0.6);
+    // const nextVal = rotate + 180 * val;
+    console.log(val);
+    setRotate(val);
   };
 
   const _handleImagesLoaded = () => {
@@ -114,6 +116,7 @@ const ModuleHeroSplitScrollUI = ({ input }: Props) => {
           width="841.89"
           height="595.28"
           viewBox="0 0 841.89 595.28"
+          className="transition-transform duration-400"
           style={{
             transform: `translate(-50%, -50%) rotate(${rotate}deg) scale(0.4)`,
           }}
