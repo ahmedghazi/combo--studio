@@ -151,9 +151,10 @@
       @media all and (max-width: $md) {
         .detail.detail--studio {
           .btn--close {
-            top: calc(
-              var(--vh) * 100 - var(--header-height) * 3 + var(--space-50)
-            );
+            padding: 0.5em;
+            // background-color: var(--color-bg);
+            top: 0;
+            color: var(--color-accent);
           }
         }
       }
