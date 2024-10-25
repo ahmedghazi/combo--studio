@@ -148,6 +148,15 @@
           }
         }
       }
+      @media all and (max-width: $md) {
+        .detail.detail--studio {
+          .btn--close {
+            top: calc(
+              var(--vh) * 100 - var(--header-height) * 3 + var(--space-50)
+            );
+          }
+        }
+      }
     }
     &.module--callout-ui {
       background-color: #000;

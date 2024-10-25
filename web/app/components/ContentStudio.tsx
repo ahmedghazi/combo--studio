@@ -40,7 +40,7 @@ const ContentStudio = ({ input }: Props) => {
                       sizes="100vw"
                       style={{
                         width: "100%",
-                        height: "100vh",
+                        height: "100%",
                         aspectRatio: `${item?.image.asset?.metadata?.dimensions.width} / ${item?.image.asset?.metadata?.dimensions.height}`,
                         objectFit: "cover",
                         objectPosition: "center",
@@ -68,7 +68,7 @@ const ContentStudio = ({ input }: Props) => {
                 sizes="100vw"
                 style={{
                   width: "100%",
-                  height: "100vh",
+                  height: "100%",
                   aspectRatio: `${imageHero?.image.asset?.metadata?.dimensions.width} / ${imageHero?.image.asset?.metadata?.dimensions.height}`,
                   objectFit: "cover",
                   objectPosition: "center",

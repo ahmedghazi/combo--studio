@@ -30,6 +30,11 @@
     }
   }
   @media all and (max-width: $md) {
+    .image-hero img,
+    .slider-hero img {
+      max-height: calc(var(--vh) * 100 - var(--header-height) * 3);
+      aspect-ratio: 5 / 3;
+    }
     .header {
       display: flex;
       flex-direction: column-reverse;
