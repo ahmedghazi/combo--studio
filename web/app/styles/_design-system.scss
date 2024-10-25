@@ -85,6 +85,7 @@
       position: absolute;
       right: var(--space-50);
     }
+
     .title {
       text-align: center;
       text-transform: uppercase;
@@ -92,6 +93,17 @@
       h2 {
         margin: 0;
         line-height: 1;
+      }
+    }
+  }
+  @media all and (max-width: $md) {
+    .summary {
+      .icon-arrow {
+        right: var(--space-lg);
+        svg {
+          width: auto;
+          height: var(--text-m-xl);
+        }
       }
     }
   }
