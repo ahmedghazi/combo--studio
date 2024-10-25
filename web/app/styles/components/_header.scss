@@ -105,10 +105,16 @@ header {
       padding: toRem(16);
       padding-top: var(--header-height);
       display: none;
-      ul {
+      li:hover .sub-menu {
+        display: block;
+      }
+      & > ul {
         flex-direction: column;
         gap: 1em;
+
         .sub-menu {
+          padding: 0;
+          padding-left: 2em;
           display: block;
           position: initial;
           padding-top: 0;
