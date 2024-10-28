@@ -814,6 +814,13 @@ export type CardImageText = {
   title?: LocaleString;
 
   /**
+   * Tag — `localeString`
+   *
+   *
+   */
+  tag?: LocaleString;
+
+  /**
    * text — `localeBlockContent`
    *
    *
@@ -968,6 +975,13 @@ export type ListCardImageTextUI = {
    * Items par ligne, par défaut 3
    */
   gridSize?: number;
+
+  /**
+   * sliderShow — `boolean`
+   *
+   *
+   */
+  sliderShow?: boolean;
 
   /**
    * items — `array`
