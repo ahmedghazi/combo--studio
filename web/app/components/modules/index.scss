@@ -136,6 +136,12 @@
             right: var(--space-m-md);
           }
         }
+        @media all and (min-width: $sm) and (max-width: 1200px) {
+          .col-md-10 {
+            flex-basis: calc(100% / 12 * 12);
+            max-width: calc(100% / 12 * 12);
+          }
+        }
         .summary-detail {
           .summary {
             padding: 0;

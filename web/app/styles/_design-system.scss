@@ -1,10 +1,11 @@
 .cartouche {
-  padding: 0.4em toRem(60);
+  padding: 0.4em toRem(20);
   font-family: var(--font-primary-mono);
   background-color: white;
   color: black;
   font-size: var(--text-lg);
   text-transform: uppercase;
+  // background-color: red;
   &--sm {
     padding: 0.4em 1em;
     font-size: var(--text-sm);
