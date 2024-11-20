@@ -23,7 +23,7 @@ const ModuleListCardImageTextUI = ({ input }: Props) => {
               settingsOverride={{
                 slidesToShow: gridSize || 3,
                 slidesToScroll: gridSize || 3,
-                dots: false,
+                dots: true,
                 responsive: [
                   {
                     breakpoint: 1024,
