@@ -36,7 +36,7 @@ const ModuleListCardImageTextUI = ({ input }: Props) => {
               }}
             >
               {items?.map((item, i) => (
-                <div className="slide px-sm" key={i}>
+                <div className="slide md:px-sm" key={i}>
                   <Card
                     key={i}
                     image={item.image}
