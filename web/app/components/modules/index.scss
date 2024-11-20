@@ -308,6 +308,10 @@
         @media all and (max-width: $md) {
           padding: var(--space-lg) var(--space-m-md);
           gap: 1em;
+          img {
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+          }
         }
         .slider-container {
           @media all and (min-width: $md) {
