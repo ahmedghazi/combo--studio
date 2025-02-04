@@ -77,7 +77,7 @@ const Mailchimp = (props: Props) => {
     const payload = {
       email: email,
     };
-    console.log(payload);
+    // console.log(payload);
     // return;
     try {
       const res = await fetch("/api/mailjet-newsletter", {
@@ -99,27 +99,27 @@ const Mailchimp = (props: Props) => {
   };
 
   return (
-    <div className='mailjet'>
-      <div className='title '>Abonnez-vous à notre newsletter ↓</div>
+    <div className="mailjet">
+      <div className="title ">Abonnez-vous à notre newsletter ↓</div>
       <form onSubmit={handleSubmit} className={clsx("mailjet--form")}>
-        <div className='flex  items-baseline'>
+        <div className="flex  items-baseline">
           <input
             {...field}
-            role='textbox'
+            role="textbox"
             onChange={({ target }) => setEmail(target.value)}
-            className='w-full'
+            className="w-full"
           />
           <button
             // disabled={(status === "sending" || status === "success")}
-            type='submit'
-            aria-label='submit'
+            type="submit"
+            aria-label="submit"
             // className={""}
           >
             <span>→</span>
           </button>
         </div>
       </form>
-      {status !== "" && <div className='status py-sm capitalize'>{status}</div>}
+      {status !== "" && <div className="status py-sm capitalize">{status}</div>}
     </div>
   );
 };
