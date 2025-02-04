@@ -7,6 +7,7 @@ import { getSettings } from "./utils/sanity-queries";
 import { PageContextProvider } from "./context/PageContext";
 import { LocaleContextProvider } from "./context/LocaleContext";
 import Cursor from "./components/ui/Cursor";
+import CookieConsent from "./components/ui/CookieConsent";
 
 export const metadata = {
   metadataBase: new URL(website.url),
@@ -34,6 +35,9 @@ export default async function RootLayout({
               <main>{children}</main>
               <Footer settings={settings} />
               <Cursor color="#fff" size={10} />
+              <CookieConsent legals={settings.legalsUrl} />
+
+              {/* <CookieConsent legals={settings.legalsUrl} /> */}
             </div>
           </PageContextProvider>
         </LocaleContextProvider>

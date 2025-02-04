@@ -268,6 +268,13 @@ export interface Settings extends SanityDocument {
   messageCookie?: LocaleBlockContent;
 
   /**
+   * Page de mentions légales — `linkInternal`
+   *
+   *
+   */
+  legalsUrl?: LinkInternal;
+
+  /**
    * customCss — `text`
    *
    *
