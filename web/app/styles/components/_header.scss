@@ -4,7 +4,9 @@ header {
   top: 0;
   z-index: 50;
   background-color: black;
-  transition: transform 0.3s var(--cubic), opacity 0.3s var(--cubic);
+  transition:
+    transform 0.3s var(--cubic),
+    opacity 0.3s var(--cubic);
 
   .marquee-wrapper {
     height: calc(var(--text-sm) * 2);
@@ -33,7 +35,8 @@ header {
   nav {
     font-family: var(--font-primary-mono);
     ul {
-      gap: 70px;
+      // gap: 70px;
+      justify-content: space-between !important;
     }
     li {
       position: relative;
@@ -60,7 +63,7 @@ header {
       margin: 0 toRem(155);
       margin: 0;
       ul {
-        gap: toRem(70);
+        // gap: toRem(70);
       }
     }
   }
