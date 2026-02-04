@@ -304,7 +304,8 @@
     }
     &.module--list-card-image-text-ui {
       .inner {
-        padding: var(--space-50);
+        padding: var(--space-50) var(--space-50)
+          calc(var(--space-50) + var(--space-md) * 2);
         @media all and (max-width: $md) {
           padding: var(--space-lg) var(--space-m-md);
           gap: 1em;
@@ -316,6 +317,22 @@
         .slider-container {
           @media all and (min-width: $md) {
             margin: 0 calc(var(--space-sm) * -1);
+          }
+          .slick-arrow {
+            width: auto;
+            height: auto;
+            bottom: calc(var(--space-md) * -2);
+            top: unset;
+            text-indent: 0;
+            padding: 0 var(--space-sm);
+            color: var(--color-accent);
+            cursor: pointer;
+            &:hover {
+              color: var(--color-primary);
+            }
+          }
+          .slick-dots {
+            bottom: calc(var(--space-md) * -2);
           }
         }
       }
