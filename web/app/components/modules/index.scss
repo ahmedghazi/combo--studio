@@ -215,6 +215,9 @@
         .flex {
           flex-direction: column-reverse !important;
         }
+        .text {
+          margin: 0 auto;
+        }
         .btn--pill {
           margin-top: var(--space-xl);
         }
