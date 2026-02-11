@@ -5,6 +5,7 @@ import { getHome, homeQ } from "./utils/sanity-queries";
 import { Home } from "./types/schema";
 import { getClient } from "./utils/sanity-client";
 import ContentModulaire from "./components/ContentModulaire";
+import { notFound } from "next/navigation";
 
 export const revalidate = 3600; // revalidate every hour
 export const dynamic = "force-dynamic";
@@ -36,13 +37,15 @@ const HomePage: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   if (preview) {
     data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
       homeQ,
-      params
+      params,
     );
   } else {
     data = (await getHome()) as Home;
   }
   // console.log(data);
-  if (!data) return <div>please edit page</div>;
+  // if (!data) return <div>please edit page</div>;
+  if (!data) return notFound();
+
   return (
     <div className="template template--home" data-template="home">
       {/* <ContentLanding input={data} /> */}
