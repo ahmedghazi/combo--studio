@@ -5,10 +5,7 @@
     width: 100%;
     position: relative;
     background-color: black;
-    // margin-bottom: var(--space-xl);
-    // &:last-child {
-    //   margin-bottom: 0;
-    // }
+
     scroll-margin-top: var(--header-height);
     &.module--hero-ui {
       @media all and (min-width: $md) {
@@ -110,7 +107,6 @@
     &.module--list-studio-ui {
       article.card {
         scroll-margin-top: var(--header-height);
-
         img {
           max-height: calc(var(--vh) * 100 - var(--header-height));
         }
