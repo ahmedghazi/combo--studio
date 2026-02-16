@@ -25,7 +25,7 @@ const ModuleListStudioUI = ({ input }: Props) => {
   const _onResize = useCallback(() => {
     if (detail) {
       const activeItem = document.querySelector<HTMLElement>(
-        ".grid article.is-active"
+        ".grid article.is-active",
       );
 
       // console.log(activeItem);
@@ -108,12 +108,23 @@ const ModuleListStudioUI = ({ input }: Props) => {
     //   activeItem.style.paddingBottom = "0";
     // }
     const articles: NodeListOf<HTMLElement> = document.querySelectorAll(
-      ".grid article.is-active"
+      ".grid article.is-active",
     );
+    let currentActive: HTMLElement | null = null;
     articles.forEach((el) => {
+      currentActive = el;
       el.classList.remove("is-active");
       el.style.paddingBottom = "0";
     });
+    setTimeout(() => {
+      console.log(currentActive);
+      currentActive?.scrollIntoView({
+        behavior: "smooth",
+        // block: "end",
+        // inline: "nearest",
+      });
+    }, 250);
+
     publish("LIST_STUDIO_DETAIL_CHANGE");
   };
 
@@ -122,7 +133,7 @@ const ModuleListStudioUI = ({ input }: Props) => {
       <div
         className={clsx(
           "grid gap-gutter grid-card",
-          `md:grid-cols-${input.gridSize || 3}`
+          `md:grid-cols-${input.gridSize || 3}`,
         )}
       >
         {input.items?.map((item, i) => (
