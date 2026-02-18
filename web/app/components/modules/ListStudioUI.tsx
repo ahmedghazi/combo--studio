@@ -66,10 +66,10 @@ const ModuleListStudioUI = ({ input }: Props) => {
   }, [detail, _onResize]);
 
   const _handleDetail = (event: MouseEvent, itemData: Studio) => {
-    console.log(event.type);
+    console.log("_handleDetail", event.type);
     const target = event.target as Element;
     target.classList.toggle("is-active");
-    // console.log(target);
+    // console.log("_handleDetail");
     if (!target.classList.contains("is-active")) {
       const articles: NodeListOf<HTMLElement> =
         document.querySelectorAll(".grid article");
@@ -98,34 +98,49 @@ const ModuleListStudioUI = ({ input }: Props) => {
   };
 
   const _handleClose = () => {
-    setDetail(null);
-    if (detailRef.current) detailRef.current.style.display = "none";
+    console.log("_handleClose");
+    // setDetail(null);
+    // if (detailRef.current) detailRef.current.style.display = "none";
 
-    // const activeItem = document.querySelector<HTMLElement>(
-    //   ".grid article.is-active"
-    // );
-    // if (activeItem) {
-    //   activeItem.style.paddingBottom = "0";
+    // if (detailRef.current) {
+    //   const detailBounding = detailRef.current?.getBoundingClientRect();
+    //   console.log(detailBounding);
+    //   detailRef.current.style.height = `${detailBounding?.height}px`;
+    //   detailRef.current.classList.add("is-closing");
+
+    //   setTimeout(() => {
+    //     detailRef.current.classList.remove("is-closing");
+    //     setDetail(null);
+    //     detailRef.current.style.height = `0px`;
+    //   }, 1000);
     // }
+
     const articles: NodeListOf<HTMLElement> = document.querySelectorAll(
       ".grid article.is-active",
     );
     let currentActive: HTMLElement | null = null;
     articles.forEach((el) => {
-      currentActive = el;
+      if (el.classList.contains("is-active")) {
+        currentActive = el;
+      }
       el.classList.remove("is-active");
       el.style.paddingBottom = "0";
     });
+    // return;
     setTimeout(() => {
       console.log(currentActive);
-      currentActive?.scrollIntoView({
-        behavior: "smooth",
-        // block: "end",
-        // inline: "nearest",
-      });
-    }, 250);
+      if (currentActive) {
+        currentActive?.scrollIntoView({
+          behavior: "smooth",
+          // block: "end",
+          // inline: "nearest",
+        });
+      }
+      setDetail(null);
+      if (detailRef.current) detailRef.current.style.display = "none";
+    }, 300);
 
-    publish("LIST_STUDIO_DETAIL_CHANGE");
+    // publish("LIST_STUDIO_DETAIL_CHANGE");
   };
 
   return (

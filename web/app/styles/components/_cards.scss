@@ -6,7 +6,9 @@
 
 .card--studio {
   cursor: pointer;
+  scroll-margin-top: var(--header-height);
   transition: padding-bottom 0.3s;
+  // transition: padding-bottom s;
   img {
     aspect-ratio: 1 / 1;
     height: 100%;

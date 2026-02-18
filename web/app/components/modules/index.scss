@@ -106,7 +106,10 @@
     }
     &.module--list-studio-ui {
       article.card {
-        scroll-margin-top: var(--header-height);
+        // scroll-margin-top: var(--header-height);
+        &.is-active {
+          // transition: none;
+        }
         img {
           max-height: calc(var(--vh) * 100 - var(--header-height));
         }
@@ -119,6 +122,13 @@
         }
       }
       .detail.detail--studio {
+        &.is-closing {
+          transition: height 6s;
+          height: 0 !important;
+          overflow: hidden;
+          padding: 0;
+          z-index: 99999;
+        }
         position: absolute;
         width: 100%;
         left: 0;
