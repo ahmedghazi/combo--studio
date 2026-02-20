@@ -57,6 +57,11 @@
               max-width: 13em;
             }
           }
+          .text {
+            @media all and (max-width: $md) {
+              margin: 0 auto;
+            }
+          }
         }
       }
     }
