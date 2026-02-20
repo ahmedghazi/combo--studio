@@ -331,6 +331,11 @@
           @media all and (min-width: $md) {
             margin: 0 calc(var(--space-sm) * -1);
           }
+          padding-bottom: var(--space-50);
+
+          .slick-slider {
+            padding-bottom: var(--space-50);
+          }
           .slick-arrow {
             width: auto;
             height: auto;
