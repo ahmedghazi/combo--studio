@@ -14,6 +14,8 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { slug, type } = body;
 
+    console.log("type", type);
+    console.log("slug", slug);
     if (type === "page") {
       // Revalide une page spécifique
       revalidatePath(`/${slug}`);
