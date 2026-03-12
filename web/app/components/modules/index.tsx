@@ -79,7 +79,7 @@ const Modules = ({ input }: Props) => {
           | SanityKeyed<CallOutUI>
           | SanityKeyed<HeroSplitScrollUI>
           | SanityKeyed<HeroSplitUI>,
-        i: number
+        i: number,
       ) => {
         // console.log(module._type);
         switch (module._type) {
@@ -116,7 +116,7 @@ const Modules = ({ input }: Props) => {
           default:
             return null;
         }
-      }
+      },
     );
     return _modules;
   };
